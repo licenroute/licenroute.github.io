@@ -11,9 +11,9 @@
 <link rel="alternate" hreflang="x-default" href="https://licenroute.com/">
 <link rel="alternate" type="text/plain" title="Resumen para LLM" href="https://licenroute.com/llms.txt">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#1f6feb">
+<meta name="theme-color" content="#f2a516">
 <meta property="og:type" content="website">
-<meta property="og:title" content="LicenRoute — cobra por tu API sin escribir el código de cobro">
+<meta property="og:title" content="LicenRoute: cobra por tu API">
 <meta property="og:description" content="Pídele a tu asistente de IA que convierta en de pago las partes valiosas de tu API. Tú apruebas el cambio. Gratis y de código abierto.">
 <meta property="og:url" content="https://licenroute.com/es/">
 <meta property="og:locale" content="es_ES">
@@ -57,223 +57,253 @@
   ]
 }
 </script>
+<link rel="preload" href="../fonts/BricolageGrotesque-700-latin.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
 <header class="site">
   <div class="wrap">
-    <a class="brand" href="./" aria-label="Inicio de LicenRoute">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1f6feb"/><path d="M8 9v14h6" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 23V9h4.5a3.5 3.5 0 0 1 0 7H17m4 0 3.5 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      LicenRoute
-    </a>
+    <a class="brand" href="./" aria-label="Inicio de LicenRoute"><img src="../mark.svg" alt="" width="34" height="34">LicenRoute</a>
     <nav class="top" aria-label="Principal">
-      <a class="hide-sm" href="#prompt">El prompt</a>
-      <a class="hide-sm" href="#como">Cómo funciona</a>
-      <a class="hide-sm" href="#guias">Guías</a>
-      <a class="hide-sm" href="#faq">Preguntas</a>
-      <a href="https://github.com/licenroute/licenroute">GitHub</a>
-      <a class="lang" href="../" hreflang="en" lang="en">EN</a>
+      <a href="../guides/" hreflang="en">Guías</a>
+      <a class="opt" href="https://github.com/licenroute/licenroute">GitHub</a>
+      <a href="../" hreflang="en" lang="en">English</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
 <section class="hero" aria-labelledby="hero-title">
-  <div class="wrap">
+  <div class="wrap hero-grid">
     <div>
-      <span class="pill"><b>Gratis y de código abierto</b> · preview, aún sin cobros reales</span>
-      <h1 id="hero-title">Cobra por tu API. <em>Que lo configure tu asistente de IA.</em></h1>
-      <p class="lede">¿Hiciste tu app con Claude Code o Cursor? Algunas partes valen dinero. Pídele a tu asistente que las convierta en de pago: LicenRoute añade las claves de acceso, los límites de uso y la respuesta «paga primero». Tú solo apruebas el cambio.</p>
-      <div class="ctas">
-        <a class="btn btn-primary" href="#prompt">Copiar el prompt</a>
-        <a class="btn btn-ghost" href="#probar">Verlo funcionar</a>
+      <h1 id="hero-title" class="h-hero">Cobra por tu API.</h1>
+      <p class="lede">Tu asistente de IA añade claves y límites. Tú apruebas cada cambio.</p>
+    </div>
+    <div class="prompt">
+      <p class="prompt-head">Pega esto en Claude Code o Cursor</p>
+<pre id="prompt-text">Añade acceso de pago a mi API Express con LicenRoute.
+Lee primero licenroute.com/llms.txt y sigue sus reglas.
+Propón qué rutas deberían ser de pago y cuáles gratis.
+Enséñame el cambio exacto. Lo apruebo en mi terminal.
+Lanza las pruebas de LicenRoute y explícame el resultado.</pre>
+      <div class="prompt-actions">
+        <button class="btn btn-primary" type="button" data-copy="prompt-text" data-done="Copiado">Copiar el prompt</button>
+        <p class="note">Gratis y de código abierto. Solo apps Express, y todavía no se cobra nada.</p>
       </div>
-      <p class="fineprint">Hoy funciona con apps Node.js hechas con <strong>Express</strong>. ¿Usas Next.js, Supabase o Python? <a href="#todavia-no">Todavía no</a>.</p>
     </div>
-    <figure class="term" aria-label="Salida real de las pruebas de LicenRoute sobre una app de ejemplo">
-      <div class="term-bar"><i></i><i></i><i></i><span>mi-api — licenroute test</span></div>
-      <pre id="demo-out" aria-live="off"></pre>
-      <figcaption class="term-foot">Salida real sobre la app de ejemplo: sin clave → paga primero (402) · clave válida → entra (200) · agotada o revocada → fuera</figcaption>
+  </div>
+</section>
+
+<section class="sec g1 showcase" aria-labelledby="show-title">
+  <div class="wrap">
+    <h2 id="show-title" class="h-sec">Probado como llama un cliente</h2>
+    <p class="intro">LicenRoute llama a tu app sin clave, con una clave real, con una falsa, tras el límite y tras revocarla.</p>
+    <figure class="term" style="margin-left:0;margin-right:0">
+      <pre id="demo-out" aria-label="Salida de licenroute test"><span class="p">$</span> ./node_modules/.bin/licenroute test .
+<span class="c">MODO DEMO · SIMULACIÓN LOCAL · no es una prueba de seguridad</span>
+<span class="ok">SIMULATED PASS</span> api-informes:sin-licencia /api/informes: <span class="pay">402</span> payment_required
+<span class="ok">SIMULATED PASS</span> api-informes:licencia-valida: <span class="ok">200</span>
+<span class="ok">SIMULATED PASS</span> api-informes:options-sin-cobro: <span class="ok">200</span>
+<span class="ok">SIMULATED PASS</span> api-informes:licencia-de-otro-plan: <span class="pay">402</span> payment_required
+<span class="ok">SIMULATED PASS</span> api-informes:licencia-inventada: <span class="deny">403</span> forbidden
+<span class="ok">SIMULATED PASS</span> api-informes:cuota: GET <span class="ok">200</span> · HEAD <span class="ok">200</span> · GET <span class="ok">200</span> · HEAD <span class="pay">402</span> (cuota 3)
+<span class="ok">SIMULATED PASS</span> api-informes:revocada: antes <span class="ok">200</span> · después <span class="deny">403</span> forbidden
+<span class="ok">SIMULATED PASS</span> publica /health: <span class="ok">200</span>
+<span class="ok">SIMULATED PASS</span> central-caido:api-informes: /api/informes <span class="deny">503</span> service_unavailable
+<span class="ok">SIMULATED PASS</span> central-caido:publica /health: <span class="ok">200</span>
+<span class="ok">SIMULATED PASS</span> central-recuperado: /api/informes/** <span class="ok">200</span>
+<span class="c"><span class="ok">SIMULATED PASS</span>: la integración responde como se espera contra el SIMULADOR.</span></pre>
     </figure>
+    <p class="caption">Salida real de la app de ejemplo. Nombres como api-informes son identificadores fijos.</p>
   </div>
 </section>
 
-<section class="alt" id="prompt" aria-labelledby="prompt-title">
-  <div class="wrap">
-    <p class="eyebrow">Paso 1</p>
-    <h2 id="prompt-title">Pega esto en tu asistente de IA</h2>
-    <p class="section-lede">Abre tu proyecto en Claude Code, Cursor o el asistente que uses y pega esto. Lee las instrucciones, te propone qué debería ser de pago y te enseña el cambio exacto. No escribe nada sin ti.</p>
-    <div class="prompt-box">
-      <button class="copy" type="button" data-copy="prompt-text" data-done="Copiado" aria-label="Copiar el prompt">Copiar</button>
-<pre class="block" id="prompt-text">Añade acceso de pago a mi API Express con LicenRoute.
-Primero lee https://licenroute.com/llms.txt y sigue sus reglas.
-1. Dime qué rutas podrían ser de pago y cuáles deben seguir gratis (login, health checks, páginas públicas).
-2. Enséñame el cambio exacto antes de escribir nada.
-3. Cuando esté de acuerdo, dame el comando para aprobarlo en mi propio terminal.
-4. Después ejecuta las pruebas de LicenRoute y explícame los resultados con palabras sencillas.</pre>
+<section class="band" aria-labelledby="get-title">
+  <div class="wrap ledger">
+    <div>
+      <h2 id="get-title" class="h-sec">Qué recibe quien llama</h2>
+      <p class="intro">Tú eliges las rutas de pago. El login y las páginas públicas siguen gratis.</p>
     </div>
-    <div class="grid three" style="margin-top:20px">
-      <div class="card"><span class="step-n">2</span><h3>Tú apruebas</h3><p>Tu terminal muestra un código corto, como <code>8HDU-RQPE</code>. Lo tecleas. Es el único paso que tu asistente no puede hacer por ti, a propósito.</p></div>
-      <div class="card"><span class="step-n">3</span><h3>Pruebas</h3><p>LicenRoute usa tu API como lo haría un cliente: sin clave, con una válida, con una falsa, al pasarse del límite y tras revocarla. Ves cada respuesta.</p></div>
-      <div class="card"><span class="step-n">4</span><h3>¿Te arrepientes?</h3><p><code>licenroute undo</code> deja tu código exactamente como estaba.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="como" aria-labelledby="como-title">
-  <div class="wrap">
-    <p class="eyebrow">Con palabras sencillas</p>
-    <h2 id="como-title">Qué cambia en tu app</h2>
-    <p class="section-lede">Tú eliges qué es de pago, por ejemplo tus informes o tus datos. Todo lo demás sigue gratis: el registro, el login, tu página de inicio.</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th scope="col">Alguien llama a una parte de pago de tu API…</th><th scope="col">Qué recibe</th></tr></thead>
+        <thead><tr><th scope="col">Una llamada a una ruta de pago con</th><th scope="col">La respuesta</th></tr></thead>
         <tbody>
-          <tr><td>sin clave</td><td><span class="code warn">402</span> «Paga primero», con qué plan comprar y dónde</td></tr>
-          <tr><td>con una clave válida</td><td><span class="code ok">200</span> Entra. Se cuenta un uso</td></tr>
-          <tr><td>con la clave de otro plan</td><td><span class="code warn">402</span> Comprar una cosa no lo abre todo</td></tr>
-          <tr><td>con una clave inventada</td><td><span class="code bad">403</span> Rechazado. Las claves no se adivinan</td></tr>
-          <tr><td>después de gastar su paquete (p. ej. 1000 llamadas)</td><td><span class="code warn">402</span> Toca comprar otro paquete</td></tr>
-          <tr><td>después de que revoques su clave</td><td><span class="code bad">403</span> Fuera, al instante. Sin redesplegar</td></tr>
-          <tr><td>mientras LicenRoute está caído</td><td><span class="code bad">503</span> en las partes de pago: nada se regala. Las partes gratis siguen funcionando</td></tr>
+          <tr><td>ninguna clave</td><td><span class="code pay">402</span>Paga primero, con el plan y dónde comprarlo</td></tr>
+          <tr><td>una clave válida</td><td><span class="code ok">200</span>Entra, y se cuenta un uso</td></tr>
+          <tr><td>un paquete agotado</td><td><span class="code pay">402</span>Paga otra vez</td></tr>
+          <tr><td>una clave falsa o revocada</td><td><span class="code deny">403</span>Rechazada</td></tr>
+          <tr><td>LicenRoute caído</td><td><span class="code deny">503</span>Las rutas de pago se cierran y las gratis siguen</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
-<section class="alt" aria-labelledby="ia-title">
+<section class="sec" aria-labelledby="steps-title">
   <div class="wrap">
-    <p class="eyebrow">Por qué es seguro con IA</p>
-    <h2 id="ia-title">Tu asistente hace el trabajo. Tú tienes la llave.</h2>
-    <div class="grid three">
-      <div class="card"><h3>No puede aprobarse a sí mismo</h3><p>Escribir en tu código exige un código tecleado por una persona en el terminal. Ningún ajuste, atajo ni prompt se lo salta.</p></div>
-      <div class="card"><h3>No puede leer tus secretos</h3><p>Un complemento opcional para Claude Code y Cursor impide al asistente abrir tus ficheros <code>.env</code> y ejecutar paquetes desconocidos.</p></div>
-      <div class="card"><h3>Los agentes de IA entienden la respuesta</h3><p>Cuando un bot o un agente de IA llega a una parte de pago, la respuesta «paga primero» se puede leer por máquina: plan, precio y dónde comprar. Pueden pagar en vez de rastrear.</p></div>
+    <h2 id="steps-title" class="h-sec">Cuatro pasos, uno es tuyo</h2>
+    <ol class="steps">
+      <li><span class="n" aria-hidden="true">1</span><h3>Pega el prompt</h3><p>Tu asistente lee tu código y propone qué cobrar.</p></li>
+      <li><span class="n" aria-hidden="true">2</span><h3>Teclea el código</h3><p>Un código corto en tu terminal aprueba el cambio exacto. Tu asistente no puede teclearlo por ti.</p></li>
+      <li><span class="n" aria-hidden="true">3</span><h3>Mira las pruebas</h3><p>Sin clave, clave válida, clave falsa, agotada, revocada y una caída.</p></li>
+      <li><span class="n" aria-hidden="true">4</span><h3>Deshaz cuando quieras</h3><p><code>licenroute undo</code> deja tus ficheros exactamente como estaban.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec g3" aria-labelledby="agents-title">
+  <div class="wrap split">
+    <div>
+      <h2 id="agents-title" class="h-sec">Los agentes leen la factura</h2>
+      <p class="intro">Los bots y los agentes de IA reciben un 402 con el plan, el precio y el enlace de pago. Pueden pagar en vez de rastrear.</p>
+      <p style="margin-top:18px"><a href="../guides/http-402-ai-agents/" hreflang="en">Cómo funciona la respuesta 402 (en inglés)</a></p>
     </div>
+<pre class="block" aria-label="Ejemplo de respuesta 402"><span class="c">GET /api/informes, sin clave</span>
+HTTP/1.1 <span class="pay">402</span> Payment Required
+{
+  "error": "payment_required",
+  "payment": {
+    "plan_id": "api-informes",
+    "checkout_url": "https://example.com/plans/api-informes",
+    "currency": "EUR",
+    "unit_price_minor": 150,
+    "unit_size": 1000
+  }
+}</pre>
   </div>
 </section>
 
-<section id="probar" aria-labelledby="probar-title">
+<section class="band g1" aria-labelledby="status-title">
   <div class="wrap">
-    <p class="eyebrow">Verlo funcionar</p>
-    <h2 id="probar-title">Pruébalo con una app de ejemplo en 5 minutos</h2>
-    <p class="section-lede">No necesitas una app propia. Necesitas Node.js 24 o superior, npm y git. Sin cuenta y sin Docker. O pídele a tu asistente que lo haga contigo.</p>
-<pre class="block">git clone https://github.com/licenroute/licenroute.git licenroute && cd licenroute
-npm ci --ignore-scripts
-npm run build
-./demo/demo.sh          <span class="c"># enseña lo que cambiaría, sin cambiar nada</span></pre>
-    <p style="margin-top:18px">Después sigue el <a href="https://github.com/licenroute/licenroute/blob/main/docs/es/tutorial-express.md">tutorial de 10 minutos</a> para aprobarlo y lanzar las pruebas tú mismo.</p>
-    <div class="notice" style="margin-top:18px"><strong>No ejecutes nunca <code>npx licenroute</code>.</strong> LicenRoute todavía no está en npm, y un paquete con ese nombre allí no es este proyecto. Tu asistente lo sabe si lee <a href="../llms.txt">llms.txt</a>.</div>
-  </div>
-</section>
-
-<section class="alt" id="todavia-no" aria-labelledby="estado-title">
-  <div class="wrap">
-    <p class="eyebrow">Estado, con honestidad</p>
-    <h2 id="estado-title">Qué puedes hacer hoy y qué viene</h2>
-    <div class="split">
-      <div class="card">
-        <h3>Hoy (preview gratuita)</h3>
-        <ul class="checks" style="margin-top:12px">
-          <li>Convertir en de pago partes de una API Express, con claves y límites de uso</li>
-          <li>Probar todo el flujo en tu ordenador: paga primero, entra, se agota, se revoca</li>
-          <li>Dejar que Claude Code o Cursor lo configuren, con tu aprobación</li>
-          <li>Deshacerlo por completo</li>
-          <li>Inglés y español; macOS y Linux</li>
+    <h2 id="status-title" class="h-sec">Qué funciona hoy</h2>
+    <div class="index">
+      <div>
+        <h3>En la preview gratuita</h3>
+        <ul>
+          <li>Express 4 y 5, JavaScript o TypeScript</li>
+          <li>Configuración con Claude Code o Cursor</li>
+          <li>Pruebas en tu propio ordenador</li>
+          <li>Deshacer exacto</li>
+          <li>Inglés y español</li>
         </ul>
       </div>
-      <div class="card">
+      <div class="no">
         <h3>Todavía no</h3>
-        <ul class="crosses" style="margin-top:12px">
-          <li>Cobrar dinero real: necesita el servicio alojado, que no está abierto</li>
-          <li>Next.js, Supabase, Python, Rails u otros frameworks</li>
-          <li>Usarlo en producción con clientes reales</li>
-          <li>Windows (sin probar)</li>
+        <ul>
+          <li>Pagos reales (el servicio alojado no está abierto)</li>
+          <li>Next.js, Supabase o Python</li>
+          <li>Tráfico de producción</li>
+          <li>Windows</li>
         </ul>
-        <p style="margin-top:14px">¿Quieres alguna de estas? <a href="https://github.com/licenroute/licenroute/issues/new?title=Quiero%20cobrar%20por%20mi%20API&amp;body=%C2%BFQu%C3%A9%20has%20construido%20(y%20con%20qu%C3%A9%20herramientas%20o%20framework)%3F%0A%C2%BFPor%20qu%C3%A9%20cobrar%C3%ADas%3F%0A%C2%BFQui%C3%A9n%20lo%20usa%20(personas%2C%20apps%2C%20agentes%20de%20IA)%3F">Cuéntanos qué has construido</a>.</p>
+        <p class="more"><a href="https://github.com/licenroute/licenroute/issues/new?title=Quiero%20cobrar%20por%20mi%20API&amp;body=%C2%BFQu%C3%A9%20has%20construido%20(y%20con%20qu%C3%A9%20herramientas%20o%20framework)%3F%0A%C2%BFPor%20qu%C3%A9%20cobrar%C3%ADas%3F%0A%C2%BFQui%C3%A9n%20lo%20usa%20(personas%2C%20apps%2C%20agentes%20de%20IA)%3F">Cuéntanos qué has construido</a></p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="guias" aria-labelledby="guias-title">
+<section class="sec" id="faq" aria-labelledby="faq-title">
   <div class="wrap">
-    <p class="eyebrow">Guías (en inglés)</p>
-    <h2 id="guias-title">Aprende cómo funciona cobrar por una API</h2>
-    <div class="guide-list">
-      <a class="card" href="../guides/charge-for-your-api/" hreflang="en"><h3>Cómo cobrar por tu API (aunque la hiciera la IA)</h3><p>Modelos de precio, las cinco piezas que necesitas y los errores que regalan tu API.</p></a>
-      <a class="card" href="../guides/express-api-keys-usage-limits/" hreflang="en"><h3>Claves de API y límites de uso en Express</h3><p>Para desarrolladores: claves con hash, reglas por método, conteo atómico, revocación y cierre seguro.</p></a>
-      <a class="card" href="../guides/http-402-ai-agents/" hreflang="en"><h3>HTTP 402: que los agentes de IA paguen por tu API</h3><p>Qué debe llevar una respuesta «paga primero» para que los agentes compren en vez de rastrear.</p></a>
+    <h2 id="faq-title" class="h-sec">Antes de pegarlo</h2>
+    <div class="qa">
+      <div><h3>¿Necesito entender el código?</h3><p>No a fondo. Lees un resumen corto y lo apruebas tú, y tu asistente puede explicarte cada paso.</p></div>
+      <div><h3>¿Se romperá mi login?</h3><p>No. El login, los health checks y el registro nunca se hacen de pago, y las pruebas comprueban que las páginas gratis siguen funcionando.</p></div>
+      <div><h3>¿Puedo cobrar dinero real?</h3><p>Todavía no. La preview funciona en local para que pruebes todo el flujo. Los pagos reales necesitan el servicio alojado.</p></div>
     </div>
   </div>
 </section>
 
-<section class="alt" id="faq" aria-labelledby="faq-title">
-  <div class="wrap">
-    <p class="eyebrow">Preguntas</p>
-    <h2 id="faq-title">Preguntas frecuentes</h2>
-    <details><summary>Hice mi app con IA. ¿De verdad puedo usar esto?</summary><div><p>Si tu backend es una app Node.js con Express (pregúntale a tu asistente: «¿mi backend usa Express?»), sí. Pega el prompt y tu asistente hace la configuración. Tú lees el resumen y lo apruebas en tu terminal.</p></div></details>
-    <details><summary>¿Necesito entender el código?</summary><div><p>No a fondo. LicenRoute te enseña un resumen de lo que va a cambiar y tu asistente te lo puede explicar. Lo que no te puedes saltar es aprobarlo tú: eso es lo que mantiene segura tu app.</p></div></details>
-    <details><summary>¿Puedo cobrar dinero real hoy?</summary><div><p>No. La preview funciona en modo demo en tu ordenador, para que lo pruebes todo sin riesgo. Las claves reales y los pagos necesitan el servicio alojado, que todavía no está abierto. Si lo usarías, <a href="https://github.com/licenroute/licenroute/issues/new?title=Quiero%20cobrar%20por%20mi%20API&amp;body=%C2%BFQu%C3%A9%20has%20construido%20(y%20con%20qu%C3%A9%20herramientas%20o%20framework)%3F%0A%C2%BFPor%20qu%C3%A9%20cobrar%C3%ADas%3F%0A%C2%BFQui%C3%A9n%20lo%20usa%20(personas%2C%20apps%2C%20agentes%20de%20IA)%3F">cuéntanoslo</a>.</p></div></details>
-    <details><summary>¿Romperá mi login o mis páginas gratis?</summary><div><p>No. LicenRoute nunca propone hacer de pago el login, los health checks ni el registro. Te los lista para que veas que siguen gratis, y sus pruebas comprueban que las páginas gratis siguen funcionando.</p></div></details>
-    <details><summary>¿Y si LicenRoute se cae?</summary><div><p>Las partes de pago se cierran (nadie entra gratis) y las gratis siguen funcionando. Las pruebas simulan justo eso.</p></div></details>
-    <details><summary>¿Cuesta algo?</summary><div><p>La preview es gratis y de código abierto (Apache-2.0).</p></div></details>
-  </div>
-</section>
-
-<section aria-labelledby="dev-title">
-  <div class="wrap">
-    <p class="eyebrow">Para desarrolladores</p>
-    <h2 id="dev-title">Los detalles técnicos</h2>
-    <div class="grid two">
-      <div class="card"><h3>Qué es</h3><p>Una CLI y un middleware para Express 4/5. La CLI analiza tu app de forma estática (nunca la ejecuta), propone planes por prefijo de ruta y método HTTP (<code>GET</code>+<code>HEAD</code> comparten cuota, <code>OPTIONS</code> nunca se cobra) y solo escribe el diff ligado a un código de aprobación más un reto tecleado en <code>/dev/tty</code>. El modelo de permisos de Node es una segunda barrera.</p></div>
-      <div class="card"><h3>Qué reciben los clientes</h3><p>Sin licencia: <code>402</code> con <code>{"error":"payment_required","payment":{"plan_id","checkout_url","currency","unit_price_minor","unit_size"}}</code>. Las licencias van en <code>Authorization: Bearer bgat_…</code>. Las rutas de pago se cierran (<code>503</code>) si el servicio de decisiones no responde, también al arrancar.</p></div>
-      <div class="card"><h3>Paquetes</h3><p><code>@licenroute/cli</code> 0.3.1 y <code>@licenroute/connect-express</code> 0.8.0, construidos desde el código o descargados de la <a href="https://github.com/licenroute/licenroute/releases/tag/v0.3.1-preview">release</a> y verificados con <code>SHA256SUMS</code>. Node.js 24+ para la CLI, 20+ para el SDK.</p></div>
-      <div class="card"><h3>Documentación</h3><p><a href="https://github.com/licenroute/licenroute/blob/main/docs/es/README.md">README</a> · <a href="https://github.com/licenroute/licenroute/blob/main/docs/es/tutorial-express.md">tutorial</a> · <a href="https://github.com/licenroute/licenroute/blob/main/docs/es/assistants.md">asistentes de IA</a> · <a href="https://github.com/licenroute/licenroute/blob/main/docs/es/limitations.md">limitaciones</a> · <a href="https://github.com/licenroute/licenroute/blob/main/docs/es/uninstall.md">desinstalar</a></p></div>
+<section class="close" aria-labelledby="try-title">
+  <div class="wrap close-grid">
+    <div>
+      <h2 id="try-title" class="h-sec">Pruébalo con la app de ejemplo</h2>
+      <div class="links">
+        <a class="btn btn-quiet" href="https://github.com/licenroute/licenroute/blob/main/docs/es/tutorial-express.md">Abrir el tutorial</a>
+        <a class="btn btn-quiet" href="https://github.com/licenroute/licenroute">Ver el código</a>
+      </div>
     </div>
-  </div>
-</section>
-
-<section class="cta-band" aria-labelledby="cta-title">
-  <div class="wrap">
-    <h2 id="cta-title">¿Has construido algo por lo que la gente pagaría?</h2>
-    <p class="section-lede" style="margin-left:auto;margin-right:auto">Prueba la preview con tu asistente y cuéntanos qué necesitas para empezar a cobrar de verdad.</p>
-    <div class="ctas">
-      <a class="btn btn-primary" href="#prompt">Copiar el prompt</a>
-      <a class="btn btn-ghost" href="https://github.com/licenroute/licenroute/issues/new?title=Quiero%20cobrar%20por%20mi%20API&amp;body=%C2%BFQu%C3%A9%20has%20construido%20(y%20con%20qu%C3%A9%20herramientas%20o%20framework)%3F%0A%C2%BFPor%20qu%C3%A9%20cobrar%C3%ADas%3F%0A%C2%BFQui%C3%A9n%20lo%20usa%20(personas%2C%20apps%2C%20agentes%20de%20IA)%3F">Cuéntanos qué has construido</a>
-    </div>
+<pre class="block">git clone https://github.com/licenroute/licenroute.git
+cd licenroute && npm ci --ignore-scripts && npm run build
+./demo/demo.sh   <span class="c"># enseña el cambio, no escribe nada</span></pre>
   </div>
 </section>
 </main>
 
 <footer class="site">
   <div class="wrap">
-    <span>LicenRoute · Apache-2.0 · developer preview, solo modo demo</span>
+    <div>
+      <a class="brand" href="./"><img src="../mark.svg" alt="" width="34" height="34">LicenRoute</a>
+      <p class="legal">El carril de pago para tu API. Licencia Apache-2.0. Developer preview en modo demo.</p>
+    </div>
     <nav aria-label="Pie">
+      <a href="../guides/" hreflang="en">Guías (en inglés)</a>
       <a href="https://github.com/licenroute/licenroute">GitHub</a>
       <a href="https://github.com/licenroute/licenroute/blob/main/docs/es/tutorial-express.md">Tutorial</a>
       <a href="https://github.com/licenroute/licenroute/blob/main/docs/es/limitations.md">Limitaciones</a>
       <a href="https://github.com/licenroute/licenroute/security/advisories/new">Reportar una vulnerabilidad</a>
       <a href="../llms.txt">llms.txt</a>
+      <a href="../" hreflang="en" lang="en">English</a>
     </nav>
   </div>
 </footer>
 
 <script type="application/json" id="demo-lines">
 [
-  {"k":"cmd","t":"./node_modules/.bin/licenroute test ."},
-  {"k":"dim","t":"MODO DEMO · SIMULACIÓN LOCAL · no es una prueba de seguridad"},
-  {"k":"out","t":"SIMULATED PASS api-informes:sin-licencia /api/informes: 402 payment_required"},
-  {"k":"out","t":"SIMULATED PASS api-informes:licencia-valida: 200"},
-  {"k":"out","t":"SIMULATED PASS api-informes:licencia-de-otro-plan: 402 payment_required"},
-  {"k":"out","t":"SIMULATED PASS api-informes:licencia-inventada: 403 forbidden"},
-  {"k":"out","t":"SIMULATED PASS api-informes:cuota: GET 200 · HEAD 200 · GET 200 · HEAD 402 (cuota 3)"},
-  {"k":"out","t":"SIMULATED PASS api-informes:revocada: antes 200 · después 403 forbidden"},
-  {"k":"out","t":"SIMULATED PASS publica /health: 200"},
-  {"k":"out","t":"SIMULATED PASS central-caido:api-informes: /api/informes 503 service_unavailable"},
-  {"k":"out","t":"SIMULATED PASS central-caido:publica /health: 200"},
-  {"k":"dim","t":"SIMULATED PASS: la integración responde como se espera contra el SIMULADOR."}
+ {
+  "k": "cmd",
+  "t": "./node_modules/.bin/licenroute test ."
+ },
+ {
+  "k": "dim",
+  "t": "MODO DEMO · SIMULACIÓN LOCAL · no es una prueba de seguridad"
+ },
+ {
+  "k": "out",
+  "t": "SIMULATED PASS api-informes:sin-licencia /api/informes: 402 payment_required"
+ },
+ {
+  "k": "out",
+  "t": "SIMULATED PASS api-informes:licencia-valida: 200"
+ },
+ {
+  "k": "out",
+  "t": "SIMULATED PASS api-informes:options-sin-cobro: 200"
+ },
+ {
+  "k": "out",
+  "t": "SIMULATED PASS api-informes:licencia-de-otro-plan: 402 payment_required"
+ },
+ {
+  "k": "out",
+  "t": "SIMULATED PASS api-informes:licencia-inventada: 403 forbidden"
+ },
+ {
+  "k": "out",
+  "t": "SIMULATED PASS api-informes:cuota: GET 200 · HEAD 200 · GET 200 · HEAD 402 (cuota 3)"
+ },
+ {
+  "k": "out",
+  "t": "SIMULATED PASS api-informes:revocada: antes 200 · después 403 forbidden"
+ },
+ {
+  "k": "out",
+  "t": "SIMULATED PASS publica /health: 200"
+ },
+ {
+  "k": "out",
+  "t": "SIMULATED PASS central-caido:api-informes: /api/informes 503 service_unavailable"
+ },
+ {
+  "k": "out",
+  "t": "SIMULATED PASS central-caido:publica /health: 200"
+ },
+ {
+  "k": "out",
+  "t": "SIMULATED PASS central-recuperado: /api/informes/** 200"
+ },
+ {
+  "k": "dim",
+  "t": "SIMULATED PASS: la integración responde como se espera contra el SIMULADOR."
+ }
 ]
 </script>
 <script src="../demo.js" defer></script>

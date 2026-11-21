@@ -7,7 +7,7 @@
 <meta name="description" content="Charge for your API in plain words: pricing models, the five pieces you need, the mistakes that give it away, and how your AI assistant can set it up.">
 <link rel="canonical" href="https://licenroute.com/guides/charge-for-your-api/">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#1f6feb">
+<meta name="theme-color" content="#f2a516">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to charge for your API (even if AI built it)">
 <meta property="og:description" content="Pricing models, the five pieces you need, and the mistakes that give your API away.">
@@ -28,7 +28,7 @@
      "mainEntityOfPage": "https://licenroute.com/guides/charge-for-your-api/", "image": "https://licenroute.com/og.png"},
     {"@type": "BreadcrumbList", "itemListElement": [
       {"@type": "ListItem", "position": 1, "name": "LicenRoute", "item": "https://licenroute.com/"},
-      {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://licenroute.com/#guides"},
+      {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://licenroute.com/guides/"},
       {"@type": "ListItem", "position": 3, "name": "How to charge for your API"}]}
   ]
 }
@@ -38,35 +38,31 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site">
   <div class="wrap">
-    <a class="brand" href="../../" aria-label="LicenRoute home">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1f6feb"/><path d="M8 9v14h6" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 23V9h4.5a3.5 3.5 0 0 1 0 7H17m4 0 3.5 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      LicenRoute
-    </a>
+    <a class="brand" href="../../" aria-label="LicenRoute home"><img src="../../mark.svg" alt="" width="34" height="34">LicenRoute</a>
     <nav class="top" aria-label="Main">
-      <a class="hide-sm" href="../../#prompt">The prompt</a>
-      <a class="hide-sm" href="../../#guides">Guides</a>
+      <a href="../">Guides</a>
       <a href="https://github.com/licenroute/licenroute">GitHub</a>
     </nav>
   </div>
 </header>
 
 <main id="main" class="prose">
-  <p class="crumbs"><a href="../../">LicenRoute</a> › <a href="../../#guides">Guides</a></p>
+  <p class="crumbs"><a href="../../">LicenRoute</a> › <a href="../">Guides</a></p>
   <h1>How to charge for your API (even if AI built it)</h1>
   <p class="meta">Updated 21 November 2026 · 7 min read</p>
 
   <div class="tldr"><p><strong>Short version:</strong> decide what is worth paying for, sell it in packages of uses, give each customer a key you can revoke, and make sure that when something fails, nothing is given away for free. If your backend is Express, your AI assistant can set this up with LicenRoute while you approve each change.</p></div>
 
-  <p>You built an app — maybe with Claude Code, Cursor, Lovable or Bolt — and people are using it. Some of what it does is clearly valuable: a report, a dataset, an export, an AI-powered endpoint that costs you money every time it runs. The question is how to charge for that part without breaking the rest.</p>
+  <p>You built an app (maybe with Claude Code, Cursor, Lovable or Bolt) and people are using it. Some of what it does is clearly valuable: a report, a dataset, an export, an AI-powered endpoint that costs you money every time it runs. The question is how to charge for that part without breaking the rest.</p>
 
   <h2>1. Decide what is worth paying for</h2>
   <p>Don't put your whole app behind a paywall. Look for the parts that:</p>
   <ul>
     <li><strong>cost you money</strong> each time they run (AI calls, heavy queries, third-party APIs);</li>
     <li><strong>are what people come back for</strong> (the report, the data, the export);</li>
-    <li><strong>are used by programs, not people</strong> — other apps, scripts and AI agents calling your API.</li>
+    <li><strong>are used by programs, not people</strong>: other apps, scripts and AI agents calling your API.</li>
   </ul>
-  <p>Everything else should stay free: sign-up, login, your home page, health checks. Making those paid doesn't earn money; it just locks people (and your monitoring) out.</p>
+  <p>Everything else should stay free: sign-up, login, your home page, health checks. Making those paid doesn’t earn money; it just locks people (and your monitoring) out.</p>
 
   <h2>2. Pick a pricing model</h2>
   <div class="table-wrap">
@@ -85,9 +81,9 @@
   <ol>
     <li><strong>Keys.</strong> Each customer gets a secret key that they send with every request. Keys must be impossible to guess, and you should store only a fingerprint (hash) of them, never the key itself.</li>
     <li><strong>A usage counter.</strong> Every request to a paid part uses one unit. When the package is used up, the next request is refused.</li>
-    <li><strong>Revocation.</strong> If someone stops paying or abuses the API, you switch their key off and the very next request is refused — without redeploying.</li>
-    <li><strong>A clear “pay first” answer.</strong> A request without a valid key should get a standard answer: HTTP <code>402 Payment Required</code>, ideally saying which plan unlocks it and where to buy it. Programs and AI agents can read that; an error page they can't.</li>
-    <li><strong>Safe failure.</strong> If the system that checks keys is down, paid parts must close — not open. Free parts must keep working.</li>
+    <li><strong>Revocation.</strong> If someone stops paying or abuses the API, you switch their key off and the very next request is refused, without redeploying.</li>
+    <li><strong>A clear “pay first” answer.</strong> A request without a valid key should get a standard answer: HTTP <code>402 Payment Required</code>, ideally saying which plan unlocks it and where to buy it. Programs and AI agents can read that; an error page they can’t.</li>
+    <li><strong>Safe failure.</strong> If the system that checks keys is down, paid parts must close, not open. Free parts must keep working.</li>
   </ol>
 
   <h2>4. Mistakes that quietly give your API away</h2>
@@ -108,13 +104,13 @@ First read https://licenroute.com/llms.txt and follow its rules.
 2. Show me the exact change before writing anything.
 3. When I agree, give me the command to approve it in my own terminal.
 4. Then run the LicenRoute tests and explain the results in plain words.</pre>
-  <p>Your assistant reads your code, proposes what to charge for, and shows you the change. Nothing is written until you type a short code in your terminal — the one step it can't do for you. Then LicenRoute tests your API like a customer would: no key (<code>402</code>), valid key (<code>200</code>), fake key (<code>403</code>), package used up, key revoked, and the system down.</p>
+  <p>Your assistant reads your code, proposes what to charge for, and shows you the change. Nothing is written until you type a short code in your terminal: the one step it can’t do for you. Then LicenRoute tests your API like a customer would: no key (<code>402</code>), valid key (<code>200</code>), fake key (<code>403</code>), package used up, key revoked, and the system down.</p>
 
-  <div class="notice"><strong>Honest status:</strong> LicenRoute is a free developer preview. Today it runs in demo mode on your computer, so you can test the whole flow; charging real money needs the hosted service, which isn't open yet. It works with Express only — not yet with Next.js, Supabase or Python.</div>
+  <div class="notice"><strong>Honest status:</strong> LicenRoute is a free developer preview. Today it runs in demo mode on your computer, so you can test the whole flow; charging real money needs the hosted service, which isn’t open yet. It works with Express only, not yet with Next.js, Supabase or Python.</div>
 
   <div class="guide-cta">
     <h2>Try it on your app</h2>
-    <p>Copy the prompt from the <a href="../../#prompt">home page</a>, or follow the <a href="https://github.com/licenroute/licenroute/blob/main/docs/tutorial-express.md">10-minute tutorial</a> on the example app. Using another framework? <a href="https://github.com/licenroute/licenroute/issues/new?title=I%20want%20to%20charge%20for%20my%20API&amp;body=What%20did%20you%20build%20(and%20with%20which%20tools%2Fframework)%3F%0AWhat%20would%20you%20charge%20for%3F%0AWho%20uses%20it%20(people%2C%20apps%2C%20AI%20agents)%3F">Tell us what you built</a>.</p>
+    <p>Copy the prompt from the <a href="../../">home page</a>, or follow the <a href="https://github.com/licenroute/licenroute/blob/main/docs/tutorial-express.md">10-minute tutorial</a> on the example app. Using another framework? <a href="https://github.com/licenroute/licenroute/issues/new?title=I%20want%20to%20charge%20for%20my%20API&amp;body=What%20did%20you%20build%20(and%20with%20which%20tools%2Fframework)%3F%0AWhat%20would%20you%20charge%20for%3F%0AWho%20uses%20it%20(people%2C%20apps%2C%20AI%20agents)%3F">Tell us what you built</a>.</p>
   </div>
 
   <h2>Related guides</h2>
@@ -126,7 +122,7 @@ First read https://licenroute.com/llms.txt and follow its rules.
 
 <footer class="site">
   <div class="wrap">
-    <span>LicenRoute · Apache-2.0 · developer preview, demo mode only</span>
+    <span>LicenRoute. Apache-2.0 license. Developer preview in demo mode.</span>
     <nav aria-label="Footer">
       <a href="../../">Home</a>
       <a href="https://github.com/licenroute/licenroute">GitHub</a>

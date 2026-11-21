@@ -7,7 +7,7 @@
 <meta name="description" content="What Express API-key and quota middleware must get right: hashed keys, per-method rules, HEAD/OPTIONS, atomic counting, revocation, failing closed.">
 <link rel="canonical" href="https://licenroute.com/guides/express-api-keys-usage-limits/">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#1f6feb">
+<meta name="theme-color" content="#f2a516">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Add API keys and usage limits to an Express API">
 <meta property="og:description" content="Hashed keys, per-method rules, HEAD and OPTIONS, atomic counting, revocation and failing closed.">
@@ -28,7 +28,7 @@
      "mainEntityOfPage": "https://licenroute.com/guides/express-api-keys-usage-limits/", "image": "https://licenroute.com/og.png"},
     {"@type": "BreadcrumbList", "itemListElement": [
       {"@type": "ListItem", "position": 1, "name": "LicenRoute", "item": "https://licenroute.com/"},
-      {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://licenroute.com/#guides"},
+      {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://licenroute.com/guides/"},
       {"@type": "ListItem", "position": 3, "name": "API keys and usage limits in Express"}]}
   ]
 }
@@ -38,24 +38,20 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site">
   <div class="wrap">
-    <a class="brand" href="../../" aria-label="LicenRoute home">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1f6feb"/><path d="M8 9v14h6" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 23V9h4.5a3.5 3.5 0 0 1 0 7H17m4 0 3.5 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      LicenRoute
-    </a>
+    <a class="brand" href="../../" aria-label="LicenRoute home"><img src="../../mark.svg" alt="" width="34" height="34">LicenRoute</a>
     <nav class="top" aria-label="Main">
-      <a class="hide-sm" href="../../#prompt">The prompt</a>
-      <a class="hide-sm" href="../../#guides">Guides</a>
+      <a href="../">Guides</a>
       <a href="https://github.com/licenroute/licenroute">GitHub</a>
     </nav>
   </div>
 </header>
 
 <main id="main" class="prose">
-  <p class="crumbs"><a href="../../">LicenRoute</a> › <a href="../../#guides">Guides</a></p>
+  <p class="crumbs"><a href="../../">LicenRoute</a> › <a href="../">Guides</a></p>
   <h1>Add API keys and usage limits to an Express API</h1>
   <p class="meta">Updated 21 November 2026 · 8 min read · for developers</p>
 
-  <div class="tldr"><p><strong>Short version:</strong> an API-key check is ten lines; a correct one is not. Store only hashes, match by route <em>and</em> method, treat <code>HEAD</code> like <code>GET</code> and never charge <code>OPTIONS</code>, count usage atomically, make revocation immediate, and fail closed on paid routes only. Below is a minimal version and the checklist it doesn't cover.</p></div>
+  <div class="tldr"><p><strong>Short version:</strong> an API-key check is ten lines; a correct one is not. Store only hashes, match by route <em>and</em> method, treat <code>HEAD</code> like <code>GET</code> and never charge <code>OPTIONS</code>, count usage atomically, make revocation immediate, and fail closed on paid routes only. Below is a minimal version and the checklist it doesn’t cover.</p></div>
 
   <h2>A minimal API-key middleware</h2>
   <p>This is what most tutorials (and most AI assistants) produce. It works for a demo on one server:</p>
@@ -82,11 +78,11 @@ function requireKey(plan) {
 }
 
 app.get("/api/reports", requireKey("reports"), listReports);</pre>
-  <p>Looking up by hash means a leaked database doesn't leak working keys. Returning <code>402</code> when there's no key and <code>403</code> for a wrong one tells honest clients what to do. So far so good.</p>
+  <p>Looking up by hash means a leaked database doesn’t leak working keys. Returning <code>402</code> when there's no key and <code>403</code> for a wrong one tells honest clients what to do. So far so good.</p>
 
   <h2>What the minimal version gets wrong</h2>
   <h3>1. Methods, not just paths</h3>
-  <p><code>app.get()</code> also answers <code>HEAD</code> requests in Express, so the route is protected for both — but if you mount the check with <code>app.use("/api/reports", …)</code> instead, it also runs on <code>POST</code>, <code>DELETE</code> and the <code>OPTIONS</code> preflight that browsers send automatically. Rules should name the methods they charge: typically <code>GET</code> and <code>HEAD</code> share a quota, and <code>OPTIONS</code> is never charged. A <code>POST</code> under the same prefix that has its own user authentication should be left alone.</p>
+  <p><code>app.get()</code> also answers <code>HEAD</code> requests in Express, so the route is protected for both. But if you mount the check with <code>app.use("/api/reports", …)</code> instead, it also runs on <code>POST</code>, <code>DELETE</code> and the <code>OPTIONS</code> preflight that browsers send automatically. Rules should name the methods they charge: typically <code>GET</code> and <code>HEAD</code> share a quota, and <code>OPTIONS</code> is never charged. A <code>POST</code> under the same prefix that has its own user authentication should be left alone.</p>
 
   <h3>2. Atomic counting</h3>
   <p><code>entry.remaining -= 1</code> is fine in one process. With two instances, or with the counter in a database read-then-write, concurrent requests can both see “1 left” and both be served. The decrement must be a single atomic operation (a conditional <code>UPDATE … WHERE remaining &gt; 0</code>, or an atomic script in Redis/Valkey), and the response should be served only if it succeeded.</p>
@@ -94,7 +90,7 @@ app.get("/api/reports", requireKey("reports"), listReports);</pre>
   <h3>3. Immediate revocation</h3>
   <p>If keys are cached per instance, revoking one may take minutes to reach every server. Revocation should be checked at decision time, not on cache refresh.</p>
 
-  <h3>4. Failing closed — only where it matters</h3>
+  <h3>4. Failing closed, only where it matters</h3>
   <p>When the store that holds keys is unreachable, the tempting code path is <code>catch { next() }</code>. That serves every paid route for free during an outage. Paid routes must answer <code>503</code>; public routes, health checks and login must keep working. This also applies at startup: if your app boots while the key service is down, it must still know which routes are paid.</p>
 
   <h3>5. Tokens out of logs and downstream</h3>
@@ -122,7 +118,7 @@ app.get("/api/reports", requireKey("reports"), listReports);</pre>
   </div>
 
   <h2>Doing it with LicenRoute</h2>
-  <p>LicenRoute is an open-source CLI and Express 4/5 middleware that covers that checklist. The CLI reads your app without running it, proposes plans per route prefix and method, and writes only the diff you approved — by typing a one-time challenge in your terminal, which an AI assistant can't do for you. This is the block it adds to your app:</p>
+  <p>LicenRoute is an open-source CLI and Express 4/5 middleware that covers that checklist. The CLI reads your app without running it, proposes plans per route prefix and method, and writes only the diff you approved, by typing a one-time challenge in your terminal, which an AI assistant can’t do for you. This is the block it adds to your app:</p>
 <pre class="block">import { licenroute } from "@licenroute/connect-express";
 
 const licenRouteProtection = licenroute({
@@ -135,7 +131,7 @@ const licenRouteProtection = licenroute({
   // …
 });
 app.use(licenRouteProtection);</pre>
-  <p><code>licensedPaths</code> are always denied when the decision service doesn't answer; <code>fallback: "allow"</code> applies only to everything else. Then <code>licenroute test</code> runs every case in the checklist against a local simulator, including the outage and the recovery, and <code>licenroute undo</code> reverts the change byte for byte.</p>
+  <p><code>licensedPaths</code> are always denied when the decision service doesn’t answer; <code>fallback: "allow"</code> applies only to everything else. Then <code>licenroute test</code> runs every case in the checklist against a local simulator, including the outage and the recovery, and <code>licenroute undo</code> reverts the change byte for byte.</p>
 
   <div class="notice"><strong>Honest status:</strong> developer preview in demo mode. Everything runs locally with synthetic credentials; there is no hosted service and no real billing yet. Express 4/5 only; Node.js 24+ for the CLI.</div>
 
@@ -143,7 +139,7 @@ app.use(licenRouteProtection);</pre>
     <h2>Try it</h2>
 <pre class="block">git clone https://github.com/licenroute/licenroute.git licenroute && cd licenroute
 npm ci --ignore-scripts && npm run build && ./demo/demo.sh</pre>
-    <p>Then follow the <a href="https://github.com/licenroute/licenroute/blob/main/docs/tutorial-express.md">tutorial</a>. Or let your AI assistant do it with the <a href="../../#prompt">prompt on the home page</a>.</p>
+    <p>Then follow the <a href="https://github.com/licenroute/licenroute/blob/main/docs/tutorial-express.md">tutorial</a>. Or let your AI assistant do it with the <a href="../../">prompt on the home page</a>.</p>
   </div>
 
   <h2>Related guides</h2>
@@ -155,7 +151,7 @@ npm ci --ignore-scripts && npm run build && ./demo/demo.sh</pre>
 
 <footer class="site">
   <div class="wrap">
-    <span>LicenRoute · Apache-2.0 · developer preview, demo mode only</span>
+    <span>LicenRoute. Apache-2.0 license. Developer preview in demo mode.</span>
     <nav aria-label="Footer">
       <a href="../../">Home</a>
       <a href="https://github.com/licenroute/licenroute">GitHub</a>

@@ -13,6 +13,10 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://licenroute.com/es/"/>
   </url>
   <url>
+    <loc>https://licenroute.com/guides/</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
     <loc>https://licenroute.com/guides/charge-for-your-api/</loc>
     <lastmod>2026-11-21</lastmod>
   </url>

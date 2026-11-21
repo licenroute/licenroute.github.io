@@ -7,7 +7,7 @@
 <meta name="description" content="HTTP 402 Payment Required was reserved for decades. Here is how to use it so AI agents and scripts can tell what to buy, instead of scraping or failing.">
 <link rel="canonical" href="https://licenroute.com/guides/http-402-ai-agents/">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#1f6feb">
+<meta name="theme-color" content="#f2a516">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP 402 Payment Required: letting AI agents pay for your API">
 <meta property="og:description" content="Use 402 so AI agents and scripts can tell what to buy, instead of scraping or failing.">
@@ -28,7 +28,7 @@
      "mainEntityOfPage": "https://licenroute.com/guides/http-402-ai-agents/", "image": "https://licenroute.com/og.png"},
     {"@type": "BreadcrumbList", "itemListElement": [
       {"@type": "ListItem", "position": 1, "name": "LicenRoute", "item": "https://licenroute.com/"},
-      {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://licenroute.com/#guides"},
+      {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://licenroute.com/guides/"},
       {"@type": "ListItem", "position": 3, "name": "HTTP 402 for AI agents"}]}
   ]
 }
@@ -38,32 +38,28 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site">
   <div class="wrap">
-    <a class="brand" href="../../" aria-label="LicenRoute home">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1f6feb"/><path d="M8 9v14h6" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 23V9h4.5a3.5 3.5 0 0 1 0 7H17m4 0 3.5 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      LicenRoute
-    </a>
+    <a class="brand" href="../../" aria-label="LicenRoute home"><img src="../../mark.svg" alt="" width="34" height="34">LicenRoute</a>
     <nav class="top" aria-label="Main">
-      <a class="hide-sm" href="../../#prompt">The prompt</a>
-      <a class="hide-sm" href="../../#guides">Guides</a>
+      <a href="../">Guides</a>
       <a href="https://github.com/licenroute/licenroute">GitHub</a>
     </nav>
   </div>
 </header>
 
 <main id="main" class="prose">
-  <p class="crumbs"><a href="../../">LicenRoute</a> › <a href="../../#guides">Guides</a></p>
+  <p class="crumbs"><a href="../../">LicenRoute</a> › <a href="../">Guides</a></p>
   <h1>HTTP 402 Payment Required: letting AI agents pay for your API</h1>
   <p class="meta">Updated 21 November 2026 · 6 min read</p>
 
-  <div class="tldr"><p><strong>Short version:</strong> more and more of your API traffic comes from programs — scripts, other apps and AI agents — not people. When they hit something paid, a login page or a generic error tells them nothing. A <code>402</code> with a small JSON body (which plan, what price, where to buy) turns “blocked” into “here's how to get access”.</p></div>
+  <div class="tldr"><p><strong>Short version:</strong> more and more of your API traffic comes from programs (scripts, other apps and AI agents), not people. When they hit something paid, a login page or a generic error tells them nothing. A <code>402</code> with a small JSON body (which plan, what price, where to buy) turns “blocked” into “here's how to get access”.</p></div>
 
   <h2>What 402 means</h2>
   <p><code>402 Payment Required</code> has been in HTTP since the beginning, but the specification still says it is “reserved for future use” (RFC 9110, §15.5.3). There is no single standard for what a 402 response must contain, so in practice each API defines its own body. That freedom is the point: you can make it useful.</p>
 
   <h2>Why it matters now</h2>
   <ul>
-    <li><strong>Programs can't click “Upgrade”.</strong> A person who hits a paywall sees a pricing page. A script or an AI agent sees an HTTP status and a body. If the body is HTML or a vague error, it fails or retries.</li>
-    <li><strong>Agents are increasingly the ones calling APIs.</strong> Coding assistants, research agents and automation tools fetch data on someone's behalf. Some will be able to buy access — if you tell them how.</li>
+    <li><strong>Programs can’t click “Upgrade”.</strong> A person who hits a paywall sees a pricing page. A script or an AI agent sees an HTTP status and a body. If the body is HTML or a vague error, it fails or retries.</li>
+    <li><strong>Agents are increasingly the ones calling APIs.</strong> Coding assistants, research agents and automation tools fetch data on someone’s behalf. Some will be able to buy access if you tell them how.</li>
     <li><strong>The alternative is scraping.</strong> If the only door is closed and unlabelled, the data gets taken another way. A clear paid door is better for both sides.</li>
   </ul>
 
@@ -72,9 +68,9 @@
     <table>
       <thead><tr><th scope="col">Status</th><th scope="col">Means</th><th scope="col">What the client should do</th></tr></thead>
       <tbody>
-        <tr><td><span class="code warn">402</span></td><td>Access to this resource is sold; you don't have a valid purchase for it</td><td>Buy the plan named in the response, then retry with the key</td></tr>
+        <tr><td><span class="code warn">402</span></td><td>Access to this resource is sold; you don’t have a valid purchase for it</td><td>Buy the plan named in the response, then retry with the key</td></tr>
         <tr><td><span class="code">401</span></td><td>You are not authenticated</td><td>Log in or send credentials</td></tr>
-        <tr><td><span class="code bad">403</span></td><td>The credential is invalid or revoked</td><td>Stop; don't retry with the same key</td></tr>
+        <tr><td><span class="code bad">403</span></td><td>The credential is invalid or revoked</td><td>Stop; don’t retry with the same key</td></tr>
         <tr><td><span class="code">429</span></td><td>Too many requests right now</td><td>Wait and retry later</td></tr>
       </tbody>
     </table>
@@ -108,18 +104,18 @@ Content-Type: application/json
   <ul>
     <li><strong>Never leak secrets in the body.</strong> Plan and price are public; keys, internal IDs and other customers' data are not.</li>
     <li><strong>Don't charge the preflight.</strong> Browsers send <code>OPTIONS</code> before many cross-origin requests. It must never count as a use or get a 402.</li>
-    <li><strong>Fail closed.</strong> If you can't check the licence, answer <code>503</code> on paid routes — never serve them for free.</li>
+    <li><strong>Fail closed.</strong> If you can’t check the licence, answer <code>503</code> on paid routes. Never serve them for free.</li>
     <li><strong>Separate agents you welcome from agents you sell to.</strong> A search crawler you want indexing your site is different from an agent bulk-downloading your data.</li>
   </ul>
 
   <h2>With LicenRoute</h2>
-  <p>LicenRoute's Express middleware answers exactly that 402 shape on the routes you choose, and its test suite checks every case: no key, valid key, other plan, invented key, quota used up, revoked key and service outage. You — or your AI coding assistant, with your approval — set it up from the CLI.</p>
+  <p>LicenRoute’s Express middleware answers exactly that 402 shape on the routes you choose, and its test suite checks every case: no key, valid key, other plan, invented key, quota used up, revoked key and service outage. You set it up from the CLI, or your AI coding assistant does it with your approval.</p>
 
-  <div class="notice"><strong>Honest status:</strong> developer preview in demo mode. The checkout link points to a local simulator and nothing is charged; real payments need the hosted service, which isn't open yet. Express only.</div>
+  <div class="notice"><strong>Honest status:</strong> developer preview in demo mode. The checkout link points to a local simulator and nothing is charged; real payments need the hosted service, which isn’t open yet. Express only.</div>
 
   <div class="guide-cta">
     <h2>See the 402 on your own machine</h2>
-    <p>Run the <a href="https://github.com/licenroute/licenroute/blob/main/docs/tutorial-express.md">10-minute tutorial</a> on the example app, or paste the <a href="../../#prompt">prompt</a> into your assistant. Building something agents should pay for? <a href="https://github.com/licenroute/licenroute/issues/new?title=I%20want%20to%20charge%20for%20my%20API&amp;body=What%20did%20you%20build%20(and%20with%20which%20tools%2Fframework)%3F%0AWhat%20would%20you%20charge%20for%3F%0AWho%20uses%20it%20(people%2C%20apps%2C%20AI%20agents)%3F">Tell us</a>.</p>
+    <p>Run the <a href="https://github.com/licenroute/licenroute/blob/main/docs/tutorial-express.md">10-minute tutorial</a> on the example app, or paste the <a href="../../">prompt</a> into your assistant. Building something agents should pay for? <a href="https://github.com/licenroute/licenroute/issues/new?title=I%20want%20to%20charge%20for%20my%20API&amp;body=What%20did%20you%20build%20(and%20with%20which%20tools%2Fframework)%3F%0AWhat%20would%20you%20charge%20for%3F%0AWho%20uses%20it%20(people%2C%20apps%2C%20AI%20agents)%3F">Tell us</a>.</p>
   </div>
 
   <h2>Related guides</h2>
@@ -131,7 +127,7 @@ Content-Type: application/json
 
 <footer class="site">
   <div class="wrap">
-    <span>LicenRoute · Apache-2.0 · developer preview, demo mode only</span>
+    <span>LicenRoute. Apache-2.0 license. Developer preview in demo mode.</span>
     <nav aria-label="Footer">
       <a href="../../">Home</a>
       <a href="https://github.com/licenroute/licenroute">GitHub</a>
