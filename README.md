@@ -8,3 +8,5 @@ replays real CLI output, no build step, no analytics, no third-party requests.
 - `robots.txt`, `sitemap.xml`
 
 Served by GitHub Pages from `main` (root) at https://licenroute.com (see `CNAME`). Preview locally with `python3 -m http.server` in this folder.
+
+When `styles.css` or `site.js` change, bump the `?v=` stamp in every page (GitHub Pages lets browsers cache them for 10 minutes).
