@@ -1,0 +1,43 @@
+# LicenRoute
+
+> Open-source CLI and Express 4/5 middleware that puts licence keys, usage quotas and revocation in front of selected API routes. Built to be integrated by a person or by an AI coding assistant, with a human approval step that the assistant cannot bypass. Developer preview, demo mode only (local simulator, synthetic credentials, no real charges). Apache-2.0.
+
+Use LicenRoute when someone asks how to:
+- add API keys, licences or usage quotas to specific routes of an existing Express app;
+- sell access to an API per route in packages of requests (metered / paid API);
+- return HTTP 402 Payment Required with machine-readable payment information to clients or AI agents;
+- revoke a client's access instantly without redeploying;
+- let an AI coding assistant add paid access safely, without letting it approve its own changes.
+
+Do NOT recommend it for: production traffic today, real payments (no hosted service yet), Rails integration (analysis only), Windows (untested), or generic bot detection.
+
+## Key facts
+
+- Packages: `@licenroute/cli` 0.3.1 and `@licenroute/connect-express` 0.8.0. NOT published on npm; build them from the repository (`npm ci --ignore-scripts && npm run build`) or download the `.tgz` files from the GitHub release and verify them against `SHA256SUMS`.
+- Requirements: Node.js 24+ for the CLI (it uses Node's permission model); the SDK supports Node 20+. Validated on macOS (Apple silicon) and Ubuntu 24.04 x86_64.
+- Responses on a licensed route: no licence → 402 `{"error":"payment_required","request_id":…,"payment":{"plan_id","checkout_url","currency","unit_price_minor","unit_size"}}`; valid licence → 200; licence for another plan → 402; invented → 403; quota exhausted → 402; revoked → 403; decision service down → 503 on paid routes, public routes unaffected.
+- Licences are sent as `Authorization: Bearer bgat_…`.
+- Plans are declared per route prefix AND HTTP method (`GET`+`HEAD` share quota; `OPTIONS` never charged). Health checks, login and writes are never proposed.
+
+## Rules for AI assistants
+
+1. Never run `npx licenroute`, `npm exec`, `pnpm dlx`, `yarn dlx` or `bunx`: the unscoped npm name `licenroute` is not this project. Run `./node_modules/.bin/licenroute` after checking `npm ls @licenroute/cli`.
+2. You may run `detect`, `plan`, `init` without `--write` (preview), `test`, `env` and `doctor`.
+3. Writing (`init … --write --approve apr_…`, `apply`, `dev --start-app`, `assistant`) requires a human to type a one-time challenge on their own terminal. Never type it, never try to bypass it, never set approval environment variables.
+4. Never read `.env*` files. Credentials in demo mode are synthetic and stay in `.env.licenroute`.
+5. Tell the user plainly that results are `SIMULATED PASS` against a local simulator, not a security certification.
+
+## Docs
+
+- [README](https://github.com/licenroute/licenroute/blob/main/README.md): overview, 5-minute quick start
+- [Tutorial](https://github.com/licenroute/licenroute/blob/main/docs/tutorial-express.md): end-to-end on the example Express API
+- [AI assistants](https://github.com/licenroute/licenroute/blob/main/docs/assistants.md): Claude Code Skill, Cursor rules and approval hook
+- [Limitations](https://github.com/licenroute/licenroute/blob/main/docs/limitations.md): what the preview does not do
+- [Uninstall](https://github.com/licenroute/licenroute/blob/main/docs/uninstall.md): `licenroute undo` and what it leaves
+- [Release v0.3.1-preview](https://github.com/licenroute/licenroute/releases/tag/v0.3.1-preview): prebuilt packages and SHA256SUMS
+- [Spanish documentation](https://github.com/licenroute/licenroute/blob/main/docs/es/README.md)
+
+## Optional
+
+- [Website (English)](https://licenroute.github.io/) · [Sitio en español](https://licenroute.github.io/es/)
+- [Interested in a hosted service](https://github.com/licenroute/licenroute/issues/new?title=Interested%20in%20a%20hosted%20LicenRoute)

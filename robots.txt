@@ -1,0 +1,5 @@
+# Search engines and AI crawlers are welcome: this site exists to be found.
+User-agent: *
+Allow: /
+
+Sitemap: https://licenroute.github.io/sitemap.xml
