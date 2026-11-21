@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LicenRoute — cobra por tu API, y que lo configure tu asistente de IA</title>
-<meta name="description" content="¿Hiciste tu app con Claude Code o Cursor? Pídele a tu asistente de IA que convierta en de pago las partes de tu API que lo valen. LicenRoute añade las claves de acceso, los límites de uso y la respuesta «paga primero»; tú apruebas el cambio. Gratis, código abierto, preview para apps Express.">
+<title>Cobra por tu API Express con tu asistente de IA | LicenRoute</title>
+<meta name="description" content="¿Hiciste tu app con Claude Code o Cursor? Convierte en de pago lo valioso de tu API Express: claves, límites de uso y «paga primero». Gratis y abierto.">
 <link rel="canonical" href="https://licenroute.github.io/es/">
 <link rel="alternate" hreflang="en" href="https://licenroute.github.io/">
 <link rel="alternate" hreflang="es" href="https://licenroute.github.io/es/">
@@ -17,8 +17,29 @@
 <meta property="og:description" content="Pídele a tu asistente de IA que convierta en de pago las partes valiosas de tu API. Tú apruebas el cambio. Gratis y de código abierto.">
 <meta property="og:url" content="https://licenroute.github.io/es/">
 <meta property="og:locale" content="es_ES">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://licenroute.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LicenRoute: cobra por tu API, que lo configure tu asistente de IA">
+<meta property="og:site_name" content="LicenRoute">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://licenroute.github.io/og.png">
 <link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "WebSite", "@id": "https://licenroute.github.io/#website", "url": "https://licenroute.github.io/", "name": "LicenRoute", "inLanguage": ["en", "es"]},
+    {"@type": "Organization", "@id": "https://licenroute.github.io/#org", "name": "LicenRoute", "url": "https://licenroute.github.io/", "logo": "https://licenroute.github.io/favicon.svg", "sameAs": ["https://github.com/licenroute"]},
+    {"@type": "SoftwareApplication", "name": "LicenRoute", "applicationCategory": "DeveloperApplication", "operatingSystem": "macOS, Linux", "softwareVersion": "0.3.1-preview",
+     "description": "Convierte en de pago rutas de una API Express: claves de acceso, límites de uso, revocación y una respuesta HTTP 402 «paga primero». Lo configura tu asistente de IA con la aprobación de una persona. Developer preview, solo modo demo.",
+     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+     "license": "https://www.apache.org/licenses/LICENSE-2.0", "downloadUrl": "https://github.com/licenroute/licenroute/releases/tag/v0.3.1-preview",
+     "publisher": {"@id": "https://licenroute.github.io/#org"}},
+    {"@type": "SoftwareSourceCode", "name": "LicenRoute", "codeRepository": "https://github.com/licenroute/licenroute", "programmingLanguage": ["TypeScript", "JavaScript"], "runtimePlatform": "Node.js 24+", "license": "https://www.apache.org/licenses/LICENSE-2.0"}
+  ]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -48,6 +69,7 @@
     <nav class="top" aria-label="Principal">
       <a class="hide-sm" href="#prompt">El prompt</a>
       <a class="hide-sm" href="#como">Cómo funciona</a>
+      <a class="hide-sm" href="#guias">Guías</a>
       <a class="hide-sm" href="#faq">Preguntas</a>
       <a href="https://github.com/licenroute/licenroute">GitHub</a>
       <a class="lang" href="../" hreflang="en" lang="en">EN</a>
@@ -175,7 +197,19 @@ npm run build
   </div>
 </section>
 
-<section id="faq" aria-labelledby="faq-title">
+<section id="guias" aria-labelledby="guias-title">
+  <div class="wrap">
+    <p class="eyebrow">Guías (en inglés)</p>
+    <h2 id="guias-title">Aprende cómo funciona cobrar por una API</h2>
+    <div class="guide-list">
+      <a class="card" href="../guides/charge-for-your-api/" hreflang="en"><h3>Cómo cobrar por tu API (aunque la hiciera la IA)</h3><p>Modelos de precio, las cinco piezas que necesitas y los errores que regalan tu API.</p></a>
+      <a class="card" href="../guides/express-api-keys-usage-limits/" hreflang="en"><h3>Claves de API y límites de uso en Express</h3><p>Para desarrolladores: claves con hash, reglas por método, conteo atómico, revocación y cierre seguro.</p></a>
+      <a class="card" href="../guides/http-402-ai-agents/" hreflang="en"><h3>HTTP 402: que los agentes de IA paguen por tu API</h3><p>Qué debe llevar una respuesta «paga primero» para que los agentes compren en vez de rastrear.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="faq" aria-labelledby="faq-title">
   <div class="wrap">
     <p class="eyebrow">Preguntas</p>
     <h2 id="faq-title">Preguntas frecuentes</h2>
@@ -188,7 +222,7 @@ npm run build
   </div>
 </section>
 
-<section class="alt" aria-labelledby="dev-title">
+<section aria-labelledby="dev-title">
   <div class="wrap">
     <p class="eyebrow">Para desarrolladores</p>
     <h2 id="dev-title">Los detalles técnicos</h2>

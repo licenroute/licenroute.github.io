@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LicenRoute — get paid for your API, set up by your AI coding assistant</title>
-<meta name="description" content="Built your app with Claude Code or Cursor? Ask your AI assistant to make the valuable parts of your API paid. LicenRoute adds access keys, usage limits and a 'pay first' answer — you approve the change. Free, open source, developer preview for Express apps.">
+<title>Charge for your Express API, set up by AI | LicenRoute</title>
+<meta name="description" content="Built your app with Claude Code or Cursor? Make the valuable parts of your Express API paid: keys, usage limits and a pay-first answer. Free, open source.">
 <link rel="canonical" href="https://licenroute.github.io/">
 <link rel="alternate" hreflang="en" href="https://licenroute.github.io/">
 <link rel="alternate" hreflang="es" href="https://licenroute.github.io/es/">
@@ -16,20 +16,27 @@
 <meta property="og:title" content="LicenRoute — get paid for your API, without writing the billing code">
 <meta property="og:description" content="Ask your AI coding assistant to make the valuable parts of your API paid. You approve the change. Free and open source.">
 <meta property="og:url" content="https://licenroute.github.io/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://licenroute.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LicenRoute: get paid for your API, let your AI assistant set it up">
+<meta property="og:site_name" content="LicenRoute">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://licenroute.github.io/og.png">
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareSourceCode",
-  "name": "LicenRoute",
-  "description": "CLI and Express 4/5 middleware that makes selected API routes paid: access keys (licences), usage quotas, revocation and an HTTP 402 'payment required' answer. Designed to be set up by AI coding assistants with a human approval step. Developer preview, demo mode only.",
-  "codeRepository": "https://github.com/licenroute/licenroute",
-  "programmingLanguage": ["TypeScript", "JavaScript"],
-  "runtimePlatform": "Node.js 24+",
-  "license": "https://www.apache.org/licenses/LICENSE-2.0",
-  "version": "0.3.1-preview",
-  "keywords": "monetize API, paid API, charge for API, API keys, usage limits, quotas, Express, HTTP 402, vibe coding, Claude Code, Cursor, AI agents"
+  "@graph": [
+    {"@type": "WebSite", "@id": "https://licenroute.github.io/#website", "url": "https://licenroute.github.io/", "name": "LicenRoute", "inLanguage": ["en", "es"]},
+    {"@type": "Organization", "@id": "https://licenroute.github.io/#org", "name": "LicenRoute", "url": "https://licenroute.github.io/", "logo": "https://licenroute.github.io/favicon.svg", "sameAs": ["https://github.com/licenroute"]},
+    {"@type": "SoftwareApplication", "name": "LicenRoute", "applicationCategory": "DeveloperApplication", "operatingSystem": "macOS, Linux", "softwareVersion": "0.3.1-preview",
+     "description": "Make selected routes of an Express API paid: access keys, usage limits, revocation and an HTTP 402 'pay first' answer. Set up by AI coding assistants with a human approval step. Developer preview, demo mode only.",
+     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+     "license": "https://www.apache.org/licenses/LICENSE-2.0", "downloadUrl": "https://github.com/licenroute/licenroute/releases/tag/v0.3.1-preview",
+     "publisher": {"@id": "https://licenroute.github.io/#org"}},
+    {"@type": "SoftwareSourceCode", "name": "LicenRoute", "codeRepository": "https://github.com/licenroute/licenroute", "programmingLanguage": ["TypeScript", "JavaScript"], "runtimePlatform": "Node.js 24+", "license": "https://www.apache.org/licenses/LICENSE-2.0"}
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -60,6 +67,7 @@
     <nav class="top" aria-label="Main">
       <a class="hide-sm" href="#prompt">The prompt</a>
       <a class="hide-sm" href="#how">How it works</a>
+      <a class="hide-sm" href="#guides">Guides</a>
       <a class="hide-sm" href="#faq">FAQ</a>
       <a href="https://github.com/licenroute/licenroute">GitHub</a>
       <a class="lang" href="es/" hreflang="es" lang="es">ES</a>
@@ -187,7 +195,19 @@ npm run build
   </div>
 </section>
 
-<section id="faq" aria-labelledby="faq-title">
+<section id="guides" aria-labelledby="guides-title">
+  <div class="wrap">
+    <p class="eyebrow">Guides</p>
+    <h2 id="guides-title">Learn how charging for an API works</h2>
+    <div class="guide-list">
+      <a class="card" href="guides/charge-for-your-api/"><h3>How to charge for your API (even if AI built it)</h3><p>Pricing models, the five pieces you need, and the mistakes that give your API away.</p></a>
+      <a class="card" href="guides/express-api-keys-usage-limits/"><h3>Add API keys and usage limits to an Express API</h3><p>For developers: hashed keys, per-method rules, atomic counting, revocation and failing closed.</p></a>
+      <a class="card" href="guides/http-402-ai-agents/"><h3>HTTP 402: letting AI agents pay for your API</h3><p>What a useful “pay first” answer contains, so agents can buy access instead of scraping.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="faq" aria-labelledby="faq-title">
   <div class="wrap">
     <p class="eyebrow">FAQ</p>
     <h2 id="faq-title">Questions</h2>
@@ -200,7 +220,7 @@ npm run build
   </div>
 </section>
 
-<section class="alt" aria-labelledby="dev-title">
+<section aria-labelledby="dev-title">
   <div class="wrap">
     <p class="eyebrow">For developers</p>
     <h2 id="dev-title">The technical details</h2>

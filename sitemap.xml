@@ -13,7 +13,15 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://licenroute.github.io/es/"/>
   </url>
   <url>
-    <loc>https://licenroute.github.io/llms.txt</loc>
+    <loc>https://licenroute.github.io/guides/charge-for-your-api/</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://licenroute.github.io/guides/express-api-keys-usage-limits/</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://licenroute.github.io/guides/http-402-ai-agents/</loc>
     <lastmod>2026-11-21</lastmod>
   </url>
 </urlset>
