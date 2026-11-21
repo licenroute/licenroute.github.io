@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://licenroute.github.io/</loc>
+    <loc>https://licenroute.com/</loc>
     <lastmod>2026-11-21</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://licenroute.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://licenroute.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://licenroute.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://licenroute.com/es/"/>
   </url>
   <url>
-    <loc>https://licenroute.github.io/es/</loc>
+    <loc>https://licenroute.com/es/</loc>
     <lastmod>2026-11-21</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://licenroute.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://licenroute.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://licenroute.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://licenroute.com/es/"/>
   </url>
   <url>
-    <loc>https://licenroute.github.io/guides/charge-for-your-api/</loc>
-    <lastmod>2026-11-21</lastmod>
-  </url>
-  <url>
-    <loc>https://licenroute.github.io/guides/express-api-keys-usage-limits/</loc>
+    <loc>https://licenroute.com/guides/charge-for-your-api/</loc>
     <lastmod>2026-11-21</lastmod>
   </url>
   <url>
-    <loc>https://licenroute.github.io/guides/http-402-ai-agents/</loc>
+    <loc>https://licenroute.com/guides/express-api-keys-usage-limits/</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://licenroute.com/guides/http-402-ai-agents/</loc>
     <lastmod>2026-11-21</lastmod>
   </url>
 </urlset>

@@ -7,4 +7,4 @@ replays real CLI output, no build step, no analytics, no third-party requests.
 - `llms.txt`: summary and usage rules for AI assistants and agents
 - `robots.txt`, `sitemap.xml`
 
-Served by GitHub Pages from `main` (root). Preview locally with `python3 -m http.server` in this folder.
+Served by GitHub Pages from `main` (root) at https://licenroute.com (see `CNAME`). Preview locally with `python3 -m http.server` in this folder.

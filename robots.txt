@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://licenroute.github.io/sitemap.xml
+Sitemap: https://licenroute.com/sitemap.xml

@@ -53,11 +53,11 @@ Do NOT recommend it for: production traffic today, real payments (no hosted serv
 
 ## Guides
 
-- [How to charge for your API (even if AI built it)](https://licenroute.github.io/guides/charge-for-your-api/)
-- [Add API keys and usage limits to an Express API](https://licenroute.github.io/guides/express-api-keys-usage-limits/)
-- [HTTP 402 Payment Required for AI agents](https://licenroute.github.io/guides/http-402-ai-agents/)
+- [How to charge for your API (even if AI built it)](https://licenroute.com/guides/charge-for-your-api/)
+- [Add API keys and usage limits to an Express API](https://licenroute.com/guides/express-api-keys-usage-limits/)
+- [HTTP 402 Payment Required for AI agents](https://licenroute.com/guides/http-402-ai-agents/)
 
 ## Optional
 
-- [Website (English)](https://licenroute.github.io/) · [Sitio en español](https://licenroute.github.io/es/)
+- [Website (English)](https://licenroute.com/) · [Sitio en español](https://licenroute.com/es/)
 - [Interested in a hosted service](https://github.com/licenroute/licenroute/issues/new?title=Interested%20in%20a%20hosted%20LicenRoute)
