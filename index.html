@@ -24,6 +24,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://licenroute.com/og.png">
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add("js")</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -58,12 +59,14 @@
 <link rel="preload" href="fonts/BricolageGrotesque-700-latin.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 <body>
+<div class="progress" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site">
   <div class="wrap">
     <a class="brand" href="./" aria-label="LicenRoute home"><img src="mark.svg" alt="" width="34" height="34">LicenRoute</a>
     <nav class="top" aria-label="Main">
-      <a href="guides/">Guides</a>
+      <a href="#how">How it works</a>
+      <a class="opt" href="guides/">Guides</a>
       <a class="opt" href="https://github.com/licenroute/licenroute">GitHub</a>
       <a href="es/" hreflang="es" lang="es">Español</a>
     </nav>
@@ -71,58 +74,119 @@
 </header>
 
 <main id="main">
-<section class="hero" aria-labelledby="hero-title">
-  <div class="wrap hero-grid">
-    <div>
+<section class="hero2" aria-labelledby="hero-title">
+  <div class="deco deco-ticket" data-parallax="0.18" aria-hidden="true"><span class="deco-perf"></span></div>
+  <div class="wrap">
+    <div class="top">
       <h1 id="hero-title" class="h-hero">Get paid for your API.</h1>
-      <p class="lede">Your AI assistant adds keys and usage limits. You approve every change.</p>
+      <div>
+        <p class="lede">Your AI assistant adds keys and usage limits. You approve every change.</p>
+        <div class="ctas">
+          <button class="btn btn-primary" type="button" data-copy="prompt-text">Copy the prompt</button>
+          <a class="btn btn-quiet" href="#how">See it step by step</a>
+        </div>
+        <p class="note">Free and open source. Express apps only, and nothing is charged yet.</p>
+      </div>
     </div>
-    <div class="prompt">
-      <p class="prompt-head">Paste this into Claude Code or Cursor</p>
+    <div class="scene" role="img" aria-label="A request without a key is stopped at the LicenRoute gate with 402. A request with a valid key passes with 200 and uses one unit of quota. A fake key gets 403. When the package is used up, the answer is 402 again.">
+      <div class="lane" aria-hidden="true"></div>
+      <div class="node from" aria-hidden="true"><b>Caller</b>an app or AI agent</div>
+      <div class="node api" aria-hidden="true"><b>Your API</b>/api/reports<br><span class="quota"><i></i><i></i></span></div>
+      <div class="booth" aria-hidden="true"><span class="post"></span><span class="arm"></span><span class="tk"><span>Licen<br>Route</span></span></div>
+      <div class="bubble show pay" aria-hidden="true"><b>402</b>Pay first</div>
+      <p class="scene-cap" aria-hidden="true">No key: the gate answers 402 with the plan to buy.</p>
+      <button class="scene-btn" type="button">Pause animation</button>
+    </div>
+  </div>
+</section>
+
+<section class="sec g3" id="how" aria-labelledby="how-title">
+  <div class="wrap">
+    <h2 id="how-title" class="h-sec reveal">Four steps, one of them yours</h2>
+    <div class="stack">
+      <div>
+        <article class="step" id="step-1">
+          <span class="n" aria-hidden="true">1</span>
+          <h3>Paste the prompt</h3>
+          <p>Your assistant reads your code and suggests what to charge for. Login, health checks and writes stay free.</p>
+          <div class="prompt" style="margin-top:22px">
+            <p class="prompt-head">Paste this into Claude Code or Cursor</p>
 <pre id="prompt-text">Add paid access to my Express API with LicenRoute.
 Read licenroute.com/llms.txt first and follow its rules.
 Suggest which routes should be paid and which stay free.
 Show me the exact change. I approve it in my terminal.
 Run the LicenRoute tests and explain the results simply.</pre>
-      <div class="prompt-actions">
-        <button class="btn btn-primary" type="button" data-copy="prompt-text" data-done="Copied">Copy the prompt</button>
-        <p class="note">Free and open source. Express apps only, and nothing is charged yet.</p>
+            <div class="prompt-actions"><button class="btn btn-quiet" type="button" data-copy="prompt-text">Copy the prompt</button></div>
+          </div>
+          <div class="panel term"><pre data-label="Real output of licenroute init on the example app">LicenRoute init — express 5.3.0 · app "demo-express"
+
+Proposed plans (choose with --plans 1,2 or by name):
+   1  api-catalogo   /api/catalogo/**   GET /api/catalogo
+   2  api-informes   /api/informes/**   GET /api/informes, GET /api/informes/:id
+      licence only on GET, HEAD; other methods stay as they are now
+
+Left untouched (public, health, static or login):
+      GET /health (server.js:5)
+      POST /login (server.js:7)
+
+Need your decision (init does not propose them):
+      GET / (server.js:6)
+      POST /api/pedidos (server.js:11)</pre></div>
+        </article>
+        <article class="step" id="step-2">
+          <span class="n" aria-hidden="true">2</span>
+          <h3>Type the code</h3>
+          <p>A short code in your terminal approves the exact change. It’s the one step your assistant can’t do for you.</p>
+          <div class="panel term"><pre data-label="Real approval prompt, typed by a person"><span class="c">LicenRoute is going to write:</span>
+  modify server.js
+  modify .gitignore
+  plans: /api/catalogo/**, /api/informes/**
+  code: apr_…
+If you approve, type <span class="pay">5QPE-95MJ</span> and press Enter (anything else cancels): <span class="pay">5QPE-95MJ</span>
+<span class="ok">Approval confirmed.</span>
+LicenRoute apply — applied (server.js, .gitignore).</pre></div>
+        </article>
+        <article class="step" id="step-3">
+          <span class="n" aria-hidden="true">3</span>
+          <h3>Watch the tests</h3>
+          <p>LicenRoute calls your app with no key, a real key, a fake one, after the limit, after revoking, and during an outage.</p>
+          <div class="panel term"><pre data-label="Real output of licenroute test"><span class="p">$</span> ./node_modules/.bin/licenroute test .
+<span class="c">DEMO MODE · LOCAL SIMULATION · not a security test</span>
+<span class="ok">SIMULATED PASS</span> api-informes:sin-licencia: <span class="pay">402</span> payment_required
+<span class="ok">SIMULATED PASS</span> api-informes:licencia-valida: <span class="ok">200</span>
+<span class="ok">SIMULATED PASS</span> api-informes:licencia-inventada: <span class="deny">403</span> forbidden
+<span class="ok">SIMULATED PASS</span> api-informes:cuota: GET <span class="ok">200</span> · HEAD <span class="ok">200</span> · GET <span class="ok">200</span> · HEAD <span class="pay">402</span>
+<span class="ok">SIMULATED PASS</span> api-informes:revocada: before <span class="ok">200</span> · after <span class="deny">403</span>
+<span class="ok">SIMULATED PASS</span> publica /health: <span class="ok">200</span>
+<span class="ok">SIMULATED PASS</span> central-caido:api-informes: <span class="deny">503</span>
+<span class="ok">SIMULATED PASS</span> central-recuperado: <span class="ok">200</span></pre></div>
+        </article>
+        <article class="step" id="step-4">
+          <span class="n" aria-hidden="true">4</span>
+          <h3>Undo anytime</h3>
+          <p><code>licenroute undo</code> puts your files back exactly as they were.</p>
+          <div class="panel term"><pre data-label="Real output of licenroute undo"><span class="p">$</span> ./node_modules/.bin/licenroute undo .
+LicenRoute undo — integration 2026-11-21T14-30-11-428Z
+  restore .gitignore
+  restore server.js
+<span class="ok">Reverted. This integration's journal has been deleted.</span></pre></div>
+        </article>
+      </div>
+      <div class="viewer" aria-hidden="true">
+        <div class="term"><pre></pre></div>
+        <p class="viewer-label"></p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec g1 showcase" aria-labelledby="show-title">
-  <div class="wrap">
-    <h2 id="show-title" class="h-sec">Tested the way a customer calls</h2>
-    <p class="intro">LicenRoute calls your app with no key, a real key, a fake one, after the limit and after revoking.</p>
-    <figure class="term" style="margin-left:0;margin-right:0">
-      <pre id="demo-out" aria-label="Output of licenroute test"><span class="p">$</span> ./node_modules/.bin/licenroute test .
-<span class="c">DEMO MODE · LOCAL SIMULATION · not a security test</span>
-<span class="ok">SIMULATED PASS</span> api-informes:sin-licencia /api/informes: <span class="pay">402</span> payment_required
-<span class="ok">SIMULATED PASS</span> api-informes:licencia-valida: <span class="ok">200</span>
-<span class="ok">SIMULATED PASS</span> api-informes:options-sin-cobro: <span class="ok">200</span>
-<span class="ok">SIMULATED PASS</span> api-informes:licencia-de-otro-plan: <span class="pay">402</span> payment_required
-<span class="ok">SIMULATED PASS</span> api-informes:licencia-inventada: <span class="deny">403</span> forbidden
-<span class="ok">SIMULATED PASS</span> api-informes:cuota: GET <span class="ok">200</span> · HEAD <span class="ok">200</span> · GET <span class="ok">200</span> · HEAD <span class="pay">402</span> (quota 3)
-<span class="ok">SIMULATED PASS</span> api-informes:revocada: before <span class="ok">200</span> · after <span class="deny">403</span> forbidden
-<span class="ok">SIMULATED PASS</span> publica /health: <span class="ok">200</span>
-<span class="ok">SIMULATED PASS</span> central-caido:api-informes: /api/informes <span class="deny">503</span> service_unavailable
-<span class="ok">SIMULATED PASS</span> central-caido:publica /health: <span class="ok">200</span>
-<span class="ok">SIMULATED PASS</span> central-recuperado: /api/informes/** <span class="ok">200</span>
-<span class="c"><span class="ok">SIMULATED PASS</span>: the integration responds as expected against the SIMULATOR.</span></pre>
-    </figure>
-    <p class="caption">Real output from the example app. Check names such as api-informes are fixed identifiers.</p>
-  </div>
-</section>
-
 <section class="band" aria-labelledby="get-title">
   <div class="wrap ledger">
-    <div>
+    <div class="reveal">
       <h2 id="get-title" class="h-sec">What callers get back</h2>
       <p class="intro">You pick the paid routes. Login and public pages stay free.</p>
     </div>
-    <div class="table-wrap">
+    <div class="table-wrap log">
       <table>
         <thead><tr><th scope="col">A call to a paid route with</th><th scope="col">The answer</th></tr></thead>
         <tbody>
@@ -137,35 +201,23 @@ Run the LicenRoute tests and explain the results simply.</pre>
   </div>
 </section>
 
-<section class="sec" aria-labelledby="steps-title">
-  <div class="wrap">
-    <h2 id="steps-title" class="h-sec">Four steps, one of them yours</h2>
-    <ol class="steps">
-      <li><span class="n" aria-hidden="true">1</span><h3>Paste the prompt</h3><p>Your assistant reads your code and suggests what to charge for.</p></li>
-      <li><span class="n" aria-hidden="true">2</span><h3>Type the code</h3><p>A short code in your terminal approves the exact change. Your assistant can’t type it for you.</p></li>
-      <li><span class="n" aria-hidden="true">3</span><h3>Watch the tests</h3><p>No key, valid key, fake key, used up, revoked, and an outage.</p></li>
-      <li><span class="n" aria-hidden="true">4</span><h3>Undo anytime</h3><p><code>licenroute undo</code> puts your files back exactly as they were.</p></li>
-    </ol>
-  </div>
-</section>
-
 <section class="sec g3" aria-labelledby="agents-title">
   <div class="wrap split">
-    <div>
+    <div class="reveal">
       <h2 id="agents-title" class="h-sec">Agents can read the bill</h2>
       <p class="intro">Bots and AI agents get a 402 that names the plan, the price and the checkout link. They can pay instead of scraping.</p>
       <p style="margin-top:18px"><a href="guides/http-402-ai-agents/">How the 402 answer works</a></p>
     </div>
-<pre class="block" aria-label="Example 402 response"><span class="c">GET /api/reports, no key</span>
+<pre class="block agent-json reveal" aria-label="Example 402 response"><span class="c">GET /api/reports, no key</span>
 HTTP/1.1 <span class="pay">402</span> Payment Required
 {
   "error": "payment_required",
   "payment": {
-    "plan_id": "api-reports",
-    "checkout_url": "https://example.com/plans/api-reports",
-    "currency": "EUR",
-    "unit_price_minor": 150,
-    "unit_size": 1000
+    <span class="k">"plan_id": "api-reports"</span>,
+    <span class="k">"checkout_url": "https://example.com/plans/api-reports"</span>,
+    <span class="k">"currency": "EUR"</span>,
+    <span class="k">"unit_price_minor": 150</span>,
+    <span class="k">"unit_size": 1000</span>
   }
 }</pre>
   </div>
@@ -173,8 +225,8 @@ HTTP/1.1 <span class="pay">402</span> Payment Required
 
 <section class="band g1" aria-labelledby="status-title">
   <div class="wrap">
-    <h2 id="status-title" class="h-sec">What works today</h2>
-    <div class="index">
+    <h2 id="status-title" class="h-sec reveal">What works today</h2>
+    <div class="index reveal">
       <div>
         <h3>In the free preview</h3>
         <ul>
@@ -201,8 +253,8 @@ HTTP/1.1 <span class="pay">402</span> Payment Required
 
 <section class="sec" id="faq" aria-labelledby="faq-title">
   <div class="wrap">
-    <h2 id="faq-title" class="h-sec">Before you paste it</h2>
-    <div class="qa">
+    <h2 id="faq-title" class="h-sec reveal">Before you paste it</h2>
+    <div class="qa reveal">
       <div><h3>Do I need to understand the code?</h3><p>Not deeply. You read a short summary and approve it yourself, and your assistant can explain each step.</p></div>
       <div><h3>Will my login break?</h3><p>No. Login, health checks and sign-up are never made paid, and the tests check that free pages still work.</p></div>
       <div><h3>Can I charge real money?</h3><p>Not yet. The preview runs locally so you can test the whole flow. Real payments need the hosted service.</p></div>
@@ -210,16 +262,16 @@ HTTP/1.1 <span class="pay">402</span> Payment Required
   </div>
 </section>
 
-<section class="close" aria-labelledby="try-title">
-  <div class="wrap close-grid">
-    <div>
-      <h2 id="try-title" class="h-sec">Try it on the example app</h2>
-      <div class="links">
-        <a class="btn btn-quiet" href="https://github.com/licenroute/licenroute/blob/main/docs/tutorial-express.md">Open the tutorial</a>
-        <a class="btn btn-quiet" href="https://github.com/licenroute/licenroute">View the code</a>
-      </div>
+<section class="finale" aria-labelledby="try-title">
+  <span class="finale-notch l" aria-hidden="true"></span><span class="finale-notch r" aria-hidden="true"></span>
+  <div class="wrap">
+    <h2 id="try-title" class="h-hero reveal">Open a paid lane on your API.</h2>
+    <p class="reveal">Copy the prompt into your assistant, or try the example app first.</p>
+    <div class="ctas reveal">
+      <button class="btn btn-ink" type="button" data-copy="prompt-text">Copy the prompt</button>
+      <a class="btn btn-line" href="https://github.com/licenroute/licenroute/blob/main/docs/tutorial-express.md">Open the tutorial</a>
     </div>
-<pre class="block">git clone https://github.com/licenroute/licenroute.git
+<pre class="block reveal">git clone https://github.com/licenroute/licenroute.git
 cd licenroute && npm ci --ignore-scripts && npm run build
 ./demo/demo.sh   <span class="c"># shows the change, writes nothing</span></pre>
   </div>
@@ -244,24 +296,15 @@ cd licenroute && npm ci --ignore-scripts && npm run build
   </div>
 </footer>
 
-<script type="application/json" id="demo-lines">
+<script type="application/json" id="scene-steps">
 [
-  {"k":"cmd","t":"./node_modules/.bin/licenroute test ."},
-  {"k":"dim","t":"DEMO MODE · LOCAL SIMULATION · not a security test"},
-  {"k":"out","t":"SIMULATED PASS api-informes:sin-licencia /api/informes: 402 payment_required"},
-  {"k":"out","t":"SIMULATED PASS api-informes:licencia-valida: 200"},
-  {"k":"out","t":"SIMULATED PASS api-informes:options-sin-cobro: 200"},
-  {"k":"out","t":"SIMULATED PASS api-informes:licencia-de-otro-plan: 402 payment_required"},
-  {"k":"out","t":"SIMULATED PASS api-informes:licencia-inventada: 403 forbidden"},
-  {"k":"out","t":"SIMULATED PASS api-informes:cuota: GET 200 · HEAD 200 · GET 200 · HEAD 402 (quota 3)"},
-  {"k":"out","t":"SIMULATED PASS api-informes:revocada: before 200 · after 403 forbidden"},
-  {"k":"out","t":"SIMULATED PASS publica /health: 200"},
-  {"k":"out","t":"SIMULATED PASS central-caido:api-informes: /api/informes 503 service_unavailable"},
-  {"k":"out","t":"SIMULATED PASS central-caido:publica /health: 200"},
-  {"k":"out","t":"SIMULATED PASS central-recuperado: /api/informes/** 200"},
-  {"k":"dim","t":"SIMULATED PASS: the integration responds as expected against the SIMULATOR."}
+  {"key": null, "result": "pay", "code": "402", "word": "Pay first", "cap": "No key: the gate answers 402 with the plan to buy."},
+  {"key": "ok", "result": "ok", "word": "Got in", "quota": 1, "cap": "A valid key: the gate opens and one use is counted."},
+  {"key": "fake", "result": "deny", "code": "403", "word": "Refused", "cap": "A fake key is refused. Keys can’t be guessed."},
+  {"key": "ok", "result": "ok", "word": "Got in", "quota": 0, "cap": "Another valid call uses the last unit of the package."},
+  {"key": "ok", "result": "pay", "code": "402", "word": "Pay again", "cap": "Package used up: the answer is 402 again."}
 ]
 </script>
-<script src="demo.js" defer></script>
+<script src="site.js" defer></script>
 </body>
 </html>
