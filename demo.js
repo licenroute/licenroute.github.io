@@ -42,3 +42,22 @@
     new IntersectionObserver(function (e, o) { if (e[0].isIntersecting) { start(); o.disconnect(); } }).observe(pre);
   } else { start(); }
 })();
+
+// Copy buttons: copy the text of the element named in data-copy.
+document.querySelectorAll("button[data-copy]").forEach(function (btn) {
+  var label = btn.textContent, done = btn.getAttribute("data-done") || "Copied";
+  btn.addEventListener("click", function () {
+    var el = document.getElementById(btn.getAttribute("data-copy"));
+    if (!el) return;
+    var text = el.innerText;
+    var ok = function () { btn.textContent = done; setTimeout(function () { btn.textContent = label; }, 1800); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(ok, function () { fallback(); });
+    } else { fallback(); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      try { document.execCommand("copy"); ok(); } catch (e) { /* selection stays so the user can copy */ }
+    }
+  });
+});
