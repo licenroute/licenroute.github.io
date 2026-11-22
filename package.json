@@ -1,0 +1,13 @@
+{
+  "name": "licenroute-site",
+  "private": true,
+  "description": "Static site licenroute.com. Generators in scripts/ (run by hand); no build step for GitHub Pages.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "node --test scripts/*.test.mjs"
+  },
+  "devDependencies": {
+    "date-holidays": "3.38.0"
+  }
+}

@@ -79,3 +79,8 @@ APIs that can be tried for free and bought in a minute (test mode prices). Index
 - [Festivos ES](https://licenroute.com/apis/festivos-es/) (in Spanish): Festivos de España por comunidad autónoma, si una fecha es festiva y días laborables entre dos fechas.
 - [Validaciones ES](https://licenroute.com/apis/validaciones-es/) (in Spanish): Valida NIF, NIE, CIF, IBAN y códigos postales españoles, con el motivo cuando algo no es válido.
 <!-- apis:end -->
+<!-- holidays:start -->
+## Public holiday pages
+
+Public holidays of 207 countries for 2026 and 2027, with long weekends and business days per month: https://licenroute.com/holidays/ (Spanish, with Spain's 19 regions and Latin America: https://licenroute.com/es/festivos/). Same data as the Holidays API (date-holidays, CC BY-SA 4.0).
+<!-- holidays:end -->
