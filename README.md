@@ -13,8 +13,9 @@ When `styles.css` or `site.js` change, bump the `?v=` stamp in every page (GitHu
 
 ## API pages (Market v2, B5)
 
-`scripts/build-apis.mjs` generates `apis/<slug>/index.html` (schema.org `WebAPI`), `apis/index.html` and the APIs
-blocks of `sitemap.xml` and `llms.txt` from the Market catalogue. Run it by hand before publishing, once the Market
+`scripts/build-apis.mjs` generates `apis/<slug>/index.html` (schema.org `WebAPI`) in the language of each listing
+(`language` in the catalogue: `en` or `es`), two indexes that link to each other (`apis/` in English, `es/apis/` in
+Spanish) and the APIs blocks of `sitemap.xml` and `llms.txt` from the Market catalogue. Run it by hand before publishing, once the Market
 is online (until then its links would point to a local server):
 
 ```bash
