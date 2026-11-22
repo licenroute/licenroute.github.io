@@ -21,3 +21,9 @@ is online (until then its links would point to a local server):
 node scripts/build-apis.mjs --catalog https://<market>/market/catalog.json
 node --test scripts/build-apis.test.mjs
 ```
+
+## User manual
+
+`manual/` (English) and `es/manual/` (Spanish) are generated from one structure by `scripts/build-manual.mjs`, so both
+languages keep the same sections and figures (screenshots in `manual/img/`, taken from the local demo). Edit the text
+there and run `node scripts/build-manual.mjs`.

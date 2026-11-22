@@ -28,4 +28,16 @@
     <loc>https://licenroute.com/guides/http-402-ai-agents/</loc>
     <lastmod>2026-11-21</lastmod>
   </url>
+  <url>
+    <loc>https://licenroute.com/manual/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://licenroute.com/manual/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://licenroute.com/es/manual/"/>
+  </url>
+  <url>
+    <loc>https://licenroute.com/es/manual/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://licenroute.com/manual/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://licenroute.com/es/manual/"/>
+  </url>
 </urlset>

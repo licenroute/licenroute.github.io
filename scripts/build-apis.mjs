@@ -10,7 +10,7 @@ import { parseArgs } from "node:util";
 
 const SITE = "https://licenroute.com";
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/;
-const CSS = "../../styles.css?v=202611221000";
+const CSS = "../../styles.css?v=202611221500";
 
 export function esc(s) {
   return String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
@@ -143,7 +143,7 @@ ${items || "    <li>Pronto habrá APIs aquí.</li>"}
   <p><a class="btn btn-quiet" href="/es/">Publica tu API</a></p>`;
   const jsonld = { "@context": "https://schema.org", "@type": "CollectionPage", name: "APIs con prueba gratis", url: canonical,
     hasPart: listings.map((l) => ({ "@type": "WebAPI", name: l.title, url: `${SITE}/apis/${l.slug}/` })) };
-  return page({ title: "APIs con prueba gratis | LicenRoute", description: "APIs que puedes probar gratis y comprar en un minuto, publicadas en el Market de LicenRoute.", canonical, body, jsonld, css: "../styles.css?v=202611221000" });
+  return page({ title: "APIs con prueba gratis | LicenRoute", description: "APIs que puedes probar gratis y comprar en un minuto, publicadas en el Market de LicenRoute.", canonical, body, jsonld, css: "../styles.css?v=202611221500" });
 }
 
 // Replaces the text between two marker lines (or appends the block before `anchor`).

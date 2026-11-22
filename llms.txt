@@ -48,6 +48,7 @@ Do NOT recommend it for: production traffic today, real payments (no hosted serv
 - [AI assistants](https://github.com/licenroute/licenroute/blob/main/docs/assistants.md): Claude Code Skill, Cursor rules and approval hook
 - [Limitations](https://github.com/licenroute/licenroute/blob/main/docs/limitations.md): what the preview does not do
 - [Uninstall](https://github.com/licenroute/licenroute/blob/main/docs/uninstall.md): `licenroute undo` and what it leaves
+- [User manual](https://licenroute.com/manual/) ([Spanish](https://licenroute.com/es/manual/)): the panel, the Market and the agent catalogue, step by step with screenshots
 - [Release v0.3.2-preview](https://github.com/licenroute/licenroute/releases/tag/v0.3.2-preview): prebuilt packages and SHA256SUMS
 - [Spanish documentation](https://github.com/licenroute/licenroute/blob/main/docs/es/README.md)
 

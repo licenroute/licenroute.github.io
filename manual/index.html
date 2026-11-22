@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User manual | LicenRoute</title>
+<meta name="description" content="How to publish and charge for your API with LicenRoute, and how buyers try and buy APIs in the Market. Step by step, with screenshots.">
+<link rel="canonical" href="https://licenroute.com/manual/">
+<link rel="alternate" hreflang="en" href="https://licenroute.com/manual/">
+<link rel="alternate" hreflang="es" href="https://licenroute.com/es/manual/">
+<link rel="alternate" hreflang="x-default" href="https://licenroute.com/manual/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f2a516">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LicenRoute user manual">
+<meta property="og:description" content="How to publish and charge for your API with LicenRoute, and how buyers try and buy APIs in the Market. Step by step, with screenshots.">
+<meta property="og:url" content="https://licenroute.com/manual/">
+<meta property="og:image" content="https://licenroute.com/og.png">
+<meta property="og:site_name" content="LicenRoute">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../styles.css?v=202611221500">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"LicenRoute user manual","description":"How to publish and charge for your API with LicenRoute, and how buyers try and buy APIs in the Market. Step by step, with screenshots.","inLanguage":"en","url":"https://licenroute.com/manual/","dateModified":"2026-11-22","image":"https://licenroute.com/manual/img/fig17.png","publisher":{"@type":"Organization","name":"LicenRoute","url":"https://licenroute.com"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="LicenRoute, Home"><img src="../mark.svg" alt="" width="34" height="34">LicenRoute</a>
+    <nav class="top" aria-label="Main">
+      <a href="./" aria-current="page">Manual</a>
+      <a class="opt" href="../guides/">Guides</a>
+      <a class="opt" href="https://github.com/licenroute/licenroute">GitHub</a>
+      <a href="../es/manual/" hreflang="es" lang="es">Español</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="prose manual">
+  <h1>LicenRoute user manual</h1>
+  <p class="lead">Publish your API, charge for it in your own Stripe account, and let people and AI agents try and buy it.</p>
+  <p class="meta">Updated: 2026-11-22</p>
+  <p class="note">The screenshots come from a local demo with sample data, and the app's interface is in Spanish. The panel and the Market are not online yet; payments run in Stripe test mode, with no real money.</p>
+  <nav class="toc" aria-label="Contents">
+  <p class="meta">Contents</p>
+  <ol>
+    <li><a href="#what">What LicenRoute is</a></li>
+    <li><a href="#start">Getting started in the panel</a></li>
+    <li><a href="#register">Registering your API and its plans</a></li>
+    <li><a href="#payments">Getting paid in your Stripe account</a></li>
+    <li><a href="#publish">Publishing your API in the Market</a></li>
+    <li><a href="#buyers">Serving your buyers</a></li>
+    <li><a href="#guide">Buyer's guide</a></li>
+    <li><a href="#agents">For AI agents</a></li>
+    <li><a href="#faq">Questions and current limits</a></li>
+  </ol>
+  </nav>
+
+  <h2 id="what">What LicenRoute is</h2>
+  <p>LicenRoute lets you charge for your API without building billing: each buyer gets a key with its quota, and you get paid in your own Stripe account.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th scope="col">Who you are</th><th scope="col">Where you work</th><th scope="col">Sections</th></tr></thead>
+    <tbody>
+      <tr><td>Owner of an API: you publish it and charge for it</td><td>LicenRoute panel (Central)</td><td>Getting started to Serving your buyers</td></tr>
+      <tr><td>Buyer: you look for an API, try it and buy it</td><td>LicenRoute Market</td><td>Buyer's guide</td></tr>
+      <tr><td>AI assistant or agent looking for APIs</td><td>Machine-readable catalogue and MCP server</td><td>For AI agents</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="start">Getting started in the panel</h2>
+  <p>Sign in with your email and password; the panel opens on your organisation's Summary.</p>
+  <ol>
+    <li>Open the panel and enter your email and password.</li>
+    <li>The Summary shows how many sites, active API keys and members your organisation has, and the first three steps.</li>
+    <li>Use the top menu to move around.</li>
+  </ol>
+  <figure class="shot">
+    <img src="../manual/img/fig01.png" alt="Signing in to the panel." width="1280" height="820" loading="lazy" decoding="async">
+    <figcaption>Signing in to the panel.</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="../manual/img/fig02.png" alt="Organisation summary." width="1280" height="820" loading="lazy" decoding="async">
+    <figcaption>Organisation summary.</figcaption>
+  </figure>
+  <div class="table-wrap"><table>
+    <thead><tr><th scope="col">Menu</th><th scope="col">What it is for</th></tr></thead>
+    <tbody>
+      <tr><td>Resumen (Summary)</td><td>Organisation figures and first steps</td></tr>
+      <tr><td>Sitios (Sites)</td><td>Your APIs: domain, keys, plans and Market listings</td></tr>
+      <tr><td>Compradores (Buyers)</td><td>Who holds your licences and their usage</td></tr>
+      <tr><td>Solicitudes Market (Market requests)</td><td>Access requests to plans that need your approval</td></tr>
+      <tr><td>Cobros (Payments)</td><td>Your connected Stripe account</td></tr>
+      <tr><td>Miembros (Members)</td><td>Your team and their role (owner, admin, viewer)</td></tr>
+      <tr><td>Auditoría (Audit)</td><td>Log of every important change (admins and owner only)</td></tr>
+    </tbody>
+  </table></div>
+  <p>The button with your organisation's name, top right, switches organisation if you belong to several.</p>
+
+  <h2 id="register">Registering your API and its plans</h2>
+  <p>Each API is a <strong>site</strong> with its domain; inside the site you define the <strong>plans</strong> you sell: which routes charge, at what price and with how much quota.</p>
+  <h3>The site</h3>
+  <ol>
+    <li>Go to <strong>Sitios</strong> and press <strong>Nuevo sitio</strong>: name, your API's domain and the consent.</li>
+    <li>On the site page, create an <strong>API key</strong> (shown only once) and copy the three environment variables to your server.</li>
+    <li>Usually your AI assistant makes the connection with the prompt from licenroute.com; you only approve the change in your terminal.</li>
+  </ol>
+  <figure class="shot">
+    <img src="../manual/img/fig03.png" alt="Site list: one row per API." width="1280" height="820" loading="lazy" decoding="async">
+    <figcaption>Site list: one row per API.</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="../manual/img/fig04.png" alt="A site: details, environment variables and API keys." width="1280" height="1996" loading="lazy" decoding="async">
+    <figcaption>A site: details, environment variables and API keys.</figcaption>
+  </figure>
+  <h3>The plans</h3>
+  <p>The site's <strong>Licencias</strong> tab lists its plans; press <strong>Editar</strong> on one or create another.</p>
+  <figure class="shot">
+    <img src="../manual/img/fig05.png" alt="Plans of a site." width="1280" height="1771" loading="lazy" decoding="async">
+    <figcaption>Plans of a site.</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="../manual/img/fig06.png" alt="Editing a plan." width="1280" height="1224" loading="lazy" decoding="async">
+    <figcaption>Editing a plan.</figcaption>
+  </figure>
+  <div class="table-wrap"><table>
+    <thead><tr><th scope="col">Field</th><th scope="col">Meaning</th><th scope="col">Example</th></tr></thead>
+    <tbody>
+      <tr><td>Licensed route</td><td>Which routes the plan charges (glob)</td><td><code>/v1/**</code></td></tr>
+      <tr><td>Methods</td><td>Which HTTP methods it charges; GET and HEAD share quota</td><td>GET, HEAD</td></tr>
+      <tr><td>Price and Per</td><td>Price in cents per request or per 1,000</td><td>300 per 1,000 = €3.00</td></tr>
+      <tr><td>Quota</td><td>Requests bought at once</td><td>10,000 (= €30.00)</td></tr>
+      <tr><td>Validity</td><td>Days each licence lasts</td><td>30</td></tr>
+      <tr><td>Limit per licence</td><td>Requests per minute; stops leaked keys</td><td>60</td></tr>
+      <tr><td>Sale in the Market</td><td><strong>Instant purchase</strong>: buyers pay and get the key at once. <strong>With my approval</strong>: they ask and you decide</td><td>Instant purchase</td></tr>
+      <tr><td>Free trial</td><td>Free requests, once per buyer and plan, for 7 days</td><td>50</td></tr>
+    </tbody>
+  </table></div>
+  <p>The price buyers see is computed: quota × price. It is never typed by hand.</p>
+
+  <h2 id="payments">Getting paid in your Stripe account</h2>
+  <p>Sales are charged in your own Stripe account: the money goes straight to you, and LicenRoute never receives or holds it.</p>
+  <ol>
+    <li>Go to <strong>Cobros</strong> and press <strong>Conectar mi cuenta de Stripe</strong>. Only the organisation's owner can do it.</li>
+    <li>Stripe asks for your details and your bank's. If you stop halfway, come back and press <strong>Continuar en Stripe</strong>.</li>
+    <li>On your return the panel asks Stripe and shows the status. With <strong>lista para cobrar</strong> (ready to charge), your instant-purchase plans show the <strong>Comprar</strong> (Buy) button in the Market.</li>
+  </ol>
+  <figure class="shot">
+    <img src="../manual/img/fig07.png" alt="Payments with a connected account, ready to charge." width="1280" height="820" loading="lazy" decoding="async">
+    <figcaption>Payments with a connected account, ready to charge.</figcaption>
+  </figure>
+  <div class="table-wrap"><table>
+    <thead><tr><th scope="col">Status</th><th scope="col">Meaning</th></tr></thead>
+    <tbody>
+      <tr><td>No connected account</td><td>Your plans cannot be bought directly; buyers can only request access</td></tr>
+      <tr><td>Onboarding not finished</td><td>Stripe still needs details</td></tr>
+      <tr><td>Submitted; Stripe is reviewing it</td><td>Stripe does not allow charges yet</td></tr>
+      <tr><td>Ready to charge</td><td>Sales are charged in your account</td></tr>
+    </tbody>
+  </table></div>
+  <p>Stripe's fees are charged to your account like any other payment of yours. <strong>Comprobar estado en Stripe</strong> checks the status again whenever you want.</p>
+
+  <h2 id="publish">Publishing your API in the Market</h2>
+  <p>The listing is what buyers see: only what you write in it, the domain and the plans you choose. It never shows your routes, limits, keys or policies.</p>
+  <ol>
+    <li>On the site, open the <strong>Market</strong> tab and press <strong>Nueva ficha</strong>.</li>
+    <li>Fill in title, publisher, category, summary and description.</li>
+    <li>Add the <strong>documentation</strong> (for example your <code>/openapi.json</code>), the <strong>service status</strong> if you have one, and an <strong>example request and response</strong>.</li>
+    <li>Tick the plans you offer and choose the visibility.</li>
+    <li>Save. With <strong>Pública</strong> visibility the listing appears in the catalogue.</li>
+  </ol>
+  <figure class="shot">
+    <img src="../manual/img/fig08.png" alt="The site's listings in the Market." width="1280" height="820" loading="lazy" decoding="async">
+    <figcaption>The site's listings in the Market.</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="../manual/img/fig09.png" alt="Editing a listing." width="1280" height="1491" loading="lazy" decoding="async">
+    <figcaption>Editing a listing.</figcaption>
+  </figure>
+  <div class="table-wrap"><table>
+    <thead><tr><th scope="col">Visibility</th><th scope="col">Who sees it</th></tr></thead>
+    <tbody>
+      <tr><td>Hidden</td><td>Nobody</td></tr>
+      <tr><td>Link only</td><td>Whoever has the private link (it can be regenerated)</td></tr>
+      <tr><td>Public</td><td>Anyone: the catalogue, <code>catalog.json</code> and licenroute.com/apis</td></tr>
+    </tbody>
+  </table></div>
+  <p>In the example write <code>bgat_…</code> instead of a key: listings refuse keys with a real format. The <strong>public page address</strong> (for example <code>festivos-es</code>) comes from the title if you leave it empty. The listing also shows the requests served in the last 30 days, from real usage.</p>
+
+  <h2 id="buyers">Serving your buyers</h2>
+  <p>With instant purchase you do nothing: the buyer pays and gets the key. You only step in for plans <strong>with your approval</strong>, or to review or cut off access.</p>
+  <h3>Market requests</h3>
+  <ol>
+    <li>Open <strong>Solicitudes Market</strong>: pending requests first; filter by approved, rejected or withdrawn.</li>
+    <li>Press <strong>Revisar</strong> to see who is asking, whether they verified their email, and why.</li>
+    <li><strong>Aprobar</strong> opens a Stripe payment for the buyer; the key is delivered only once the payment shows as paid. <strong>Rechazar</strong> closes the request. Either way you can leave a note, and the buyer gets an email.</li>
+  </ol>
+  <figure class="shot">
+    <img src="../manual/img/fig10.png" alt="Request inbox." width="1280" height="820" loading="lazy" decoding="async">
+    <figcaption>Request inbox.</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="../manual/img/fig11.png" alt="Reviewing a request." width="1280" height="935" loading="lazy" decoding="async">
+    <figcaption>Reviewing a request.</figcaption>
+  </figure>
+  <h3>Buyers and licences</h3>
+  <p><strong>Compradores</strong> lists everyone holding your licences, paid or trial. Open one to see their licences, the usage of each and the button to revoke them. A revoked licence stops working at once, without redeploying your API. A suspended buyer cannot buy or try your APIs, and is not told why.</p>
+  <figure class="shot">
+    <img src="../manual/img/fig12.png" alt="Buyers: Lucía appears when she starts her free trial." width="1280" height="820" loading="lazy" decoding="async">
+    <figcaption>Buyers: Lucía appears when she starts her free trial.</figcaption>
+  </figure>
+
+  <h2 id="guide">Buyer's guide</h2>
+  <p>In the Market you find an API, try it for free and buy it in a minute. The key you get is sent with every request as <code>Authorization: Bearer bgat_…</code>.</p>
+  <h3>Finding an API</h3>
+  <p>The <strong>Catálogo</strong> lists public APIs, with search and a category filter. A listing shows what the API does, an example request and response, its documentation, the requests served in 30 days and its plans with the final price.</p>
+  <figure class="shot">
+    <img src="../manual/img/fig13.png" alt="The Market catalogue." width="1280" height="1970" loading="lazy" decoding="async">
+    <figcaption>The Market catalogue.</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="../manual/img/fig14.png" alt="A listing seen without signing in." width="1280" height="1255" loading="lazy" decoding="async">
+    <figcaption>A listing seen without signing in.</figcaption>
+  </figure>
+  <h3>Creating your account</h3>
+  <ol>
+    <li>Press <strong>Crear cuenta</strong>: name, email, a password of 12 characters or more, and accept the terms.</li>
+    <li>Open the link in the email to verify the account. Unverified accounts cannot try, buy or request access.</li>
+    <li>Sign in with your email and password.</li>
+  </ol>
+  <figure class="shot">
+    <img src="../manual/img/fig15.png" alt="Sign-up." width="1280" height="1134" loading="lazy" decoding="async">
+    <figcaption>Sign-up.</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="../manual/img/fig16.png" alt="Signing in to the Market." width="1280" height="820" loading="lazy" decoding="async">
+    <figcaption>Signing in to the Market.</figcaption>
+  </figure>
+  <h3>Free trial and purchase</h3>
+  <p>Once signed in, each plan on the listing shows its buttons:</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th scope="col">Button</th><th scope="col">What happens</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Probar gratis</strong> (Try for free)</td><td>You get a key at once with the trial quota (for example 50 requests for 7 days). One trial per plan, up to 3 a day</td></tr>
+      <tr><td><strong>Comprar</strong> (Buy)</td><td>You go to Stripe's payment page. After paying you come back to a page that hands you the key once</td></tr>
+      <tr><td><strong>Solicitar acceso</strong> (Request access)</td><td>For plans with approval: you explain what you need it for and the owner decides. If approved, you pay and get the key</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="shot">
+    <img src="../manual/img/fig17.png" alt="Listing when signed in: Buy and Try for free buttons." width="1280" height="1256" loading="lazy" decoding="async">
+    <figcaption>Listing when signed in: Buy and Try for free buttons.</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="../manual/img/fig18.png" alt="Trial key (hidden in the screenshot)." width="1280" height="820" loading="lazy" decoding="async">
+    <figcaption>Trial key (hidden in the screenshot).</figcaption>
+  </figure>
+  <p><strong>Copy the key as soon as you see it</strong>: it is not shown again, because LicenRoute only stores a hash of it. If you lose it, the owner can revoke it and you get another one.</p>
+  <h3>Your purchases, trials and requests</h3>
+  <p><strong>Mis compras</strong> shows each payment with its status (pending, paid, refunded…) and each trial with its usage. <strong>Mis solicitudes</strong> shows your access requests and the owner's decision. In <strong>Mi cuenta</strong> you change your details, download your data or delete the account.</p>
+  <figure class="shot">
+    <img src="../manual/img/fig19.png" alt="My purchases and trials." width="1280" height="820" loading="lazy" decoding="async">
+    <figcaption>My purchases and trials.</figcaption>
+  </figure>
+
+  <h2 id="agents">For AI agents</h2>
+  <p>AI assistants can find and recommend Market APIs in two ways. Neither pays anything: the agent suggests and a person decides.</p>
+  <p><strong>1. The catalogue as JSON.</strong> <code>GET /market/catalog.json</code> returns the public listings with their plans, prices, quotas and trials, in the <code>licenroute.market.catalog/v1</code> format. It has no internal routes, limits or keys.</p>
+  <figure class="shot">
+    <img src="../manual/img/fig20.png" alt="catalog.json in the browser." width="1280" height="820" loading="lazy" decoding="async">
+    <figcaption>catalog.json in the browser.</figcaption>
+  </figure>
+  <p><strong>2. The MCP server.</strong> <code>packages/market-mcp</code> has no dependencies and offers three tools:</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th scope="col">Tool</th><th scope="col">What it returns</th></tr></thead>
+    <tbody>
+      <tr><td><code>search_apis</code></td><td>APIs that match what you ask for (&quot;spanish holidays&quot;, &quot;validate NIF&quot;), with the lowest price</td></tr>
+      <tr><td><code>get_api</code></td><td>Everything about one API: description, example, real usage and plans</td></tr>
+      <tr><td><code>request_purchase</code></td><td>The link where a person starts the trial or buys</td></tr>
+    </tbody>
+  </table></div>
+  <p>To connect it in Claude Code:</p>
+  <pre class="block">claude mcp add licenroute-market -e LICENROUTE_MARKET_URL=https://&lt;your-market&gt;/market -- node &lt;path&gt;/packages/market-mcp/bin/licenroute-market-mcp.mjs</pre>
+  <p>In Cursor, add the same to <code>.cursor/mcp.json</code>; the package README has the example.</p>
+
+  <h2 id="faq">Questions and current limits</h2>
+  <p><strong>Is real money charged?</strong> No. Everything runs in Stripe test mode today: you can pay with test cards and no money moves.</p>
+  <p><strong>Can I use it with real customers now?</strong> Not yet. The panel and the Market run locally; the public server is the next step.</p>
+  <p><strong>What if LicenRoute does not answer?</strong> Your API's paid routes return 503 until it is back; public routes keep working.</p>
+  <p><strong>I lost my key.</strong> It cannot be recovered: only a hash is stored. Ask the owner to revoke it and get another one.</p>
+  <p><strong>What does a paid route answer?</strong> No key: 402 with the plan and the purchase link. Valid key: 200. Invented or revoked key: 403. Quota used up: 402.</p>
+  <p><strong>Which technologies are supported?</strong> Node.js APIs with Express 4 or 5. For other frameworks, tell us on licenroute.com.</p>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../"><img src="../mark.svg" alt="" width="34" height="34">LicenRoute</a>
+      <p class="legal">The paid lane for your API. Apache-2.0 license. Developer preview in demo mode.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="../">Home</a>
+      <a href="../guides/">Guides</a>
+      <a href="https://github.com/licenroute/licenroute">GitHub</a>
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../es/manual/" hreflang="es" lang="es">Español</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
