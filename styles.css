@@ -323,3 +323,9 @@ pre.block .k.hot { background: var(--night-toll); color: var(--night); }
   .scene-cap { left: 20px; right: 20px; bottom: 76px; }
   .node.from { left: 20px; } .node.api { right: 20px; }
 }
+
+/* Market v2, B5: API pages */
+.prose .lead { font-size: 1.2em; color: var(--ink); margin-bottom: 12px; }
+.prose .plan { border: 1px solid var(--line); border-radius: var(--radius-md); padding: 20px 22px; margin: 16px 0; }
+.prose .plan h3 { margin-top: 0; }
+.prose .plan p:last-child { margin-bottom: 0; }
