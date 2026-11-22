@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LicenRoute Market MCP server: let your AI assistant find APIs | LicenRoute</title>
+<meta name="description" content="Free MCP server for Claude, Cursor and other assistants: search the LicenRoute Market for APIs (holidays, IBAN, VAT, QR, email), read plans and free trials, get a link you approve.">
+<link rel="canonical" href="https://licenroute.com/mcp/">
+<link rel="alternate" hreflang="en" href="https://licenroute.com/mcp/">
+<link rel="alternate" hreflang="es" href="https://licenroute.com/es/mcp/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f2a516">
+<meta property="og:type" content="website">
+<meta property="og:title" content="An MCP server for the LicenRoute Market">
+<meta property="og:description" content="Free MCP server for Claude, Cursor and other assistants: search the LicenRoute Market for APIs (holidays, IBAN, VAT, QR, email), read plans and free trials, get a link you approve.">
+<meta property="og:url" content="https://licenroute.com/mcp/">
+<meta property="og:image" content="https://licenroute.com/og.png">
+<meta property="og:site_name" content="LicenRoute">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../styles.css?v=202611222300">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "LicenRoute Market MCP server", "applicationCategory": "DeveloperApplication",
+ "operatingSystem": "macOS, Linux, Windows", "softwareVersion": "0.1.0", "url": "https://licenroute.com/mcp/", "inLanguage": "en",
+ "license": "https://www.apache.org/licenses/LICENSE-2.0", "downloadUrl": "https://www.npmjs.com/package/@licenroute/market-mcp",
+ "codeRepository": "https://github.com/licenroute/market-mcp", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+ "publisher": {"@type": "Organization", "name": "LicenRoute", "url": "https://licenroute.com/"}}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="LicenRoute"><img src="../mark.svg" alt="" width="34" height="34">LicenRoute</a>
+    <nav class="top" aria-label="Main">
+      <a href="https://app.licenroute.com/market">Market</a>
+      <a class="opt" href="https://github.com/licenroute/market-mcp">GitHub</a>
+      <a href="../es/mcp/" hreflang="es" lang="es">Español</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="prose">
+  <h1>An MCP server for the LicenRoute Market</h1>
+  <p class="meta">Free · zero dependencies · Node.js 20+ · Apache-2.0</p>
+  <p>Your AI assistant searches the Market for APIs, reads their plans and the free trial, and gives you the link. It never pays and never holds a key: you open the link and decide.</p>
+
+  <h2>Connect it</h2>
+  <p>Claude Code:</p>
+<pre class="block">claude mcp add licenroute-market -- npx -y @licenroute/market-mcp</pre>
+  <p>Claude Desktop, Cursor, Windsurf and other clients:</p>
+<pre class="block">{
+  &quot;mcpServers&quot;: {
+    &quot;licenroute-market&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;@licenroute/market-mcp&quot;]
+    }
+  }
+}</pre>
+  <p>Without npx: <code>npm install -g @licenroute/market-mcp</code>, then use <code>licenroute-market-mcp</code> as the command. The name is scoped: <code>@licenroute/market-mcp</code>.</p>
+
+  <h2>Ask it</h2>
+  <ul><li><em>Find an API for Spanish public holidays and give me the link to the free trial.</em></li><li><em>Is there an API to validate IBANs? How much does it cost?</em></li><li><em>I need to generate QR codes from my backend. What does the Market have?</em></li></ul>
+
+  <h2>Tools</h2>
+  <table><thead><tr><th scope="col">Tool</th><th scope="col">What it does</th></tr></thead><tbody><tr><td><code>search_apis</code></td><td>Searches the Market in English or Spanish. Returns each API with its cheapest plan and whether it has a free trial.</td></tr><tr><td><code>get_api</code></td><td>Full details of one API: description, docs, example, real usage in the last 30 days and every plan.</td></tr><tr><td><code>request_purchase</code></td><td>The link where a person starts the free trial or buys a plan. Nothing is paid by the tool.</td></tr></tbody></table>
+
+  <h2>What is in the Market</h2>
+  <p>Public holidays (Spain and 100+ countries), IBAN, NIF, NIE and CIF validation, Spanish VAT and IRPF invoice maths, amounts in words, Spanish municipalities and postal codes, phone and email checks, and QR codes. Every API has a free trial of 100 requests; packs of 10,000 requests start at 5.</p>
+
+  <h2>Safe by design</h2>
+  <ul><li>All three tools are read-only.</li><li>It only talks to the Market address you configure (https) and drops any link that points elsewhere.</li><li>Payments stay in Stripe test mode during the pilot.</li></ul>
+
+  <p>Source on <a href="https://github.com/licenroute/market-mcp">GitHub</a> · package on <a href="https://www.npmjs.com/package/@licenroute/market-mcp">npm</a> · listed in the <a href="https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.licenroute/market-mcp">official MCP registry</a> as <code>io.github.licenroute/market-mcp</code>.</p>
+  <p>Have an API of your own? <a href="../">LicenRoute</a> adds a paid lane to it and lists it in the Market, where this server finds it.</p>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../"><img src="../mark.svg" alt="" width="34" height="34">LicenRoute</a>
+    </div>
+    <nav aria-label="Footer">
+      <a href="../">Home</a>
+      <a href="https://github.com/licenroute/market-mcp">GitHub</a>
+      <a href="../llms.txt">llms.txt</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

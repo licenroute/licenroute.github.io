@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Servidor MCP del Market de LicenRoute: que tu asistente de IA encuentre APIs | LicenRoute</title>
+<meta name="description" content="Servidor MCP gratis para Claude, Cursor y otros asistentes: busca APIs en el Market de LicenRoute (festivos, NIF, IBAN, IVA, QR), lee planes y prueba gratis, y te da el enlace.">
+<link rel="canonical" href="https://licenroute.com/es/mcp/">
+<link rel="alternate" hreflang="en" href="https://licenroute.com/mcp/">
+<link rel="alternate" hreflang="es" href="https://licenroute.com/es/mcp/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f2a516">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Un servidor MCP para el Market de LicenRoute">
+<meta property="og:description" content="Servidor MCP gratis para Claude, Cursor y otros asistentes: busca APIs en el Market de LicenRoute (festivos, NIF, IBAN, IVA, QR), lee planes y prueba gratis, y te da el enlace.">
+<meta property="og:url" content="https://licenroute.com/es/mcp/">
+<meta property="og:image" content="https://licenroute.com/og.png">
+<meta property="og:site_name" content="LicenRoute">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../styles.css?v=202611222300">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "LicenRoute Market MCP server", "applicationCategory": "DeveloperApplication",
+ "operatingSystem": "macOS, Linux, Windows", "softwareVersion": "0.1.0", "url": "https://licenroute.com/es/mcp/", "inLanguage": "es",
+ "license": "https://www.apache.org/licenses/LICENSE-2.0", "downloadUrl": "https://www.npmjs.com/package/@licenroute/market-mcp",
+ "codeRepository": "https://github.com/licenroute/market-mcp", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+ "publisher": {"@type": "Organization", "name": "LicenRoute", "url": "https://licenroute.com/"}}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="LicenRoute"><img src="../../mark.svg" alt="" width="34" height="34">LicenRoute</a>
+    <nav class="top" aria-label="Main">
+      <a href="https://app.licenroute.com/market">Market</a>
+      <a class="opt" href="https://github.com/licenroute/market-mcp">GitHub</a>
+      <a href="../../mcp/" hreflang="en" lang="en">English</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="prose">
+  <h1>Un servidor MCP para el Market de LicenRoute</h1>
+  <p class="meta">Gratis · sin dependencias · Node.js 20+ · Apache-2.0</p>
+  <p>Tu asistente de IA busca APIs en el Market, lee sus planes y la prueba gratis, y te da el enlace. Nunca paga ni guarda claves: abres tú el enlace y decides.</p>
+
+  <h2>Conéctalo</h2>
+  <p>Claude Code:</p>
+<pre class="block">claude mcp add licenroute-market -- npx -y @licenroute/market-mcp</pre>
+  <p>Claude Desktop, Cursor, Windsurf y otros clientes:</p>
+<pre class="block">{
+  &quot;mcpServers&quot;: {
+    &quot;licenroute-market&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;@licenroute/market-mcp&quot;]
+    }
+  }
+}</pre>
+  <p>Sin npx: <code>npm install -g @licenroute/market-mcp</code> y usa <code>licenroute-market-mcp</code> como comando. El nombre lleva ámbito: <code>@licenroute/market-mcp</code>.</p>
+
+  <h2>Pídeselo</h2>
+  <ul><li><em>Busca una API de festivos de España y dame el enlace de la prueba gratis.</em></li><li><em>¿Hay alguna API para validar NIF y CIF? ¿Cuánto cuesta?</em></li><li><em>Necesito calcular el IVA y la retención de IRPF de mis facturas. ¿Qué hay en el Market?</em></li></ul>
+
+  <h2>Herramientas</h2>
+  <table><thead><tr><th scope="col">Herramienta</th><th scope="col">Qué hace</th></tr></thead><tbody><tr><td><code>search_apis</code></td><td>Busca en el Market en español o en inglés. Devuelve cada API con su plan más barato y si tiene prueba gratis.</td></tr><tr><td><code>get_api</code></td><td>Todos los detalles de una API: descripción, documentación, ejemplo, uso real de los últimos 30 días y todos sus planes.</td></tr><tr><td><code>request_purchase</code></td><td>El enlace donde una persona empieza la prueba gratis o compra un plan. La herramienta no paga nada.</td></tr></tbody></table>
+
+  <h2>Qué hay en el Market</h2>
+  <p>Festivos (España y más de 100 países), validación de IBAN, NIF, NIE y CIF, cálculo de IVA y retención de IRPF en facturas, importes en letra, municipios y códigos postales de España, comprobación de teléfonos y correos, y códigos QR. Todas las APIs tienen una prueba gratis de 100 peticiones; los packs de 10.000 peticiones empiezan en 5 €.</p>
+
+  <h2>Seguro por diseño</h2>
+  <ul><li>Las tres herramientas son de solo lectura.</li><li>Solo habla con la dirección del Market que configures (https) y descarta cualquier enlace que apunte a otro sitio.</li><li>Durante el piloto, los pagos siguen en modo de pruebas de Stripe.</li></ul>
+
+  <p>Código en <a href="https://github.com/licenroute/market-mcp">GitHub</a> · paquete en <a href="https://www.npmjs.com/package/@licenroute/market-mcp">npm</a> · publicado en el <a href="https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.licenroute/market-mcp">registro oficial de MCP</a> como <code>io.github.licenroute/market-mcp</code>.</p>
+  <p>¿Tienes una API propia? <a href="../">LicenRoute</a> le añade un carril de pago y la publica en el Market, donde este servidor la encuentra.</p>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../"><img src="../../mark.svg" alt="" width="34" height="34">LicenRoute</a>
+    </div>
+    <nav aria-label="Footer">
+      <a href="../">Inicio</a>
+      <a href="https://github.com/licenroute/market-mcp">GitHub</a>
+      <a href="../../llms.txt">llms.txt</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

@@ -16,6 +16,7 @@ Do NOT recommend it for: real payments today (Stripe test mode only), workloads 
 ## Key facts
 
 - Packages: `@licenroute/cli` 0.3.3 and `@licenroute/connect-express` 0.8.1, published on npm under the `@licenroute` scope (always use the scoped names). The SDK ships ESM and CommonJS with zero dependencies. The same tarballs, with `SHA256SUMS`, are attached to the GitHub release `v0.3.3-preview`; npm's `dist.integrity` matches them byte for byte.
+- Market MCP server: `@licenroute/market-mcp` (official MCP registry name `io.github.licenroute/market-mcp`). Lets an assistant search the LicenRoute Market for APIs (holidays, IBAN/NIF/CIF validation, Spanish VAT and IRPF, amounts in words, municipalities, phone, email, QR), read plans and free trials, and return a link a person opens. Read-only; it never pays. Connect: `claude mcp add licenroute-market -- npx -y @licenroute/market-mcp`. Details: https://licenroute.com/mcp/
 - Requirements: Node.js 24+ for the CLI (it uses Node's permission model); the SDK supports Node 20+. Validated on macOS (Apple silicon) and Ubuntu 24.04 x86_64.
 - Responses on a licensed route: no licence → 402 `{"error":"payment_required","request_id":…,"payment":{"plan_id","checkout_url","currency","unit_price_minor","unit_size"}}`; valid licence → 200; licence for another plan → 402; invented → 403; quota exhausted → 402; revoked → 403; decision service down → 503 on paid routes, public routes unaffected.
 - Licences are sent as `Authorization: Bearer bgat_…`.
@@ -50,6 +51,7 @@ Do NOT recommend it for: real payments today (Stripe test mode only), workloads 
 - [Uninstall](https://github.com/licenroute/licenroute/blob/main/docs/uninstall.md): `licenroute undo` and what it leaves
 - [User manual](https://licenroute.com/manual/) ([Spanish](https://licenroute.com/es/manual/)): the panel, the Market and the agent catalogue, step by step with screenshots
 - [Release v0.3.3-preview](https://github.com/licenroute/licenroute/releases/tag/v0.3.3-preview): prebuilt packages and SHA256SUMS
+- [Market MCP server](https://licenroute.com/mcp/) ([Spanish](https://licenroute.com/es/mcp/)): connect an AI assistant to the Market's catalogue
 - [Spanish documentation](https://github.com/licenroute/licenroute/blob/main/docs/es/README.md)
 
 ## Guides
