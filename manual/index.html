@@ -142,6 +142,7 @@
 
   <h2 id="payments">Getting paid in your Stripe account</h2>
   <p>Sales are charged in your own Stripe account: the money goes straight to you, and LicenRoute never receives or holds it.</p>
+  <p><strong>In the pilot this step is not open yet:</strong> connecting Stripe and buying arrive after the security review. Until then buyers can try your APIs for free.</p>
   <ol>
     <li>Go to <strong>Cobros</strong> and press <strong>Conectar mi cuenta de Stripe</strong>. Only the organisation's owner can do it.</li>
     <li>Stripe asks for your details and your bank's. If you stop halfway, come back and press <strong>Continuar en Stripe</strong>.</li>
@@ -244,7 +245,7 @@
     <thead><tr><th scope="col">Button</th><th scope="col">What happens</th></tr></thead>
     <tbody>
       <tr><td><strong>Probar gratis</strong> (Try for free)</td><td>You get a key at once with the trial quota (for example 50 requests for 7 days). One trial per plan, up to 3 a day</td></tr>
-      <tr><td><strong>Comprar</strong> (Buy)</td><td>You go to Stripe's payment page. After paying you come back to a page that hands you the key once</td></tr>
+      <tr><td><strong>Comprar</strong> (Buy)</td><td>Not available yet in the pilot. When it is, you will go to Stripe's payment page and come back to a page that hands you the key once</td></tr>
       <tr><td><strong>Solicitar acceso</strong> (Request access)</td><td>For plans with approval: you explain what you need it for and the owner decides. If approved, you pay and get the key</td></tr>
     </tbody>
   </table></div>
@@ -285,7 +286,7 @@
   <p>In Cursor, add the same to <code>.cursor/mcp.json</code>; the package README has the example.</p>
 
   <h2 id="faq">Questions and current limits</h2>
-  <p><strong>Is real money charged?</strong> No. Everything runs in Stripe test mode today: you can pay with test cards and no money moves.</p>
+  <p><strong>Is real money charged?</strong> No. In the pilot you can try APIs for free; buying stays closed until the security review, and payments will start in Stripe test mode.</p>
   <p><strong>Can I use it with real customers now?</strong> In a pilot: the panel issues real licences and enforces quotas, and buyers can try APIs for free. Charging real money comes after the security review.</p>
   <p><strong>What if LicenRoute does not answer?</strong> Your API's paid routes return 503 until it is back; public routes keep working.</p>
   <p><strong>I lost my key.</strong> It cannot be recovered: only a hash is stored. Ask the owner to revoke it and get another one.</p>
@@ -297,7 +298,7 @@
   <div class="wrap">
     <div>
       <a class="brand" href="../"><img src="../mark.svg" alt="" width="34" height="34">LicenRoute</a>
-      <p class="legal">The paid lane for your API. Apache-2.0 license. Developer preview in demo mode.</p>
+      <p class="legal">The paid lane for your API. Apache-2.0 license. Hosted pilot: no real charges yet.</p>
     </div>
     <nav aria-label="Footer">
       <a href="../">Home</a>

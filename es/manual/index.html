@@ -142,6 +142,7 @@
 
   <h2 id="payments">Cobrar en tu cuenta de Stripe</h2>
   <p>Las ventas se cobran en tu propia cuenta de Stripe: el dinero va directo a ti y LicenRoute no lo recibe ni lo retiene.</p>
+  <p><strong>En el piloto este paso aún no está abierto:</strong> conectar Stripe y comprar llegan tras la revisión de seguridad. Mientras tanto, los compradores pueden probar tus APIs gratis.</p>
   <ol>
     <li>Ve a <strong>Cobros</strong> y pulsa <strong>Conectar mi cuenta de Stripe</strong>. Solo puede hacerlo la persona propietaria de la organización.</li>
     <li>Stripe te pide tus datos y los de tu banco. Si lo dejas a medias, vuelve y pulsa <strong>Continuar en Stripe</strong>.</li>
@@ -244,7 +245,7 @@
     <thead><tr><th scope="col">Botón</th><th scope="col">Qué pasa</th></tr></thead>
     <tbody>
       <tr><td><strong>Probar gratis</strong></td><td>Recibes al momento una clave con la cuota de prueba (por ejemplo 50 peticiones durante 7 días). Una prueba por plan y hasta 3 al día</td></tr>
-      <tr><td><strong>Comprar</strong></td><td>Vas a la página de pago de Stripe. Al pagar, vuelves a una página que te entrega la clave una sola vez</td></tr>
+      <tr><td><strong>Comprar</strong></td><td>Aún no está disponible en el piloto. Cuando lo esté, irás a la página de pago de Stripe y volverás a una página que te entrega la clave una sola vez</td></tr>
       <tr><td><strong>Solicitar acceso</strong></td><td>Para planes con aprobación: explicas para qué lo necesitas y el dueño decide. Si aprueba, pagas y recibes la clave</td></tr>
     </tbody>
   </table></div>
@@ -285,7 +286,7 @@
   <p>En Cursor se añade lo mismo en <code>.cursor/mcp.json</code>; el README del paquete trae el ejemplo.</p>
 
   <h2 id="faq">Preguntas frecuentes y límites actuales</h2>
-  <p><strong>¿Se cobra dinero real?</strong> No. Hoy todo funciona en modo de pruebas de Stripe: puedes pagar con tarjetas de prueba y no se mueve dinero.</p>
+  <p><strong>¿Se cobra dinero real?</strong> No. En el piloto puedes probar las APIs gratis; la compra sigue cerrada hasta la revisión de seguridad, y los pagos empezarán en modo de pruebas de Stripe.</p>
   <p><strong>¿Puedo usarlo ya con clientes de verdad?</strong> En piloto: el panel emite licencias reales y aplica las cuotas, y los compradores pueden probar APIs gratis. Cobrar dinero real llega tras la revisión de seguridad.</p>
   <p><strong>¿Qué pasa si LicenRoute no responde?</strong> Las rutas de pago de tu API devuelven 503 hasta que vuelve; las rutas públicas siguen funcionando.</p>
   <p><strong>He perdido mi clave.</strong> No se puede recuperar: solo se guarda un resumen cifrado. Pide al dueño que la revoque y consigue otra.</p>
@@ -297,7 +298,7 @@
   <div class="wrap">
     <div>
       <a class="brand" href="../"><img src="../../mark.svg" alt="" width="34" height="34">LicenRoute</a>
-      <p class="legal">El carril de pago de tu API. Licencia Apache-2.0. Versión preliminar en modo demo.</p>
+      <p class="legal">El carril de pago de tu API. Licencia Apache-2.0. Piloto alojado: aún sin cobros reales.</p>
     </div>
     <nav aria-label="Pie">
       <a href="../">Inicio</a>

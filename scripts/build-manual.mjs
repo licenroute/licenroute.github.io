@@ -28,7 +28,7 @@ const C = {
     lead: "Publish your API, charge for it in your own Stripe account, and let people and AI agents try and buy it.",
     note: "The panel (app.licenroute.com) and the Market are online in a pilot; payments run in Stripe test mode, with no real money. The screenshots come from a local demo with sample data, and the app's interface is in Spanish.",
     updated: "Updated", toc: "Contents", home: "Home", skip: "Skip to content", guides: "Guides", manual: "Manual",
-    legal: "The paid lane for your API. Apache-2.0 license. Developer preview in demo mode.", nav: "Main", footer: "Footer",
+    legal: "The paid lane for your API. Apache-2.0 license. Hosted pilot: no real charges yet.", nav: "Main", footer: "Footer",
     sections: [
       ["what", "What LicenRoute is", [
         P("LicenRoute lets you charge for your API without building billing: each buyer gets a key with its quota, and you get paid in your own Stripe account."),
@@ -63,6 +63,7 @@ const C = {
         P("The price buyers see is computed: quota × price. It is never typed by hand.")]],
       ["payments", "Getting paid in your Stripe account", [
         P("Sales are charged in your own Stripe account: the money goes straight to you, and LicenRoute never receives or holds it."),
+        P("**In the pilot this step is not open yet:** connecting Stripe and buying arrive after the security review. Until then buyers can try your APIs for free."),
         OL("Go to **Cobros** and press **Conectar mi cuenta de Stripe**. Only the organisation's owner can do it.", "Stripe asks for your details and your bank's. If you stop halfway, come back and press **Continuar en Stripe**.", "On your return the panel asks Stripe and shows the status. With **lista para cobrar** (ready to charge), your instant-purchase plans show the **Comprar** (Buy) button in the Market."),
         F(7, "Payments with a connected account, ready to charge."),
         T(["Status", "Meaning"],
@@ -95,7 +96,7 @@ const C = {
         P("Once signed in, each plan on the listing shows its buttons:"),
         T(["Button", "What happens"],
           ["**Probar gratis** (Try for free)", "You get a key at once with the trial quota (for example 50 requests for 7 days). One trial per plan, up to 3 a day"],
-          ["**Comprar** (Buy)", "You go to Stripe's payment page. After paying you come back to a page that hands you the key once"],
+          ["**Comprar** (Buy)", "Not available yet in the pilot. When it is, you will go to Stripe's payment page and come back to a page that hands you the key once"],
           ["**Solicitar acceso** (Request access)", "For plans with approval: you explain what you need it for and the owner decides. If approved, you pay and get the key"]),
         F(17, "Listing when signed in: Buy and Try for free buttons."), F(18, "Trial key (hidden in the screenshot)."),
         P("**Copy the key as soon as you see it**: it is not shown again, because LicenRoute only stores a hash of it. If you lose it, the owner can revoke it and you get another one."),
@@ -113,7 +114,7 @@ const C = {
         CODE("claude mcp add licenroute-market -e LICENROUTE_MARKET_URL=https://<your-market>/market -- node <path>/packages/market-mcp/bin/licenroute-market-mcp.mjs"),
         P("In Cursor, add the same to `.cursor/mcp.json`; the package README has the example.")]],
       ["faq", "Questions and current limits", [
-        P("**Is real money charged?** No. Everything runs in Stripe test mode today: you can pay with test cards and no money moves."),
+        P("**Is real money charged?** No. In the pilot you can try APIs for free; buying stays closed until the security review, and payments will start in Stripe test mode."),
         P("**Can I use it with real customers now?** In a pilot: the panel issues real licences and enforces quotas, and buyers can try APIs for free. Charging real money comes after the security review."),
         P("**What if LicenRoute does not answer?** Your API's paid routes return 503 until it is back; public routes keep working."),
         P("**I lost my key.** It cannot be recovered: only a hash is stored. Ask the owner to revoke it and get another one."),
@@ -128,7 +129,7 @@ const C = {
     lead: "Publica tu API, cobra por ella en tu propia cuenta de Stripe y deja que personas y agentes de IA la prueben y la compren.",
     note: "El panel (app.licenroute.com) y el Market ya están en línea en un piloto; los pagos funcionan en modo de pruebas de Stripe, sin dinero real. Los pantallazos son de una demostración local con datos de ejemplo.",
     updated: "Actualizado", toc: "Contenido", home: "Inicio", skip: "Saltar al contenido", guides: "Guías", manual: "Manual",
-    legal: "El carril de pago de tu API. Licencia Apache-2.0. Versión preliminar en modo demo.", nav: "Principal", footer: "Pie",
+    legal: "El carril de pago de tu API. Licencia Apache-2.0. Piloto alojado: aún sin cobros reales.", nav: "Principal", footer: "Pie",
     sections: [
       ["what", "Qué es LicenRoute", [
         P("LicenRoute te permite cobrar por tu API sin montar facturación: cada comprador recibe una clave con su cuota, y tú cobras en tu propia cuenta de Stripe."),
@@ -163,6 +164,7 @@ const C = {
         P("El precio que ve el comprador se calcula solo: cuota × precio. Nunca se escribe a mano.")]],
       ["payments", "Cobrar en tu cuenta de Stripe", [
         P("Las ventas se cobran en tu propia cuenta de Stripe: el dinero va directo a ti y LicenRoute no lo recibe ni lo retiene."),
+        P("**En el piloto este paso aún no está abierto:** conectar Stripe y comprar llegan tras la revisión de seguridad. Mientras tanto, los compradores pueden probar tus APIs gratis."),
         OL("Ve a **Cobros** y pulsa **Conectar mi cuenta de Stripe**. Solo puede hacerlo la persona propietaria de la organización.", "Stripe te pide tus datos y los de tu banco. Si lo dejas a medias, vuelve y pulsa **Continuar en Stripe**.", "Al volver, el panel consulta a Stripe y muestra el estado. Con **lista para cobrar**, tus planes de compra instantánea muestran el botón **Comprar** en el Market."),
         F(7, "Cobros con una cuenta conectada y lista para cobrar."),
         T(["Estado", "Qué significa"],
@@ -195,7 +197,7 @@ const C = {
         P("Con la sesión iniciada, cada plan de la ficha muestra sus botones:"),
         T(["Botón", "Qué pasa"],
           ["**Probar gratis**", "Recibes al momento una clave con la cuota de prueba (por ejemplo 50 peticiones durante 7 días). Una prueba por plan y hasta 3 al día"],
-          ["**Comprar**", "Vas a la página de pago de Stripe. Al pagar, vuelves a una página que te entrega la clave una sola vez"],
+          ["**Comprar**", "Aún no está disponible en el piloto. Cuando lo esté, irás a la página de pago de Stripe y volverás a una página que te entrega la clave una sola vez"],
           ["**Solicitar acceso**", "Para planes con aprobación: explicas para qué lo necesitas y el dueño decide. Si aprueba, pagas y recibes la clave"]),
         F(17, "Ficha con la sesión iniciada: botones Comprar y Probar gratis."), F(18, "Clave de prueba (oculta en el pantallazo)."),
         P("**Copia la clave en cuanto la veas**: no se vuelve a mostrar, porque LicenRoute solo guarda un resumen cifrado de ella. Si la pierdes, el dueño puede revocarla y tendrás que obtener otra."),
@@ -213,7 +215,7 @@ const C = {
         CODE("claude mcp add licenroute-market -e LICENROUTE_MARKET_URL=https://<tu-market>/market -- node <ruta>/packages/market-mcp/bin/licenroute-market-mcp.mjs"),
         P("En Cursor se añade lo mismo en `.cursor/mcp.json`; el README del paquete trae el ejemplo.")]],
       ["faq", "Preguntas frecuentes y límites actuales", [
-        P("**¿Se cobra dinero real?** No. Hoy todo funciona en modo de pruebas de Stripe: puedes pagar con tarjetas de prueba y no se mueve dinero."),
+        P("**¿Se cobra dinero real?** No. En el piloto puedes probar las APIs gratis; la compra sigue cerrada hasta la revisión de seguridad, y los pagos empezarán en modo de pruebas de Stripe."),
         P("**¿Puedo usarlo ya con clientes de verdad?** En piloto: el panel emite licencias reales y aplica las cuotas, y los compradores pueden probar APIs gratis. Cobrar dinero real llega tras la revisión de seguridad."),
         P("**¿Qué pasa si LicenRoute no responde?** Las rutas de pago de tu API devuelven 503 hasta que vuelve; las rutas públicas siguen funcionando."),
         P("**He perdido mi clave.** No se puede recuperar: solo se guarda un resumen cifrado. Pide al dueño que la revoque y consigue otra."),

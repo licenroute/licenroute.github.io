@@ -96,3 +96,11 @@ test("each page in its listing's language; two indexes that link to each other",
   assert.ok(readFileSync(join(dir, "llms.txt"), "utf8").includes("[Festivos ES](https://licenroute.com/apis/festivos-es/) (in Spanish)"));
   rmSync(dir, { recursive: true });
 });
+
+test("singular for one request served", () => {
+  const dir = site();
+  build({ catalog: catalog(listing("one-es", { served_last_30_days: 1 }), listing("one-en", { language: "en", served_last_30_days: 1 })), out: dir, date: "2026-11-22" });
+  assert.ok(readFileSync(join(dir, "apis/one-es/index.html"), "utf8").includes("1 petición servida en los últimos 30 días"));
+  assert.ok(readFileSync(join(dir, "apis/one-en/index.html"), "utf8").includes("1 request served in the last 30 days"));
+  rmSync(dir, { recursive: true });
+});

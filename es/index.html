@@ -36,7 +36,7 @@
     {"@type": "WebSite", "@id": "https://licenroute.com/#website", "url": "https://licenroute.com/", "name": "LicenRoute", "inLanguage": ["en", "es"]},
     {"@type": "Organization", "@id": "https://licenroute.com/#org", "name": "LicenRoute", "url": "https://licenroute.com/", "logo": "https://licenroute.com/favicon.svg", "sameAs": ["https://github.com/licenroute"]},
     {"@type": "SoftwareApplication", "name": "LicenRoute", "applicationCategory": "DeveloperApplication", "operatingSystem": "macOS, Linux", "softwareVersion": "0.3.2-preview",
-     "description": "Convierte en de pago rutas de una API Express: claves de acceso, límites de uso, revocación y una respuesta HTTP 402 «paga primero». Lo configura tu asistente de IA con la aprobación de una persona. Developer preview, solo modo demo.",
+     "description": "Convierte en de pago rutas de una API Express: claves de acceso, límites de uso, revocación y una respuesta HTTP 402 «paga primero». Lo configura tu asistente de IA con la aprobación de una persona. Versión preliminar con un piloto alojado en línea; pagos en modo de pruebas de Stripe, sin cobros reales.",
      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
      "license": "https://www.apache.org/licenses/LICENSE-2.0", "downloadUrl": "https://github.com/licenroute/licenroute/releases/tag/v0.3.2-preview",
      "publisher": {"@id": "https://licenroute.com/#org"}},
@@ -51,7 +51,7 @@
   "inLanguage": "es",
   "mainEntity": [
     {"@type": "Question", "name": "¿Cómo cobro por mi API si la hice con un asistente de IA?",
-     "acceptedAnswer": {"@type": "Answer", "text": "Si tu backend es una app Express, pega el prompt de LicenRoute en Claude Code o Cursor. El asistente propone qué rutas deberían ser de pago y te enseña el cambio exacto; tú lo apruebas tecleando un código corto en tu terminal. Desde entonces, quien llame sin una clave válida recibe «paga primero» (HTTP 402). En la preview actual todo funciona en local y no se cobra dinero real."}},
+     "acceptedAnswer": {"@type": "Answer", "text": "Si tu backend es una app Express, pega el prompt de LicenRoute en Claude Code o Cursor. El asistente propone qué rutas deberían ser de pago y te enseña el cambio exacto; tú lo apruebas tecleando un código corto en tu terminal. Desde entonces, quien llame sin una clave válida recibe «paga primero» (HTTP 402). Hay un piloto alojado en línea (panel y Market de APIs); los pagos siguen en modo de pruebas de Stripe, así que no se cobra dinero real."}},
     {"@type": "Question", "name": "¿Necesito entender el código?",
      "acceptedAnswer": {"@type": "Answer", "text": "No a fondo, pero tienes que leer el resumen del cambio y aprobarlo tú en tu terminal. Tu asistente puede explicarte cada paso."}},
     {"@type": "Question", "name": "¿Funciona con Next.js, Supabase o Python?",

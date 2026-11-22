@@ -19,8 +19,8 @@ export const STR = {
     locale: "en-US", skip: "Skip to content", home: "/", homeLabel: "LicenRoute home", nav: "Main", footer: "Footer",
     apis: "APIs", apisPath: "/apis/", manual: "Manual", manualPath: "/manual/", guides: "Guides", publish: "Publish your API",
     legal: "The paid lane for your API. Test-mode prices: no real money is charged.",
-    publishedBy: (p, n) => `Published by ${p} · ${n} requests served in the last 30 days`, example: "Example", request: "Request", response: "Response",
-    plans: "Plans", noPlans: "No plans available right now.", free: "Free", requests: (n) => `${n} requests`, days: (n) => `${n} days`,
+    publishedBy: (p, n, c) => `Published by ${p} · ${n} ${c === 1 ? "request" : "requests"} served in the last 30 days`, example: "Example", request: "Request", response: "Response",
+    plans: "Plans", noPlans: "No plans available right now.", free: "Free", requests: (n, c) => `${n} ${c === 1 ? "request" : "requests"}`, days: (n) => `${n} days`,
     trial: (n) => `free trial of ${n} requests`, ctaTrial: "Try it free", ctaBuy: "Buy", ctaRequest: "Request access",
     docs: "Documentation", status: "Service status", market: "Listing in the Market",
     testNote: "Test-mode prices: payment runs on Stripe in test mode and no real money is charged. You get the key when the payment completes or when you start the trial.",
@@ -32,8 +32,8 @@ export const STR = {
     locale: "es-ES", skip: "Saltar al contenido", home: "/es/", homeLabel: "LicenRoute, inicio", nav: "Principal", footer: "Pie",
     apis: "APIs", apisPath: "/es/apis/", manual: "Manual", manualPath: "/es/manual/", guides: "Guías", publish: "Publica tu API",
     legal: "El carril de pago de tu API. Precios en modo de pruebas: no se cobra dinero real.",
-    publishedBy: (p, n) => `Publicada por ${p} · ${n} peticiones servidas en los últimos 30 días`, example: "Ejemplo", request: "Petición", response: "Respuesta",
-    plans: "Planes", noPlans: "Sin planes disponibles ahora mismo.", free: "Sin coste", requests: (n) => `${n} peticiones`, days: (n) => `${n} días`,
+    publishedBy: (p, n, c) => `Publicada por ${p} · ${n} ${c === 1 ? "petición servida" : "peticiones servidas"} en los últimos 30 días`, example: "Ejemplo", request: "Petición", response: "Respuesta",
+    plans: "Planes", noPlans: "Sin planes disponibles ahora mismo.", free: "Sin coste", requests: (n, c) => `${n} ${c === 1 ? "petición" : "peticiones"}`, days: (n) => `${n} días`,
     trial: (n) => `prueba gratis de ${n} peticiones`, ctaTrial: "Probar gratis", ctaBuy: "Comprar", ctaRequest: "Solicitar acceso",
     docs: "Documentación", status: "Estado del servicio", market: "Ficha en el Market",
     testNote: "Precios en modo de pruebas: el pago se hace con Stripe en modo test y no se cobra dinero real. La clave llega al terminar el pago o al activar la prueba.",
@@ -136,7 +136,7 @@ export function apiPage(l) {
   const primary = plans.find((p) => p.trial_units != null) ?? plans.find((p) => p.access === "instant") ?? plans[0];
   const planHtml = plans.map((p) => {
     const price = money(p.price_minor, p.currency, t);
-    const facts = [p.quota_units != null ? t.requests(num(p.quota_units, t)) : null, p.duration_days ? t.days(p.duration_days) : null,
+    const facts = [p.quota_units != null ? t.requests(num(p.quota_units, t), p.quota_units) : null, p.duration_days ? t.days(p.duration_days) : null,
       p.trial_units != null ? t.trial(num(p.trial_units, t)) : null].filter(Boolean).join(" · ");
     const cta = p.trial_units != null ? t.ctaTrial : p.access === "instant" ? t.ctaBuy : t.ctaRequest;
     return `  <section class="plan" aria-labelledby="plan-${esc(p.id)}">
@@ -154,7 +154,7 @@ ${l.example.response ? `  <p class="meta">${esc(t.response)}</p>\n  <pre class="
   const body = `  <p class="meta"><a href="${t.apisPath}">${esc(t.apis)}</a> · ${esc(l.category)}</p>
   <h1>${esc(l.title)}</h1>
   <p class="lead">${esc(l.summary)}</p>
-  <p class="meta">${esc(t.publishedBy(l.publisher, num(l.served_last_30_days, t)))}</p>
+  <p class="meta">${esc(t.publishedBy(l.publisher, num(l.served_last_30_days, t), Number(l.served_last_30_days ?? 0)))}</p>
 ${l.description ? l.description.split(/\n{2,}/).map((para) => `  <p>${esc(para).replace(/\n/g, "<br>")}</p>`).join("\n") : ""}
 ${example}
   <h2>${esc(t.plans)}</h2>
