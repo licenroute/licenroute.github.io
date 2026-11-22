@@ -43,7 +43,7 @@
   <h1>Manual de usuario de LicenRoute</h1>
   <p class="lead">Publica tu API, cobra por ella en tu propia cuenta de Stripe y deja que personas y agentes de IA la prueben y la compren.</p>
   <p class="meta">Actualizado: 2026-11-22</p>
-  <p class="note">Los pantallazos son de una demostración local con datos de ejemplo. El panel y el Market aún no están en línea; los pagos funcionan en modo de pruebas de Stripe, sin dinero real.</p>
+  <p class="note">El panel (app.licenroute.com) y el Market ya están en línea en un piloto; los pagos funcionan en modo de pruebas de Stripe, sin dinero real. Los pantallazos son de una demostración local con datos de ejemplo.</p>
   <nav class="toc" aria-label="Contenido">
   <p class="meta">Contenido</p>
   <ol>
@@ -286,7 +286,7 @@
 
   <h2 id="faq">Preguntas frecuentes y límites actuales</h2>
   <p><strong>¿Se cobra dinero real?</strong> No. Hoy todo funciona en modo de pruebas de Stripe: puedes pagar con tarjetas de prueba y no se mueve dinero.</p>
-  <p><strong>¿Puedo usarlo ya con clientes de verdad?</strong> Todavía no. El panel y el Market funcionan en local; el servidor público es el siguiente paso.</p>
+  <p><strong>¿Puedo usarlo ya con clientes de verdad?</strong> En piloto: el panel emite licencias reales y aplica las cuotas, y los compradores pueden probar APIs gratis. Cobrar dinero real llega tras la revisión de seguridad.</p>
   <p><strong>¿Qué pasa si LicenRoute no responde?</strong> Las rutas de pago de tu API devuelven 503 hasta que vuelve; las rutas públicas siguen funcionando.</p>
   <p><strong>He perdido mi clave.</strong> No se puede recuperar: solo se guarda un resumen cifrado. Pide al dueño que la revoque y consigue otra.</p>
   <p><strong>¿Qué responde una ruta de pago?</strong> Sin clave, 402 con el plan y el enlace de compra. Con clave válida, 200. Con una clave inventada o revocada, 403. Con la cuota agotada, 402.</p>

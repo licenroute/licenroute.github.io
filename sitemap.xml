@@ -40,4 +40,58 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://licenroute.com/manual/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://licenroute.com/es/manual/"/>
   </url>
+  <!-- apis:start -->
+  <url>
+    <loc>https://licenroute.com/apis/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://licenroute.com/apis/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://licenroute.com/es/apis/"/>
+  </url>
+  <url>
+    <loc>https://licenroute.com/es/apis/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://licenroute.com/apis/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://licenroute.com/es/apis/"/>
+  </url>
+  <url>
+    <loc>https://licenroute.com/apis/finance-validation-api/</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://licenroute.com/apis/qr-code-api/</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://licenroute.com/apis/email-check-api/</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://licenroute.com/apis/phone-validation-api/</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://licenroute.com/apis/holidays-api/</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://licenroute.com/apis/municipios-es/</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://licenroute.com/apis/impuestos-es/</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://licenroute.com/apis/formatos-es/</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://licenroute.com/apis/festivos-es/</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://licenroute.com/apis/validaciones-es/</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <!-- apis:end -->
 </urlset>

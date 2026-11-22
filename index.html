@@ -49,13 +49,13 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type": "Question", "name": "How can I charge for my API if I built it with an AI assistant?",
-     "acceptedAnswer": {"@type": "Answer", "text": "If your backend is an Express app, paste the LicenRoute prompt into Claude Code or Cursor. The assistant proposes which routes should be paid and shows the exact change; you approve it by typing a short code in your terminal. Requests without a valid key then get a 'pay first' answer (HTTP 402). In the current preview everything runs locally and no real money is charged."}},
+     "acceptedAnswer": {"@type": "Answer", "text": "If your backend is an Express app, paste the LicenRoute prompt into Claude Code or Cursor. The assistant proposes which routes should be paid and shows the exact change; you approve it by typing a short code in your terminal. Requests without a valid key then get a 'pay first' answer (HTTP 402). A hosted pilot is online (panel and API Market); payments stay in Stripe test mode for now, so no real money is charged."}},
     {"@type": "Question", "name": "Do I need to understand the code?",
      "acceptedAnswer": {"@type": "Answer", "text": "No deep knowledge is needed, but you need to read the summary of the change and approve it yourself in your terminal. Your assistant can explain every step."}},
     {"@type": "Question", "name": "Does it work with Next.js, Supabase or Python?",
      "acceptedAnswer": {"@type": "Answer", "text": "Not yet. The preview works with Node.js apps built on Express 4 or 5."}},
     {"@type": "Question", "name": "Can I charge real money today?",
-     "acceptedAnswer": {"@type": "Answer", "text": "No. The preview runs in demo mode against a local simulator so you can test the whole flow. Real licences and payments need the hosted service, which is not open yet."}}
+     "acceptedAnswer": {"@type": "Answer", "text": "Not yet. The hosted pilot is online: a panel at app.licenroute.com issues real licences and enforces quotas, and the API Market lists APIs with a free trial. Payments stay in Stripe test mode until a security review, so no real money moves."}}
   ]
 }
 </script>
@@ -69,7 +69,8 @@
     <a class="brand" href="./" aria-label="LicenRoute home"><img src="mark.svg" alt="" width="34" height="34">LicenRoute</a>
     <nav class="top" aria-label="Main">
       <a class="opt" href="#how">How it works</a>
-      <a href="manual/">Manual</a>
+      <a href="apis/">APIs</a>
+      <a class="opt" href="manual/">Manual</a>
       <a class="opt" href="guides/">Guides</a>
       <a class="opt" href="https://github.com/licenroute/licenroute">GitHub</a>
       <a href="es/" hreflang="es" lang="es">Español</a>
@@ -89,7 +90,7 @@
           <button class="btn btn-primary" type="button" data-copy="prompt-text">Copy the prompt</button>
           <a class="btn btn-quiet" href="#how">See it step by step</a>
         </div>
-        <p class="note">Free and open source. Express apps only, and nothing is charged yet.</p>
+        <p class="note">Free and open source. Express apps only. Hosted pilot online; no real charges yet.</p>
       </div>
     </div>
     <div class="scene" role="img" aria-label="A request without a key is stopped at the LicenRoute gate with 402. A request with a valid key passes with 200 and uses one unit of quota. A fake key gets 403. When the package is used up, the answer is 402 again.">
@@ -232,21 +233,21 @@ HTTP/1.1 <span class="pay">402</span> Payment Required
     <h2 id="status-title" class="h-sec reveal">What works today</h2>
     <div class="index reveal">
       <div>
-        <h3>In the free preview</h3>
+        <h3>Available now</h3>
         <ul>
           <li>Express 4 and 5, JavaScript or TypeScript</li>
-          <li>Setup with Claude Code or Cursor</li>
-          <li>Tests on your own machine</li>
-          <li>Exact undo</li>
+          <li>Setup with Claude Code or Cursor, with exact undo</li>
+          <li>Hosted panel with real licences and quotas: <a href="https://app.licenroute.com/registration/new">create an account</a></li>
+          <li><a href="apis/">10 APIs with a free trial</a> in the Market</li>
           <li>English and Spanish</li>
         </ul>
       </div>
       <div class="no">
         <h3>Not yet</h3>
         <ul>
-          <li>Real payments (the hosted service isn’t open)</li>
+          <li>Real payments (Stripe test mode for now)</li>
           <li>Next.js, Supabase or Python</li>
-          <li>Production traffic</li>
+          <li>Uptime guarantees (it is a pilot)</li>
           <li>Windows</li>
         </ul>
         <p class="more"><a href="https://github.com/licenroute/licenroute/issues/new?title=I%20want%20to%20charge%20for%20my%20API&amp;body=What%20did%20you%20build%20(and%20with%20which%20tools%2Fframework)%3F%0AWhat%20would%20you%20charge%20for%3F%0AWho%20uses%20it%20(people%2C%20apps%2C%20AI%20agents)%3F">Tell us what you built</a></p>
@@ -261,7 +262,7 @@ HTTP/1.1 <span class="pay">402</span> Payment Required
     <div class="qa reveal">
       <div><h3>Do I need to understand the code?</h3><p>Not deeply. You read a short summary and approve it yourself, and your assistant can explain each step.</p></div>
       <div><h3>Will my login break?</h3><p>No. Login, health checks and sign-up are never made paid, and the tests check that free pages still work.</p></div>
-      <div><h3>Can I charge real money?</h3><p>Not yet. The preview runs locally so you can test the whole flow. Real payments need the hosted service.</p></div>
+      <div><h3>Can I charge real money?</h3><p>Not yet. The hosted pilot issues real licences and enforces quotas, but payments stay in Stripe test mode until a security review.</p></div>
     </div>
   </div>
 </section>
@@ -286,9 +287,11 @@ cd licenroute && npm ci --ignore-scripts && npm run build
   <div class="wrap">
     <div>
       <a class="brand" href="./"><img src="mark.svg" alt="" width="34" height="34">LicenRoute</a>
-      <p class="legal">The paid lane for your API. Apache-2.0 license. Developer preview in demo mode.</p>
+      <p class="legal">The paid lane for your API. Apache-2.0 license. Hosted pilot: no real charges yet.</p>
     </div>
     <nav aria-label="Footer">
+      <a href="apis/">APIs</a>
+      <a href="https://app.licenroute.com/session/new">Sign in</a>
       <a href="manual/">User manual</a>
       <a href="guides/">Guides</a>
       <a href="https://github.com/licenroute/licenroute">GitHub</a>

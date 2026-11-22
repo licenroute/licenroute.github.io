@@ -26,7 +26,7 @@ const C = {
     title: "User manual | LicenRoute", h1: "LicenRoute user manual",
     description: "How to publish and charge for your API with LicenRoute, and how buyers try and buy APIs in the Market. Step by step, with screenshots.",
     lead: "Publish your API, charge for it in your own Stripe account, and let people and AI agents try and buy it.",
-    note: "The screenshots come from a local demo with sample data, and the app's interface is in Spanish. The panel and the Market are not online yet; payments run in Stripe test mode, with no real money.",
+    note: "The panel (app.licenroute.com) and the Market are online in a pilot; payments run in Stripe test mode, with no real money. The screenshots come from a local demo with sample data, and the app's interface is in Spanish.",
     updated: "Updated", toc: "Contents", home: "Home", skip: "Skip to content", guides: "Guides", manual: "Manual",
     legal: "The paid lane for your API. Apache-2.0 license. Developer preview in demo mode.", nav: "Main", footer: "Footer",
     sections: [
@@ -114,7 +114,7 @@ const C = {
         P("In Cursor, add the same to `.cursor/mcp.json`; the package README has the example.")]],
       ["faq", "Questions and current limits", [
         P("**Is real money charged?** No. Everything runs in Stripe test mode today: you can pay with test cards and no money moves."),
-        P("**Can I use it with real customers now?** Not yet. The panel and the Market run locally; the public server is the next step."),
+        P("**Can I use it with real customers now?** In a pilot: the panel issues real licences and enforces quotas, and buyers can try APIs for free. Charging real money comes after the security review."),
         P("**What if LicenRoute does not answer?** Your API's paid routes return 503 until it is back; public routes keep working."),
         P("**I lost my key.** It cannot be recovered: only a hash is stored. Ask the owner to revoke it and get another one."),
         P("**What does a paid route answer?** No key: 402 with the plan and the purchase link. Valid key: 200. Invented or revoked key: 403. Quota used up: 402."),
@@ -126,7 +126,7 @@ const C = {
     title: "Manual de usuario | LicenRoute", h1: "Manual de usuario de LicenRoute",
     description: "Cómo publicar y cobrar por tu API con LicenRoute, y cómo los compradores prueban y compran APIs en el Market. Paso a paso, con pantallazos.",
     lead: "Publica tu API, cobra por ella en tu propia cuenta de Stripe y deja que personas y agentes de IA la prueben y la compren.",
-    note: "Los pantallazos son de una demostración local con datos de ejemplo. El panel y el Market aún no están en línea; los pagos funcionan en modo de pruebas de Stripe, sin dinero real.",
+    note: "El panel (app.licenroute.com) y el Market ya están en línea en un piloto; los pagos funcionan en modo de pruebas de Stripe, sin dinero real. Los pantallazos son de una demostración local con datos de ejemplo.",
     updated: "Actualizado", toc: "Contenido", home: "Inicio", skip: "Saltar al contenido", guides: "Guías", manual: "Manual",
     legal: "El carril de pago de tu API. Licencia Apache-2.0. Versión preliminar en modo demo.", nav: "Principal", footer: "Pie",
     sections: [
@@ -214,7 +214,7 @@ const C = {
         P("En Cursor se añade lo mismo en `.cursor/mcp.json`; el README del paquete trae el ejemplo.")]],
       ["faq", "Preguntas frecuentes y límites actuales", [
         P("**¿Se cobra dinero real?** No. Hoy todo funciona en modo de pruebas de Stripe: puedes pagar con tarjetas de prueba y no se mueve dinero."),
-        P("**¿Puedo usarlo ya con clientes de verdad?** Todavía no. El panel y el Market funcionan en local; el servidor público es el siguiente paso."),
+        P("**¿Puedo usarlo ya con clientes de verdad?** En piloto: el panel emite licencias reales y aplica las cuotas, y los compradores pueden probar APIs gratis. Cobrar dinero real llega tras la revisión de seguridad."),
         P("**¿Qué pasa si LicenRoute no responde?** Las rutas de pago de tu API devuelven 503 hasta que vuelve; las rutas públicas siguen funcionando."),
         P("**He perdido mi clave.** No se puede recuperar: solo se guarda un resumen cifrado. Pide al dueño que la revoque y consigue otra."),
         P("**¿Qué responde una ruta de pago?** Sin clave, 402 con el plan y el enlace de compra. Con clave válida, 200. Con una clave inventada o revocada, 403. Con la cuota agotada, 402."),

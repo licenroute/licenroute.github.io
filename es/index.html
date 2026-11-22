@@ -57,7 +57,7 @@
     {"@type": "Question", "name": "¿Funciona con Next.js, Supabase o Python?",
      "acceptedAnswer": {"@type": "Answer", "text": "Todavía no. La preview funciona con apps Node.js hechas con Express 4 o 5."}},
     {"@type": "Question", "name": "¿Puedo cobrar dinero real hoy?",
-     "acceptedAnswer": {"@type": "Answer", "text": "No. La preview funciona en modo demo contra un simulador local para que pruebes todo el flujo. Las licencias reales y los pagos necesitan el servicio alojado, que todavía no está abierto."}}
+     "acceptedAnswer": {"@type": "Answer", "text": "Todavía no. El piloto alojado ya está en línea: un panel en app.licenroute.com emite licencias reales y aplica las cuotas, y el Market lista APIs con prueba gratis. Los pagos siguen en modo de pruebas de Stripe hasta una revisión de seguridad, así que no se mueve dinero real."}}
   ]
 }
 </script>
@@ -71,7 +71,8 @@
     <a class="brand" href="./" aria-label="Inicio de LicenRoute"><img src="../mark.svg" alt="" width="34" height="34">LicenRoute</a>
     <nav class="top" aria-label="Principal">
       <a class="opt" href="#how">Cómo funciona</a>
-      <a href="manual/">Manual</a>
+      <a href="apis/">APIs</a>
+      <a class="opt" href="manual/">Manual</a>
       <a class="opt" href="../guides/" hreflang="en">Guías</a>
       <a class="opt" href="https://github.com/licenroute/licenroute">GitHub</a>
       <a href="../" hreflang="en" lang="en">English</a>
@@ -91,7 +92,7 @@
           <button class="btn btn-primary" type="button" data-copy="prompt-text" data-done="Copiado">Copiar el prompt</button>
           <a class="btn btn-quiet" href="#how">Verlo paso a paso</a>
         </div>
-        <p class="note">Gratis y de código abierto. Solo apps Express, y todavía no se cobra nada.</p>
+        <p class="note">Gratis y de código abierto. Solo apps Express. Piloto alojado en línea; aún sin cobros reales.</p>
       </div>
     </div>
     <div class="scene" data-path="/api/informes" role="img" aria-label="Una petición sin clave se detiene en la barrera de LicenRoute con un 402. Una petición con clave válida pasa con un 200 y gasta una unidad de cuota. Una clave falsa recibe un 403. Cuando se agota el paquete, la respuesta vuelve a ser 402.">
@@ -234,21 +235,21 @@ HTTP/1.1 <span class="pay">402</span> Payment Required
     <h2 id="status-title" class="h-sec reveal">Qué funciona hoy</h2>
     <div class="index reveal">
       <div>
-        <h3>En la preview gratuita</h3>
+        <h3>Ya disponible</h3>
         <ul>
           <li>Express 4 y 5, JavaScript o TypeScript</li>
-          <li>Configuración con Claude Code o Cursor</li>
-          <li>Pruebas en tu propio ordenador</li>
-          <li>Deshacer exacto</li>
+          <li>Configuración con Claude Code o Cursor, con deshacer exacto</li>
+          <li>Panel alojado con licencias y cuotas reales: <a href="https://app.licenroute.com/registration/new">crea una cuenta</a></li>
+          <li><a href="apis/">10 APIs con prueba gratis</a> en el Market</li>
           <li>Inglés y español</li>
         </ul>
       </div>
       <div class="no">
         <h3>Todavía no</h3>
         <ul>
-          <li>Pagos reales (el servicio alojado no está abierto)</li>
+          <li>Pagos reales (Stripe en modo de pruebas por ahora)</li>
           <li>Next.js, Supabase o Python</li>
-          <li>Tráfico de producción</li>
+          <li>Garantías de disponibilidad (es un piloto)</li>
           <li>Windows</li>
         </ul>
         <p class="more"><a href="https://github.com/licenroute/licenroute/issues/new?title=I%20want%20to%20charge%20for%20my%20API&amp;body=What%20did%20you%20build%20(and%20with%20which%20tools%2Fframework)%3F%0AWhat%20would%20you%20charge%20for%3F%0AWho%20uses%20it%20(people%2C%20apps%2C%20AI%20agents)%3F">Cuéntanos qué has construido</a></p>
@@ -263,7 +264,7 @@ HTTP/1.1 <span class="pay">402</span> Payment Required
     <div class="qa reveal">
       <div><h3>¿Necesito entender el código?</h3><p>No a fondo. Lees un resumen corto y lo apruebas tú, y tu asistente puede explicarte cada paso.</p></div>
       <div><h3>¿Se romperá mi login?</h3><p>No. El login, los health checks y el registro nunca se hacen de pago, y las pruebas comprueban que las páginas gratis siguen funcionando.</p></div>
-      <div><h3>¿Puedo cobrar dinero real?</h3><p>Todavía no. La preview funciona en local para que pruebes todo el flujo. Los pagos reales necesitan el servicio alojado.</p></div>
+      <div><h3>¿Puedo cobrar dinero real?</h3><p>Todavía no. El piloto alojado emite licencias reales y aplica las cuotas, pero los pagos siguen en modo de pruebas de Stripe hasta una revisión de seguridad.</p></div>
     </div>
   </div>
 </section>
@@ -288,9 +289,11 @@ cd licenroute && npm ci --ignore-scripts && npm run build
   <div class="wrap">
     <div>
       <a class="brand" href="./"><img src="../mark.svg" alt="" width="34" height="34">LicenRoute</a>
-      <p class="legal">El carril de pago para tu API. Licencia Apache-2.0. Developer preview en modo demo.</p>
+      <p class="legal">El carril de pago para tu API. Licencia Apache-2.0. Piloto alojado: aún sin cobros reales.</p>
     </div>
     <nav aria-label="Pie">
+      <a href="apis/">APIs</a>
+      <a href="https://app.licenroute.com/session/new">Entrar</a>
       <a href="manual/">Manual de usuario</a>
       <a href="../guides/" hreflang="en">Guías (en inglés)</a>
       <a href="https://github.com/licenroute/licenroute">GitHub</a>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impuestos ES: API | LicenRoute</title>
+<meta name="description" content="IVA, recargo de equivalencia y retención de IRPF de una factura, en céntimos exactos y con los tipos del BOE.">
+<link rel="canonical" href="https://licenroute.com/apis/impuestos-es/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f2a516">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Impuestos ES: API | LicenRoute">
+<meta property="og:description" content="IVA, recargo de equivalencia y retención de IRPF de una factura, en céntimos exactos y con los tipos del BOE.">
+<meta property="og:url" content="https://licenroute.com/apis/impuestos-es/">
+<meta property="og:image" content="https://licenroute.com/og.png">
+<meta property="og:site_name" content="LicenRoute">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/styles.css?v=202611221500">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebAPI","name":"Impuestos ES","description":"IVA, recargo de equivalencia y retención de IRPF de una factura, en céntimos exactos y con los tipos del BOE.","url":"https://licenroute.com/apis/impuestos-es/","inLanguage":"es","documentation":"https://impuestos.api.licenroute.com/openapi.json","provider":{"@type":"Organization","name":"LicenRoute"},"offers":[{"@type":"Offer","name":"Básico","price":"30.00","priceCurrency":"EUR","url":"https://app.licenroute.com/market/r/lst_tHCvj2Mw16VO7lUK#plan-plan_P6eFzk4dRK1uxeR4"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/es/" aria-label="LicenRoute, inicio"><img src="/mark.svg" alt="" width="34" height="34">LicenRoute</a>
+    <nav class="top" aria-label="Principal">
+      <a href="/es/apis/">APIs</a>
+      <a class="opt" href="/es/manual/">Manual</a>
+      <a class="opt" href="https://github.com/licenroute/licenroute">GitHub</a>
+      <a href="/apis/" hreflang="en" lang="en">English</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="prose">
+  <p class="meta"><a href="/es/apis/">APIs</a> · api</p>
+  <h1>Impuestos ES</h1>
+  <p class="lead">IVA, recargo de equivalencia y retención de IRPF de una factura, en céntimos exactos y con los tipos del BOE.</p>
+  <p class="meta">Publicada por LicenRoute · 0 peticiones servidas en los últimos 30 días</p>
+
+  <h2>Ejemplo</h2>
+  <p class="meta">Petición</p>
+  <pre class="block">GET /v1/tax/invoice/1000?iva=21&amp;irpf=15
+Authorization: Bearer bgat_…</pre>
+  <p class="meta">Respuesta</p>
+  <pre class="block">{&quot;base&quot;:1000,&quot;iva&quot;:210,&quot;irpf&quot;:-150,&quot;total&quot;:1060}</pre>
+  <h2>Planes</h2>
+  <section class="plan" aria-labelledby="plan-plan_P6eFzk4dRK1uxeR4">
+    <h3 id="plan-plan_P6eFzk4dRK1uxeR4">Básico</h3>
+    <p><strong>30,00 €</strong> · 10.000 peticiones · 30 días · prueba gratis de 50 peticiones</p>
+    <p><a class="btn btn-primary" href="https://app.licenroute.com/market/r/lst_tHCvj2Mw16VO7lUK#plan-plan_P6eFzk4dRK1uxeR4" rel="nofollow">Probar gratis</a></p>
+  </section>
+  <p class="meta"><a href="https://impuestos.api.licenroute.com/openapi.json" rel="nofollow noopener">Documentación</a> · <a href="https://app.licenroute.com/market/r/lst_tHCvj2Mw16VO7lUK" rel="nofollow">Ficha en el Market</a></p>
+  <p class="meta">Precios en modo de pruebas: el pago se hace con Stripe en modo test y no se cobra dinero real. La clave llega al terminar el pago o al activar la prueba.</p>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="/es/"><img src="/mark.svg" alt="" width="34" height="34">LicenRoute</a>
+      <p class="legal">El carril de pago de tu API. Precios en modo de pruebas: no se cobra dinero real.</p>
+    </div>
+    <nav aria-label="Pie">
+      <a href="/es/apis/">APIs</a>
+      <a href="/es/">Publica tu API</a>
+      <a href="/es/manual/">Manual</a>
+      <a href="/llms.txt">llms.txt</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

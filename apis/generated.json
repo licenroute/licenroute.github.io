@@ -1,0 +1,16 @@
+{
+  "generated_by": "scripts/build-apis.mjs",
+  "date": "2026-11-22",
+  "slugs": [
+    "finance-validation-api",
+    "qr-code-api",
+    "email-check-api",
+    "phone-validation-api",
+    "holidays-api",
+    "municipios-es",
+    "impuestos-es",
+    "formatos-es",
+    "festivos-es",
+    "validaciones-es"
+  ]
+}

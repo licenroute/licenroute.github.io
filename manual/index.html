@@ -43,7 +43,7 @@
   <h1>LicenRoute user manual</h1>
   <p class="lead">Publish your API, charge for it in your own Stripe account, and let people and AI agents try and buy it.</p>
   <p class="meta">Updated: 2026-11-22</p>
-  <p class="note">The screenshots come from a local demo with sample data, and the app's interface is in Spanish. The panel and the Market are not online yet; payments run in Stripe test mode, with no real money.</p>
+  <p class="note">The panel (app.licenroute.com) and the Market are online in a pilot; payments run in Stripe test mode, with no real money. The screenshots come from a local demo with sample data, and the app's interface is in Spanish.</p>
   <nav class="toc" aria-label="Contents">
   <p class="meta">Contents</p>
   <ol>
@@ -286,7 +286,7 @@
 
   <h2 id="faq">Questions and current limits</h2>
   <p><strong>Is real money charged?</strong> No. Everything runs in Stripe test mode today: you can pay with test cards and no money moves.</p>
-  <p><strong>Can I use it with real customers now?</strong> Not yet. The panel and the Market run locally; the public server is the next step.</p>
+  <p><strong>Can I use it with real customers now?</strong> In a pilot: the panel issues real licences and enforces quotas, and buyers can try APIs for free. Charging real money comes after the security review.</p>
   <p><strong>What if LicenRoute does not answer?</strong> Your API's paid routes return 503 until it is back; public routes keep working.</p>
   <p><strong>I lost my key.</strong> It cannot be recovered: only a hash is stored. Ask the owner to revoke it and get another one.</p>
   <p><strong>What does a paid route answer?</strong> No key: 402 with the plan and the purchase link. Valid key: 200. Invented or revoked key: 403. Quota used up: 402.</p>
