@@ -18,12 +18,12 @@ export const STR = {
   en: {
     locale: "en-US", skip: "Skip to content", home: "/", homeLabel: "LicenRoute home", nav: "Main", footer: "Footer",
     apis: "APIs", apisPath: "/apis/", manual: "Manual", manualPath: "/manual/", guides: "Guides", publish: "Publish your API",
-    legal: "The paid lane for your API. Test-mode prices: no real money is charged.",
+    legal: "The paid lane for your API. Hosted pilot: real payments by Bizum or bank transfer.",
     publishedBy: (p, n, c) => `Published by ${p} · ${n} ${c === 1 ? "request" : "requests"} served in the last 30 days`, example: "Example", request: "Request", response: "Response",
     plans: "Plans", noPlans: "No plans available right now.", free: "Free", requests: (n, c) => `${n} ${c === 1 ? "request" : "requests"}`, days: (n) => `${n} days`,
     trial: (n) => `free trial of ${n} requests`, ctaTrial: "Try it free", ctaBuy: "Buy", ctaRequest: "Request access",
     docs: "Documentation", status: "Service status", market: "Listing in the Market",
-    testNote: "Test-mode prices: payment runs on Stripe in test mode and no real money is charged. You get the key when the payment completes or when you start the trial.",
+    testNote: "Real prices. During the pilot you pay by Bizum or bank transfer: request the pack, get the payment details by email, and collect your key once the payment arrives. Or start the free trial right away.",
     indexTitle: "APIs with a free trial", indexLead: "APIs you can try for free and buy in a minute. Each one charges with LicenRoute; the money goes straight to whoever publishes it.",
     indexDescription: "APIs you can try for free and buy in a minute, published in the LicenRoute Market.", empty: "APIs coming soon.", other: "en español",
     switchLabel: "Español", switchPath: "/es/apis/", switchLang: "es"
@@ -31,12 +31,12 @@ export const STR = {
   es: {
     locale: "es-ES", skip: "Saltar al contenido", home: "/es/", homeLabel: "LicenRoute, inicio", nav: "Principal", footer: "Pie",
     apis: "APIs", apisPath: "/es/apis/", manual: "Manual", manualPath: "/es/manual/", guides: "Guías", publish: "Publica tu API",
-    legal: "El carril de pago de tu API. Precios en modo de pruebas: no se cobra dinero real.",
+    legal: "El carril de pago de tu API. Piloto alojado: cobros reales por Bizum o transferencia.",
     publishedBy: (p, n, c) => `Publicada por ${p} · ${n} ${c === 1 ? "petición servida" : "peticiones servidas"} en los últimos 30 días`, example: "Ejemplo", request: "Petición", response: "Respuesta",
     plans: "Planes", noPlans: "Sin planes disponibles ahora mismo.", free: "Sin coste", requests: (n, c) => `${n} ${c === 1 ? "petición" : "peticiones"}`, days: (n) => `${n} días`,
     trial: (n) => `prueba gratis de ${n} peticiones`, ctaTrial: "Probar gratis", ctaBuy: "Comprar", ctaRequest: "Solicitar acceso",
     docs: "Documentación", status: "Estado del servicio", market: "Ficha en el Market",
-    testNote: "Precios en modo de pruebas: el pago se hace con Stripe en modo test y no se cobra dinero real. La clave llega al terminar el pago o al activar la prueba.",
+    testNote: "Precios reales. Durante el piloto pagas por Bizum o transferencia: solicitas el pack, recibes los datos de pago por correo y recoges tu clave cuando llega el pago. O empieza ya la prueba gratis.",
     indexTitle: "APIs con prueba gratis", indexLead: "APIs que puedes probar gratis y comprar en un minuto. Cada una cobra con LicenRoute; el dinero va directo a quien la publica.",
     indexDescription: "APIs que puedes probar gratis y comprar en un minuto, publicadas en el Market de LicenRoute.", empty: "Pronto habrá APIs aquí.", other: "in English",
     switchLabel: "English", switchPath: "/apis/", switchLang: "en"
@@ -225,7 +225,7 @@ export function build({ catalog, out, date, allowHttp = false }) {
   }
   const llmsPath = join(out, "llms.txt");
   if (existsSync(llmsPath)) {
-    const lines = ["## APIs in the LicenRoute Market", "", "APIs that can be tried for free and bought in a minute (test mode prices). Index: https://licenroute.com/apis/ (Spanish: /es/apis/). Machine-readable catalogue: the Market's /market/catalog.json; MCP server: packages/market-mcp in the repository.", "",
+    const lines = ["## APIs in the LicenRoute Market", "", "APIs with a free trial; packs are paid by Bizum or bank transfer, coordinated by email. Index: https://licenroute.com/apis/ (Spanish: /es/apis/). Machine-readable catalogue: the Market's /market/catalog.json; MCP server: packages/market-mcp in the repository.", "",
       ...listings.map((l) => `- [${l.title}](${SITE}/apis/${l.slug}/)${langOf(l) === "es" ? " (in Spanish)" : ""}: ${l.summary}`)].join("\n");
     writeFileSync(llmsPath, replaceBlock(readFileSync(llmsPath, "utf8"), "<!-- apis:start -->", "<!-- apis:end -->", lines));
   }

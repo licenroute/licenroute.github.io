@@ -13,12 +13,12 @@ const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "
 
 const C = {
   es: { home: "/es/", index: "/es/herramientas/", indexName: "Herramientas", apis: "/es/apis/", fest: "/es/festivos/", festName: "Festivos", nav: "Principal", footer: "Pie", skip: "Saltar al contenido",
-    legal: "El carril de pago de tu API. Piloto alojado: aún sin cobros reales.", publish: "Publica tu API",
+    legal: "El carril de pago de tu API. Piloto alojado: cobros reales por Bizum o transferencia.", publish: "Publica tu API",
     privacy: "Se calcula en tu navegador con el mismo código que la API: lo que escribes no se envía a ningún sitio.",
     noscript: "Esta herramienta necesita JavaScript.", ctaBtn: "Pruébala gratis: 100 peticiones", other: "In English",
     indexTitle: "Herramientas gratis para facturas y datos de España", indexLead: "Calculadora de IVA e IRPF, importes en letras y validador de NIF, NIE, CIF e IBAN. Gratis, sin registro y sin enviar tus datos." },
   en: { home: "/", index: "/tools/", indexName: "Tools", apis: "/apis/", fest: "/holidays/", festName: "Public holidays", nav: "Main", footer: "Footer", skip: "Skip to content",
-    legal: "The paid lane for your API. Hosted pilot: no real charges yet.", publish: "Publish your API",
+    legal: "The paid lane for your API. Hosted pilot: real payments by Bizum or bank transfer.", publish: "Publish your API",
     privacy: "Calculated in your browser with the same code as the API: nothing you type is sent anywhere.",
     noscript: "This tool needs JavaScript.", ctaBtn: "Try it free: 100 requests", other: "En español",
     indexTitle: "Free tools for Spanish invoices and IDs", indexLead: "Spain IVA and IRPF calculator, amounts in Spanish words, and NIF, NIE, CIF and IBAN validator. Free, no sign-up, nothing sent anywhere." }

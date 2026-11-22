@@ -43,7 +43,7 @@
   <h1>LicenRoute user manual</h1>
   <p class="lead">Publish your API, charge for it in your own Stripe account, and let people and AI agents try and buy it.</p>
   <p class="meta">Updated: 2026-11-22</p>
-  <p class="note">The panel (app.licenroute.com) and the Market are online in a pilot; payments run in Stripe test mode, with no real money. The screenshots come from a local demo with sample data, and the app's interface is in Spanish.</p>
+  <p class="note">The panel (app.licenroute.com) and the Market are online in a pilot; purchases are paid by Bizum or bank transfer, coordinated by email (card payments with Stripe come after a security review). The screenshots come from a local demo with sample data, and the app's interface is in Spanish.</p>
   <nav class="toc" aria-label="Contents">
   <p class="meta">Contents</p>
   <ol>
@@ -282,12 +282,12 @@
     </tbody>
   </table></div>
   <p>To connect it in Claude Code:</p>
-  <pre class="block">claude mcp add licenroute-market -e LICENROUTE_MARKET_URL=https://&lt;your-market&gt;/market -- node &lt;path&gt;/packages/market-mcp/bin/licenroute-market-mcp.mjs</pre>
-  <p>In Cursor, add the same to <code>.cursor/mcp.json</code>; the package README has the example.</p>
+  <pre class="block">claude mcp add licenroute-market -- npx -y @licenroute/market-mcp</pre>
+  <p>In Cursor, add the same to <code>.cursor/mcp.json</code>; details at https://licenroute.com/mcp/.</p>
 
   <h2 id="faq">Questions and current limits</h2>
-  <p><strong>Is real money charged?</strong> No. In the pilot you can try APIs for free; buying stays closed until the security review, and payments will start in Stripe test mode.</p>
-  <p><strong>Can I use it with real customers now?</strong> In a pilot: the panel issues real licences and enforces quotas, and buyers can try APIs for free. Charging real money comes after the security review.</p>
+  <p><strong>Is real money charged?</strong> Yes, since 22 November 2026: the buyer requests a pack and pays by Bizum or bank transfer, coordinated by email; the seller registers the payment and the buyer collects the key. Card payments with Stripe come after the security review.</p>
+  <p><strong>Can I use it with real customers now?</strong> In a pilot: the panel issues real licences and enforces quotas, and buyers can try APIs for free. Sellers can charge by Bizum or bank transfer (Panel → Cobros); card payments come after the security review.</p>
   <p><strong>What if LicenRoute does not answer?</strong> Your API's paid routes return 503 until it is back; public routes keep working.</p>
   <p><strong>I lost my key.</strong> It cannot be recovered: only a hash is stored. Ask the owner to revoke it and get another one.</p>
   <p><strong>What does a paid route answer?</strong> No key: 402 with the plan and the purchase link. Valid key: 200. Invented or revoked key: 403. Quota used up: 402.</p>
@@ -298,7 +298,7 @@
   <div class="wrap">
     <div>
       <a class="brand" href="../"><img src="../mark.svg" alt="" width="34" height="34">LicenRoute</a>
-      <p class="legal">The paid lane for your API. Apache-2.0 license. Hosted pilot: no real charges yet.</p>
+      <p class="legal">The paid lane for your API. Apache-2.0 license. Hosted pilot: real payments by Bizum or bank transfer.</p>
     </div>
     <nav aria-label="Footer">
       <a href="../">Home</a>

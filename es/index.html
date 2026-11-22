@@ -36,7 +36,7 @@
     {"@type": "WebSite", "@id": "https://licenroute.com/#website", "url": "https://licenroute.com/", "name": "LicenRoute", "inLanguage": ["en", "es"]},
     {"@type": "Organization", "@id": "https://licenroute.com/#org", "name": "LicenRoute", "url": "https://licenroute.com/", "logo": "https://licenroute.com/favicon.svg", "sameAs": ["https://github.com/licenroute"]},
     {"@type": "SoftwareApplication", "name": "LicenRoute", "applicationCategory": "DeveloperApplication", "operatingSystem": "macOS, Linux", "softwareVersion": "0.3.4-preview",
-     "description": "Convierte en de pago rutas de una API Express: claves de acceso, límites de uso, revocación y una respuesta HTTP 402 «paga primero». Lo configura tu asistente de IA con la aprobación de una persona. Versión preliminar con un piloto alojado en línea; pagos en modo de pruebas de Stripe, sin cobros reales.",
+     "description": "Convierte en de pago rutas de una API Express: claves de acceso, límites de uso, revocación y una respuesta HTTP 402 «paga primero». Lo configura tu asistente de IA con la aprobación de una persona. Versión preliminar con un piloto alojado en línea; cobros reales por Bizum o transferencia, coordinados por correo.",
      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
      "license": "https://www.apache.org/licenses/LICENSE-2.0", "downloadUrl": "https://github.com/licenroute/licenroute/releases/tag/v0.3.4-preview",
      "publisher": {"@id": "https://licenroute.com/#org"}},
@@ -51,13 +51,13 @@
   "inLanguage": "es",
   "mainEntity": [
     {"@type": "Question", "name": "¿Cómo cobro por mi API si la hice con un asistente de IA?",
-     "acceptedAnswer": {"@type": "Answer", "text": "Si tu backend es una app Express, pega el prompt de LicenRoute en Claude Code o Cursor. El asistente propone qué rutas deberían ser de pago y te enseña el cambio exacto; tú lo apruebas tecleando un código corto en tu terminal. Desde entonces, quien llame sin una clave válida recibe «paga primero» (HTTP 402). Hay un piloto alojado en línea (panel y Market de APIs); los pagos siguen en modo de pruebas de Stripe, así que no se cobra dinero real."}},
+     "acceptedAnswer": {"@type": "Answer", "text": "Si tu backend es una app Express, pega el prompt de LicenRoute en Claude Code o Cursor. El asistente propone qué rutas deberían ser de pago y te enseña el cambio exacto; tú lo apruebas tecleando un código corto en tu terminal. Desde entonces, quien llame sin una clave válida recibe «paga primero» (HTTP 402). Hay un piloto alojado en línea (panel y Market de APIs); los vendedores cobran por Bizum o transferencia, coordinados por correo, y el pago con tarjeta llegará tras una revisión de seguridad."}},
     {"@type": "Question", "name": "¿Necesito entender el código?",
      "acceptedAnswer": {"@type": "Answer", "text": "No a fondo, pero tienes que leer el resumen del cambio y aprobarlo tú en tu terminal. Tu asistente puede explicarte cada paso."}},
     {"@type": "Question", "name": "¿Funciona con Next.js, Supabase o Python?",
      "acceptedAnswer": {"@type": "Answer", "text": "Todavía no. La preview funciona con apps Node.js hechas con Express 4 o 5."}},
     {"@type": "Question", "name": "¿Puedo cobrar dinero real hoy?",
-     "acceptedAnswer": {"@type": "Answer", "text": "Todavía no. El piloto alojado ya está en línea: un panel en app.licenroute.com emite licencias reales y aplica las cuotas, y el Market lista APIs con prueba gratis. Los pagos siguen en modo de pruebas de Stripe hasta una revisión de seguridad, así que no se mueve dinero real."}}
+     "acceptedAnswer": {"@type": "Answer", "text": "Sí. El piloto alojado ya está en línea: un panel en app.licenroute.com emite licencias reales y aplica las cuotas, y el Market lista APIs con prueba gratis. Los compradores pagan por Bizum o transferencia, coordinados por correo; registras cada cobro y el comprador recoge su clave. El pago con tarjeta mediante Stripe llegará tras una revisión de seguridad."}}
   ]
 }
 </script>
@@ -92,7 +92,7 @@
           <button class="btn btn-primary" type="button" data-copy="prompt-text" data-done="Copiado">Copiar el prompt</button>
           <a class="btn btn-quiet" href="#how">Verlo paso a paso</a>
         </div>
-        <p class="note">Gratis y de código abierto. Solo apps Express. Piloto alojado en línea; aún sin cobros reales.</p>
+        <p class="note">Gratis y de código abierto. Solo apps Express. Piloto alojado en línea; cobra por Bizum o transferencia desde hoy.</p>
       </div>
     </div>
     <div class="scene" data-path="/api/informes" role="img" aria-label="Una petición sin clave se detiene en la barrera de LicenRoute con un 402. Una petición con clave válida pasa con un 200 y gasta una unidad de cuota. Una clave falsa recibe un 403. Cuando se agota el paquete, la respuesta vuelve a ser 402.">
@@ -268,7 +268,7 @@ HTTP/1.1 <span class="pay">402</span> Payment Required
       <div class="no">
         <h3>Todavía no</h3>
         <ul>
-          <li>Pagos reales (Stripe en modo de pruebas por ahora)</li>
+          <li>Pago con tarjeta (Stripe, tras una revisión de seguridad)</li>
           <li>Next.js, Supabase o Python</li>
           <li>Garantías de disponibilidad (es un piloto)</li>
           <li>Windows</li>
@@ -285,7 +285,7 @@ HTTP/1.1 <span class="pay">402</span> Payment Required
     <div class="qa reveal">
       <div><h3>¿Necesito entender el código?</h3><p>No a fondo. Lees un resumen corto y lo apruebas tú, y tu asistente puede explicarte cada paso.</p></div>
       <div><h3>¿Se romperá mi login?</h3><p>No. El login, los health checks y el registro nunca se hacen de pago, y las pruebas comprueban que las páginas gratis siguen funcionando.</p></div>
-      <div><h3>¿Puedo cobrar dinero real?</h3><p>Todavía no. El piloto alojado emite licencias reales y aplica las cuotas, pero los pagos siguen en modo de pruebas de Stripe hasta una revisión de seguridad.</p></div>
+      <div><h3>¿Puedo cobrar dinero real?</h3><p>Sí, por Bizum o transferencia: el comprador solicita un pack, le envías tus datos de pago, registras el cobro y recoge su clave. El pago con tarjeta llegará tras una revisión de seguridad. <a href="vender/">Cómo funciona vender</a>.</p></div>
     </div>
   </div>
 </section>
@@ -313,13 +313,14 @@ npm install @licenroute/connect-express</pre>
   <div class="wrap">
     <div>
       <a class="brand" href="./"><img src="../mark.svg" alt="" width="34" height="34">LicenRoute</a>
-      <p class="legal">El carril de pago para tu API. Licencia Apache-2.0. Piloto alojado: aún sin cobros reales.</p>
+      <p class="legal">El carril de pago para tu API. Licencia Apache-2.0. Piloto alojado: cobros reales por Bizum o transferencia.</p>
     </div>
     <nav aria-label="Pie">
       <a href="apis/">APIs</a>
       <a href="festivos/">Festivos</a>
       <a href="herramientas/">Herramientas gratis</a>
       <a href="mcp/">Servidor MCP</a>
+      <a href="vender/">Vende tu API</a>
       <a href="https://app.licenroute.com/session/new">Entrar</a>
       <a href="manual/">Manual de usuario</a>
       <a href="../guides/" hreflang="en">Guías (en inglés)</a>

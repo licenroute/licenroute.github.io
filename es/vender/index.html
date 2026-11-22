@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cobra a los usuarios que ya tienes | LicenRoute</title>
+<meta name="description" content="Tu API ya tiene usuarios. Añade claves, packs de uso, prueba gratis y una respuesta «paga primero» a tu API Express en minutos, y cobra por Bizum o transferencia desde hoy.">
+<link rel="canonical" href="https://licenroute.com/es/vender/">
+<link rel="alternate" hreflang="en" href="https://licenroute.com/sell/">
+<link rel="alternate" hreflang="es" href="https://licenroute.com/es/vender/">
+<link rel="alternate" hreflang="x-default" href="https://licenroute.com/sell/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f2a516">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cobra a los usuarios que ya tienes">
+<meta property="og:description" content="Tu API ya tiene usuarios. Añade claves, packs de uso, prueba gratis y una respuesta «paga primero» a tu API Express en minutos, y cobra por Bizum o transferencia desde hoy.">
+<meta property="og:url" content="https://licenroute.com/es/vender/">
+<meta property="og:image" content="https://licenroute.com/og.png">
+<meta property="og:site_name" content="LicenRoute">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../styles.css?v=202611222300">
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Necesito el Market?", "acceptedAnswer": {"@type": "Answer", "text": "No. LicenRoute sirve para cobrar a los usuarios que ya tienes. El Market es un escaparate extra y opcional."}}, {"@type": "Question", "name": "¿Mi tráfico pasa por LicenRoute?", "acceptedAnswer": {"@type": "Answer", "text": "No. Tus respuestas nunca pasan por LicenRoute: el middleware solo pregunta si una clave es válida y cuenta una unidad de uso."}}, {"@type": "Question", "name": "¿Y si quiero irme?", "acceptedAnswer": {"@type": "Answer", "text": "Ejecuta licenroute undo: tu código vuelve exactamente a como estaba. La CLI y el middleware son de código abierto (Apache-2.0)."}}, {"@type": "Question", "name": "¿Cuánto cuesta?", "acceptedAnswer": {"@type": "Answer", "text": "Las herramientas son gratis. El piloto alojado no cobra comisión a los vendedores por ahora; avisaremos con antelación de cualquier tarifa."}}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="LicenRoute"><img src="../../mark.svg" alt="" width="34" height="34">LicenRoute</a>
+    <nav class="top" aria-label="Main">
+      <a class="opt" href="#how">Cómo funciona</a>
+      <a class="opt" href="#faq">Preguntas</a>
+      <a href="../../sell/" hreflang="en" lang="en">English</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero2" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="top">
+      <h1 id="hero-title" class="h-hero">Cobra a los usuarios que ya tienes.</h1>
+      <div>
+        <p class="lede">Tu API es útil y ya la usan gratis. LicenRoute pone un carril de pago delante de las rutas que elijas, sin tocar las gratuitas.</p>
+        <div class="ctas">
+      <button class="btn btn-primary" type="button" data-copy="prompt-text" data-done="Copiado">Copiar el prompt</button>
+      <a class="btn btn-quiet" href="https://app.licenroute.com/registration/new">Crear una cuenta</a>
+    </div>
+        <p class="note">Gratis y de código abierto. Express 4/5 con Node.js 22.13+. No necesitas el Market.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band g1" aria-labelledby="who-title">
+  <div class="wrap">
+    <h2 id="who-title" class="h-sec reveal">¿Es para ti?</h2>
+    <div class="index reveal"><div><ul><li>Hiciste una API (a mano o con Claude Code o Cursor) y personas, apps o agentes de IA ya la usan.</li><li>La regalas porque montar claves, cuotas y cobro es una semana de trabajo aburrido.</li><li>Quieres cobrar por la parte valiosa y dejar gratis el resto.</li></ul></div></div>
+  </div>
+</section>
+
+<section class="sec g3" id="how" aria-labelledby="how-title">
+  <div class="wrap">
+    <h2 id="how-title" class="h-sec reveal">En marcha esta semana, en cuatro pasos</h2>
+    <div class="index reveal"><div><h3>1 · Pega el prompt</h3><p>Tu asistente lee tu código y propone qué rutas cobrar. El login, las comprobaciones de salud y las escrituras se quedan gratis.</p></div><div><h3>2 · Apruebas tú el cambio</h3><p>Ves el diff exacto y tecleas un código de un solo uso en tu propio terminal. Tu asistente nunca puede aprobar su cambio, y <code>licenroute undo</code> deja tu código exactamente como estaba.</p></div><div><h3>3 · Pruébalo con dinero de mentira</h3><p>Un simulador local responde como el servicio real: <code>licenroute test</code> comprueba el 402 sin clave, el 200 con clave, las cuotas, la revocación y que las rutas gratis siguen funcionando.</p></div><div><h3>4 · Actívalo</h3><p>Crea una cuenta, define tus packs (por ejemplo, 10.000 peticiones durante 30 días) y una prueba gratis, y entrega claves a tus clientes. Publica la API en el Market si quieres más compradores.</p></div></div>
+    <div class="prompt" style="margin-top:48px;max-width:640px">
+            <p class="prompt-head">Pega esto en Claude Code o Cursor</p>
+<pre id="prompt-text">Añade acceso de pago a mi API Express con LicenRoute.
+Lee primero licenroute.com/llms.txt y sigue sus reglas.
+Propón qué rutas deberían ser de pago y cuáles gratis.
+Enséñame el cambio exacto. Lo apruebo yo en mi terminal.
+Ejecuta las pruebas de LicenRoute y explícame los resultados.</pre>
+            <div class="prompt-actions"><button class="btn btn-quiet" type="button" data-copy="prompt-text" data-done="Copiado">Copiar el prompt</button></div>
+          </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="get-title">
+  <div class="wrap">
+    <h2 id="get-title" class="h-sec reveal">Lo que consigues</h2>
+    <div class="qa reveal"><div><h3>Claves por cliente</h3><p>Revocables con un clic, sin volver a desplegar.</p></div><div><h3>Packs de uso</h3><p>Peticiones por periodo, contadas de forma atómica; cuando se acaba el pack, vuelve el 402.</p></div><div><h3>Prueba gratis</h3><p>100 peticiones por defecto, entregadas automáticamente.</p></div><div><h3>Una respuesta que entienden los agentes de IA</h3><p>HTTP 402 con el plan, el precio y dónde comprar, en JSON.</p></div><div><h3>Rutas gratis intactas</h3><p>Si LicenRoute no responde, las rutas de pago se cierran (503) y las gratuitas siguen funcionando.</p></div><div><h3>Escaparate opcional</h3><p>Una ficha en el Market, un catálogo para agentes y un servidor MCP que encuentra tu API.</p></div></div>
+  </div>
+</section>
+
+<section class="band g1" aria-labelledby="pay-title">
+  <div class="wrap">
+    <h2 id="pay-title" class="h-sec reveal">Cómo cobras hoy</h2>
+    <div class="reveal" style="max-width:68ch;margin-top:24px"><p>Por <strong>Bizum o transferencia, coordinados por correo</strong>. El comprador solicita un pack y elige cómo pagar; te llega un correo con su dirección, el importe y una referencia; le envías tus datos de pago; cuando llega el dinero lo registras y el comprador recoge su clave, que tú nunca ves. El dinero va directo a ti.</p><p class="meta" style="margin-top:14px">El pago con tarjeta mediante Stripe llegará tras una revisión de seguridad. Durante el piloto, LicenRoute no cobra comisión a los vendedores. Las facturas las emites tú.</p></div>
+    <div class="index reveal">
+      <div class="no"><h3>Todavía no</h3><ul><li>Frameworks distintos de Express (Next.js, Supabase, Python)</li><li>Pago con tarjeta</li><li>Garantías de disponibilidad (es un piloto)</li><li>Windows</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <h2 id="faq-title" class="h-sec reveal">Lo que preguntan los vendedores</h2>
+    <div class="qa reveal"><div><h3>¿Necesito el Market?</h3><p>No. LicenRoute sirve para cobrar a los usuarios que ya tienes. El Market es un escaparate extra y opcional.</p></div><div><h3>¿Mi tráfico pasa por LicenRoute?</h3><p>No. Tus respuestas nunca pasan por LicenRoute: el middleware solo pregunta si una clave es válida y cuenta una unidad de uso.</p></div><div><h3>¿Y si quiero irme?</h3><p>Ejecuta <code>licenroute undo</code>: tu código vuelve exactamente a como estaba. La CLI y el middleware son de código abierto (Apache-2.0).</p></div><div><h3>¿Cuánto cuesta?</h3><p>Las herramientas son gratis. El piloto alojado no cobra comisión a los vendedores por ahora; avisaremos con antelación de cualquier tarifa.</p></div></div>
+  </div>
+</section>
+
+<section class="finale" aria-labelledby="try-title">
+  <span class="finale-notch l" aria-hidden="true"></span><span class="finale-notch r" aria-hidden="true"></span>
+  <div class="wrap">
+    <h2 id="try-title" class="h-hero reveal">Tu API, con carril de pago.</h2>
+    <p class="reveal">Pega el prompt en tu asistente, o instala la CLI y ejecútala tú.</p>
+    <div class="ctas reveal">
+      <button class="btn btn-ink" type="button" data-copy="prompt-text" data-done="Copiado">Copiar el prompt</button>
+      <a class="btn btn-line" href="https://github.com/licenroute/licenroute/issues/new?title=I%20want%20to%20charge%20for%20my%20API&amp;body=What%20did%20you%20build%20(and%20with%20which%20tools%2Fframework)%3F%0AWhat%20would%20you%20charge%20for%3F%0AWho%20uses%20it%20(people%2C%20apps%2C%20AI%20agents)%3F">Cuéntanos qué has hecho</a>
+    </div>
+<pre class="block reveal">npm install --save-dev @licenroute/cli
+npm install @licenroute/connect-express
+./node_modules/.bin/licenroute init .   <span class="c"># enseña el plan, no escribe nada</span></pre>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../"><img src="../../mark.svg" alt="" width="34" height="34">LicenRoute</a>
+      <p class="legal">El carril de pago para tu API. Licencia Apache-2.0.</p>
+    </div>
+    <nav aria-label="Footer"><a href="../apis/">APIs</a><a href="../docs/">Documentación</a><a href="../../guides/">Guías (en inglés)</a><a href="../mcp/">Servidor MCP</a><a href="https://github.com/licenroute/licenroute">GitHub</a><a href="../../llms.txt">llms.txt</a></nav>
+  </div>
+</footer>
+<script src="../../site.js?v=202611211734" defer></script>
+</body>
+</html>

@@ -136,7 +136,7 @@ const licenRouteProtection = licenroute({
 app.use(licenRouteProtection);</pre>
   <p><code>licensedPaths</code> are always denied when the decision service doesn’t answer; <code>fallback: "allow"</code> applies only to everything else. Then <code>licenroute test</code> runs every case in the checklist against a local simulator, including the outage and the recovery, and <code>licenroute undo</code> reverts the change byte for byte.</p>
 
-  <div class="notice"><strong>Honest status:</strong> developer preview. The demo mode runs locally with synthetic credentials; the hosted pilot issues real licences and enforces quotas, but payments stay in Stripe test mode (no real charges yet). Express 4/5 only; Node.js 22.13+ for the CLI.</div>
+  <div class="notice"><strong>Honest status:</strong> developer preview. The demo mode runs locally with synthetic credentials; the hosted pilot issues real licences and enforces quotas, and sellers charge by Bizum or bank transfer, coordinated by email (card payments after a security review). Express 4/5 only; Node.js 22.13+ for the CLI.</div>
 
   <div class="guide-cta">
     <h2>Try it</h2>

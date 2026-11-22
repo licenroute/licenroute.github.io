@@ -43,7 +43,7 @@
   <h1>Manual de usuario de LicenRoute</h1>
   <p class="lead">Publica tu API, cobra por ella en tu propia cuenta de Stripe y deja que personas y agentes de IA la prueben y la compren.</p>
   <p class="meta">Actualizado: 2026-11-22</p>
-  <p class="note">El panel (app.licenroute.com) y el Market ya están en línea en un piloto; los pagos funcionan en modo de pruebas de Stripe, sin dinero real. Los pantallazos son de una demostración local con datos de ejemplo.</p>
+  <p class="note">El panel (app.licenroute.com) y el Market ya están en línea en un piloto; las compras se pagan por Bizum o transferencia, coordinadas por correo (el pago con tarjeta mediante Stripe llegará tras una revisión de seguridad). Los pantallazos son de una demostración local con datos de ejemplo.</p>
   <nav class="toc" aria-label="Contenido">
   <p class="meta">Contenido</p>
   <ol>
@@ -282,12 +282,12 @@
     </tbody>
   </table></div>
   <p>Para conectarlo en Claude Code:</p>
-  <pre class="block">claude mcp add licenroute-market -e LICENROUTE_MARKET_URL=https://&lt;tu-market&gt;/market -- node &lt;ruta&gt;/packages/market-mcp/bin/licenroute-market-mcp.mjs</pre>
-  <p>En Cursor se añade lo mismo en <code>.cursor/mcp.json</code>; el README del paquete trae el ejemplo.</p>
+  <pre class="block">claude mcp add licenroute-market -- npx -y @licenroute/market-mcp</pre>
+  <p>En Cursor se añade lo mismo en <code>.cursor/mcp.json</code>; detalles en https://licenroute.com/es/mcp/.</p>
 
   <h2 id="faq">Preguntas frecuentes y límites actuales</h2>
-  <p><strong>¿Se cobra dinero real?</strong> No. En el piloto puedes probar las APIs gratis; la compra sigue cerrada hasta la revisión de seguridad, y los pagos empezarán en modo de pruebas de Stripe.</p>
-  <p><strong>¿Puedo usarlo ya con clientes de verdad?</strong> En piloto: el panel emite licencias reales y aplica las cuotas, y los compradores pueden probar APIs gratis. Cobrar dinero real llega tras la revisión de seguridad.</p>
+  <p><strong>¿Se cobra dinero real?</strong> Sí, desde el 22 de noviembre de 2026: el comprador solicita un pack y paga por Bizum o transferencia, coordinado por correo; el vendedor registra el cobro y el comprador recoge su clave. El pago con tarjeta mediante Stripe llegará tras la revisión de seguridad.</p>
+  <p><strong>¿Puedo usarlo ya con clientes de verdad?</strong> En piloto: el panel emite licencias reales y aplica las cuotas, y los compradores pueden probar APIs gratis. Los vendedores pueden cobrar por Bizum o transferencia (Panel → Cobros); el pago con tarjeta llegará tras la revisión de seguridad.</p>
   <p><strong>¿Qué pasa si LicenRoute no responde?</strong> Las rutas de pago de tu API devuelven 503 hasta que vuelve; las rutas públicas siguen funcionando.</p>
   <p><strong>He perdido mi clave.</strong> No se puede recuperar: solo se guarda un resumen cifrado. Pide al dueño que la revoque y consigue otra.</p>
   <p><strong>¿Qué responde una ruta de pago?</strong> Sin clave, 402 con el plan y el enlace de compra. Con clave válida, 200. Con una clave inventada o revocada, 403. Con la cuota agotada, 402.</p>
@@ -298,7 +298,7 @@
   <div class="wrap">
     <div>
       <a class="brand" href="../"><img src="../../mark.svg" alt="" width="34" height="34">LicenRoute</a>
-      <p class="legal">El carril de pago de tu API. Licencia Apache-2.0. Piloto alojado: aún sin cobros reales.</p>
+      <p class="legal">El carril de pago de tu API. Licencia Apache-2.0. Piloto alojado: cobros reales por Bizum o transferencia.</p>
     </div>
     <nav aria-label="Pie">
       <a href="../">Inicio</a>

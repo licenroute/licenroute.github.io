@@ -33,7 +33,7 @@ test("writes one page per API with escaped text, schema.org WebAPI and offers", 
   assert.ok(html.includes("5,00\u00a0€"));
   assert.ok(html.includes('<html lang="es">') && html.includes("Probar gratis"));
   assert.ok(html.includes('class="btn btn-primary"'));
-  assert.ok(html.includes("modo de pruebas"));
+  assert.ok(html.includes("Bizum o transferencia"));
   assert.ok(readFileSync(join(dir, "apis/index.html"), "utf8").includes('href="/apis/festivos-es/"'));
   rmSync(dir, { recursive: true });
 });
@@ -85,7 +85,7 @@ test("each page in its listing's language; two indexes that link to each other",
   build({ catalog: catalog(listing("festivos-es"), en), out: dir, date: "2026-11-22" });
   const page = readFileSync(join(dir, "apis/holidays-api/index.html"), "utf8");
   assert.ok(page.includes('<html lang="en">'));
-  for (const s of ["Try it free", "Plans", "$20.00", "10,000 requests", "Published by LicenRoute", "Test-mode prices", 'href="/es/apis/"']) assert.ok(page.includes(s), s);
+  for (const s of ["Try it free", "Plans", "$20.00", "10,000 requests", "Published by LicenRoute", "Bizum or bank transfer", 'href="/es/apis/"']) assert.ok(page.includes(s), s);
   assert.ok(!page.includes("Probar gratis") && !page.includes("Planes"));
   assert.equal(JSON.parse(page.match(/<script type="application\/ld\+json">(.*)<\/script>/)[1]).inLanguage, "en");
   const enIndex = readFileSync(join(dir, "apis/index.html"), "utf8");

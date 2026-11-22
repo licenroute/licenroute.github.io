@@ -35,7 +35,7 @@
     {"@type": "WebSite", "@id": "https://licenroute.com/#website", "url": "https://licenroute.com/", "name": "LicenRoute", "inLanguage": ["en", "es"]},
     {"@type": "Organization", "@id": "https://licenroute.com/#org", "name": "LicenRoute", "url": "https://licenroute.com/", "logo": "https://licenroute.com/favicon.svg", "sameAs": ["https://github.com/licenroute"]},
     {"@type": "SoftwareApplication", "name": "LicenRoute", "applicationCategory": "DeveloperApplication", "operatingSystem": "macOS, Linux", "softwareVersion": "0.3.4-preview",
-     "description": "Make selected routes of an Express API paid: access keys, usage limits, revocation and an HTTP 402 'pay first' answer. Set up by AI coding assistants with a human approval step. Developer preview with a hosted pilot online; payments in Stripe test mode, no real charges.",
+     "description": "Make selected routes of an Express API paid: access keys, usage limits, revocation and an HTTP 402 'pay first' answer. Set up by AI coding assistants with a human approval step. Developer preview with a hosted pilot online; real payments by Bizum or bank transfer, coordinated by email.",
      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
      "license": "https://www.apache.org/licenses/LICENSE-2.0", "downloadUrl": "https://github.com/licenroute/licenroute/releases/tag/v0.3.4-preview",
      "publisher": {"@id": "https://licenroute.com/#org"}},
@@ -49,13 +49,13 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type": "Question", "name": "How can I charge for my API if I built it with an AI assistant?",
-     "acceptedAnswer": {"@type": "Answer", "text": "If your backend is an Express app, paste the LicenRoute prompt into Claude Code or Cursor. The assistant proposes which routes should be paid and shows the exact change; you approve it by typing a short code in your terminal. Requests without a valid key then get a 'pay first' answer (HTTP 402). A hosted pilot is online (panel and API Market); payments stay in Stripe test mode for now, so no real money is charged."}},
+     "acceptedAnswer": {"@type": "Answer", "text": "If your backend is an Express app, paste the LicenRoute prompt into Claude Code or Cursor. The assistant proposes which routes should be paid and shows the exact change; you approve it by typing a short code in your terminal. Requests without a valid key then get a 'pay first' answer (HTTP 402). A hosted pilot is online (panel and API Market); sellers charge by Bizum or bank transfer, coordinated by email, and card payments come after a security review."}},
     {"@type": "Question", "name": "Do I need to understand the code?",
      "acceptedAnswer": {"@type": "Answer", "text": "No deep knowledge is needed, but you need to read the summary of the change and approve it yourself in your terminal. Your assistant can explain every step."}},
     {"@type": "Question", "name": "Does it work with Next.js, Supabase or Python?",
      "acceptedAnswer": {"@type": "Answer", "text": "Not yet. The preview works with Node.js apps built on Express 4 or 5."}},
     {"@type": "Question", "name": "Can I charge real money today?",
-     "acceptedAnswer": {"@type": "Answer", "text": "Not yet. The hosted pilot is online: a panel at app.licenroute.com issues real licences and enforces quotas, and the API Market lists APIs with a free trial. Payments stay in Stripe test mode until a security review, so no real money moves."}}
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes. The hosted pilot is online: a panel at app.licenroute.com issues real licences and enforces quotas, and the API Market lists APIs with a free trial. Buyers pay by Bizum or bank transfer, coordinated by email; you register each payment and the buyer collects the key. Card payments with Stripe come after a security review."}}
   ]
 }
 </script>
@@ -90,7 +90,7 @@
           <button class="btn btn-primary" type="button" data-copy="prompt-text">Copy the prompt</button>
           <a class="btn btn-quiet" href="#how">See it step by step</a>
         </div>
-        <p class="note">Free and open source. Express apps only. Hosted pilot online; no real charges yet.</p>
+        <p class="note">Free and open source. Express apps only. Hosted pilot online; get paid by Bizum or bank transfer today.</p>
       </div>
     </div>
     <div class="scene" role="img" aria-label="A request without a key is stopped at the LicenRoute gate with 402. A request with a valid key passes with 200 and uses one unit of quota. A fake key gets 403. When the package is used up, the answer is 402 again.">
@@ -266,7 +266,7 @@ HTTP/1.1 <span class="pay">402</span> Payment Required
       <div class="no">
         <h3>Not yet</h3>
         <ul>
-          <li>Real payments (Stripe test mode for now)</li>
+          <li>Card payments (Stripe, after a security review)</li>
           <li>Next.js, Supabase or Python</li>
           <li>Uptime guarantees (it is a pilot)</li>
           <li>Windows</li>
@@ -283,7 +283,7 @@ HTTP/1.1 <span class="pay">402</span> Payment Required
     <div class="qa reveal">
       <div><h3>Do I need to understand the code?</h3><p>Not deeply. You read a short summary and approve it yourself, and your assistant can explain each step.</p></div>
       <div><h3>Will my login break?</h3><p>No. Login, health checks and sign-up are never made paid, and the tests check that free pages still work.</p></div>
-      <div><h3>Can I charge real money?</h3><p>Not yet. The hosted pilot issues real licences and enforces quotas, but payments stay in Stripe test mode until a security review.</p></div>
+      <div><h3>Can I charge real money?</h3><p>Yes, by Bizum or bank transfer: a buyer requests a pack, you send your payment details, register the payment and they collect the key. Card payments come after a security review. <a href="sell/">How selling works</a>.</p></div>
     </div>
   </div>
 </section>
@@ -311,13 +311,14 @@ npm install @licenroute/connect-express</pre>
   <div class="wrap">
     <div>
       <a class="brand" href="./"><img src="mark.svg" alt="" width="34" height="34">LicenRoute</a>
-      <p class="legal">The paid lane for your API. Apache-2.0 license. Hosted pilot: no real charges yet.</p>
+      <p class="legal">The paid lane for your API. Apache-2.0 license. Hosted pilot: real payments by Bizum or bank transfer.</p>
     </div>
     <nav aria-label="Footer">
       <a href="apis/">APIs</a>
       <a href="holidays/">Public holidays</a>
       <a href="tools/">Free tools</a>
       <a href="mcp/">MCP server</a>
+      <a href="sell/">Sell your API</a>
       <a href="https://app.licenroute.com/session/new">Sign in</a>
       <a href="manual/">User manual</a>
       <a href="guides/">Guides</a>

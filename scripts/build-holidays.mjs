@@ -29,7 +29,7 @@ const T = {
   en: {
     locale: "en-GB", home: "/", apisPath: "/apis/", indexPath: "/holidays/", manualPath: "/manual/", nav: "Main", footer: "Footer", skip: "Skip to content",
     apis: "APIs", index: "Holidays", manual: "Manual", publish: "Publish your API",
-    legal: "The paid lane for your API. Hosted pilot: no real charges yet.",
+    legal: "The paid lane for your API. Hosted pilot: real payments by Bizum or bank transfer.",
     title: (place, y) => `Public holidays in ${place} ${y}`,
     lead: (place, y, n, first, last) => `${place} has ${n} ${n === 1 ? "public holiday" : "public holidays"} in ${y}, from ${first} to ${last}.`,
     cols: ["Date", "Day", "Holiday"], substitute: "substitute day",
@@ -48,7 +48,7 @@ const T = {
   es: {
     locale: "es-ES", home: "/es/", apisPath: "/es/apis/", indexPath: "/es/festivos/", manualPath: "/es/manual/", nav: "Principal", footer: "Pie", skip: "Saltar al contenido",
     apis: "APIs", index: "Festivos", manual: "Manual", publish: "Publica tu API",
-    legal: "El carril de pago de tu API. Piloto alojado: aún sin cobros reales.",
+    legal: "El carril de pago de tu API. Piloto alojado: cobros reales por Bizum o transferencia.",
     title: (place, y, spain) => spain ? `Festivos en ${place} ${y}` : `Feriados y días festivos en ${place} ${y}`,
     lead: (place, y, n, first, last) => `${place} tiene ${n} ${n === 1 ? "festivo" : "festivos"} en ${y}, del ${first} al ${last}.`,
     cols: ["Fecha", "Día", "Festivo"], substitute: "sustitutorio",

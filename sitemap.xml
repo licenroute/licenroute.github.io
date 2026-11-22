@@ -13,6 +13,18 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://licenroute.com/es/"/>
   </url>
   <url>
+    <loc>https://licenroute.com/sell/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://licenroute.com/sell/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://licenroute.com/es/vender/"/>
+  </url>
+  <url>
+    <loc>https://licenroute.com/es/vender/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://licenroute.com/sell/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://licenroute.com/es/vender/"/>
+  </url>
+  <url>
     <loc>https://licenroute.com/docs/</loc>
     <lastmod>2026-11-22</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://licenroute.com/docs/"/>
