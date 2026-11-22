@@ -12,7 +12,7 @@ import { parseArgs } from "node:util";
 import Holidays from "date-holidays";
 
 const SITE = "https://licenroute.com";
-const CSS = "/styles.css?v=202611222200";
+const CSS = "/styles.css?v=202611222300";
 // Countries whose weekend is not Saturday–Sunday: no business-day table for them (we would get it wrong).
 const NOT_SAT_SUN = new Set(["AF", "BD", "BH", "DZ", "EG", "IL", "IQ", "IR", "JO", "KW", "LY", "MV", "NP", "OM", "QA", "SA", "SD", "SY", "YE"]);
 const LATAM = ["AR", "BO", "CL", "CO", "CR", "CU", "DO", "EC", "GT", "HN", "MX", "NI", "PA", "PE", "PR", "PY", "SV", "UY", "VE"];

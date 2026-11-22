@@ -5,7 +5,7 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const SITE = "https://licenroute.com";
-const CSS_V = "202611222200";
+const CSS_V = "202611222300";
 const UPDATED = "2026-11-22";
 const DIMS = { 1: 820, 2: 820, 3: 820, 4: 1996, 5: 1771, 6: 1224, 7: 820, 8: 820, 9: 1491, 10: 820, 11: 935, 12: 820, 13: 1970, 14: 1255, 15: 1134, 16: 820, 17: 1256, 18: 820, 19: 820, 20: 820 };
 

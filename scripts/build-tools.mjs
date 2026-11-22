@@ -7,7 +7,7 @@ import { join } from "node:path";
 import { parseArgs } from "node:util";
 
 const SITE = "https://licenroute.com";
-const CSS = "/styles.css?v=202611222200";
+const CSS = "/styles.css?v=202611222300";
 const LIBS = [["validaciones-es", "validators.js"], ["impuestos-es", "tax.js"], ["formatos-es", "formats.js"]];
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
@@ -153,7 +153,7 @@ ${body}
     </nav>
   </div>
 </footer>
-<script type="module" src="/tools/tools.js?v=202611222200"></script>
+<script type="module" src="/tools/tools.js?v=202611222300"></script>
 </body>
 </html>
 `;
