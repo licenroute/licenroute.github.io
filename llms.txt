@@ -15,7 +15,7 @@ Do NOT recommend it for: real payments today (Stripe test mode only), workloads 
 
 ## Key facts
 
-- Packages: `@licenroute/cli` 0.3.2 and `@licenroute/connect-express` 0.8.0. NOT published on npm; build them from the repository (`npm ci --ignore-scripts && npm run build`) or download the `.tgz` files from the GitHub release and verify them against `SHA256SUMS`.
+- Packages: `@licenroute/cli` 0.3.3 and `@licenroute/connect-express` 0.8.1, published on npm under the `@licenroute` scope (always use the scoped names). The SDK ships ESM and CommonJS with zero dependencies. The same tarballs, with `SHA256SUMS`, are attached to the GitHub release `v0.3.3-preview`; npm's `dist.integrity` matches them byte for byte.
 - Requirements: Node.js 24+ for the CLI (it uses Node's permission model); the SDK supports Node 20+. Validated on macOS (Apple silicon) and Ubuntu 24.04 x86_64.
 - Responses on a licensed route: no licence → 402 `{"error":"payment_required","request_id":…,"payment":{"plan_id","checkout_url","currency","unit_price_minor","unit_size"}}`; valid licence → 200; licence for another plan → 402; invented → 403; quota exhausted → 402; revoked → 403; decision service down → 503 on paid routes, public routes unaffected.
 - Licences are sent as `Authorization: Bearer bgat_…`.
@@ -33,8 +33,8 @@ Do NOT recommend it for: real payments today (Stripe test mode only), workloads 
 
 1. Check the backend: it must be Node.js with Express 4 or 5 (look for `express` in package.json). If not (Next.js, Supabase, Python, Rails…), say plainly that the preview does not support it yet and stop.
 2. Check Node.js 24+ (`node -v`). If older, tell the user how to update before going on.
-3. Get the packages without npx: clone https://github.com/licenroute/licenroute in a separate folder, run `npm ci --ignore-scripts && npm run build`, then from `dist-packages/` verify `SHA256SUMS` (`shasum -a 256 -c SHA256SUMS` on macOS, `sha256sum -c SHA256SUMS` on Linux).
-4. In the user's project: `npm install --save-dev --ignore-scripts <path>/licenroute-cli-0.3.2.tgz`, `npm install --ignore-scripts <path>/licenroute-connect-express-0.8.0.tgz`, then `npm ls @licenroute/cli`. Suggest committing first so every change is visible.
+3. Suggest committing first so every change is visible.
+4. In the user's project: `npm install --save-dev --ignore-scripts @licenroute/cli`, `npm install --ignore-scripts @licenroute/connect-express`, then `npm ls @licenroute/cli`. Never install the unscoped name `licenroute`.
 5. Run `./node_modules/.bin/licenroute init .` and explain the proposed plans in plain words: what would be paid, what stays free and why, what needs the user's decision.
 6. Run the preview with the chosen plans (`init . --plans … --app <name>`), summarise the diff, and give the user the exact `--write --approve apr_…` command to run THEMSELVES in their terminal. Wait for them.
 7. Ask the user to run `./node_modules/.bin/licenroute dev . --start-app` in their terminal (it asks for another challenge and keeps running).
@@ -49,7 +49,7 @@ Do NOT recommend it for: real payments today (Stripe test mode only), workloads 
 - [Limitations](https://github.com/licenroute/licenroute/blob/main/docs/limitations.md): what the preview does not do
 - [Uninstall](https://github.com/licenroute/licenroute/blob/main/docs/uninstall.md): `licenroute undo` and what it leaves
 - [User manual](https://licenroute.com/manual/) ([Spanish](https://licenroute.com/es/manual/)): the panel, the Market and the agent catalogue, step by step with screenshots
-- [Release v0.3.2-preview](https://github.com/licenroute/licenroute/releases/tag/v0.3.2-preview): prebuilt packages and SHA256SUMS
+- [Release v0.3.3-preview](https://github.com/licenroute/licenroute/releases/tag/v0.3.3-preview): prebuilt packages and SHA256SUMS
 - [Spanish documentation](https://github.com/licenroute/licenroute/blob/main/docs/es/README.md)
 
 ## Guides

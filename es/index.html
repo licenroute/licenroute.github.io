@@ -35,10 +35,10 @@
   "@graph": [
     {"@type": "WebSite", "@id": "https://licenroute.com/#website", "url": "https://licenroute.com/", "name": "LicenRoute", "inLanguage": ["en", "es"]},
     {"@type": "Organization", "@id": "https://licenroute.com/#org", "name": "LicenRoute", "url": "https://licenroute.com/", "logo": "https://licenroute.com/favicon.svg", "sameAs": ["https://github.com/licenroute"]},
-    {"@type": "SoftwareApplication", "name": "LicenRoute", "applicationCategory": "DeveloperApplication", "operatingSystem": "macOS, Linux", "softwareVersion": "0.3.2-preview",
+    {"@type": "SoftwareApplication", "name": "LicenRoute", "applicationCategory": "DeveloperApplication", "operatingSystem": "macOS, Linux", "softwareVersion": "0.3.3-preview",
      "description": "Convierte en de pago rutas de una API Express: claves de acceso, límites de uso, revocación y una respuesta HTTP 402 «paga primero». Lo configura tu asistente de IA con la aprobación de una persona. Versión preliminar con un piloto alojado en línea; pagos en modo de pruebas de Stripe, sin cobros reales.",
      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-     "license": "https://www.apache.org/licenses/LICENSE-2.0", "downloadUrl": "https://github.com/licenroute/licenroute/releases/tag/v0.3.2-preview",
+     "license": "https://www.apache.org/licenses/LICENSE-2.0", "downloadUrl": "https://github.com/licenroute/licenroute/releases/tag/v0.3.3-preview",
      "publisher": {"@id": "https://licenroute.com/#org"}},
     {"@type": "SoftwareSourceCode", "name": "LicenRoute", "codeRepository": "https://github.com/licenroute/licenroute", "programmingLanguage": ["TypeScript", "JavaScript"], "runtimePlatform": "Node.js 24+", "license": "https://www.apache.org/licenses/LICENSE-2.0"}
   ]
@@ -301,7 +301,10 @@ HTTP/1.1 <span class="pay">402</span> Payment Required
     </div>
 <pre class="block reveal">git clone https://github.com/licenroute/licenroute.git
 cd licenroute && npm ci --ignore-scripts && npm run build
-./demo/demo.sh   <span class="c"># enseña el cambio, no escribe nada</span></pre>
+./demo/demo.sh   <span class="c"># enseña el cambio, no escribe nada</span>
+<span class="c"># o en tu propio proyecto:</span>
+npm install --save-dev @licenroute/cli
+npm install @licenroute/connect-express</pre>
   </div>
 </section>
 </main>
