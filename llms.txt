@@ -84,3 +84,8 @@ APIs that can be tried for free and bought in a minute (test mode prices). Index
 
 Public holidays of 207 countries for 2026 and 2027, with long weekends and business days per month: https://licenroute.com/holidays/ (Spanish, with Spain's 19 regions and Latin America: https://licenroute.com/es/festivos/). Same data as the Holidays API (date-holidays, CC BY-SA 4.0).
 <!-- holidays:end -->
+<!-- tools:start -->
+## Free tools
+
+Browser tools with the same code as the Spanish APIs (nothing is sent to a server): [Spain VAT (IVA) and IRPF calculator for invoices](https://licenroute.com/tools/spain-vat-irpf-calculator/), [Amount in Spanish words for cheques and invoices](https://licenroute.com/tools/spanish-amount-in-words/), [Spanish NIE, NIF, CIF and IBAN validator](https://licenroute.com/tools/spanish-nie-nif-iban-validator/). Spanish versions under https://licenroute.com/es/herramientas/.
+<!-- tools:end -->

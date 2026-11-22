@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Validar NIF, NIE, CIF e IBAN | LicenRoute</title>
+<meta name="description" content="Comprueba si un NIF, NIE, CIF, IBAN o código postal español es correcto y por qué no lo es. Gratis, al momento y sin enviar el dato a ningún servidor.">
+<link rel="canonical" href="https://licenroute.com/es/herramientas/validar-nif-nie-cif-iban/">
+<link rel="alternate" hreflang="es" href="https://licenroute.com/es/herramientas/validar-nif-nie-cif-iban/">
+<link rel="alternate" hreflang="en" href="https://licenroute.com/tools/spanish-nie-nif-iban-validator/">
+<link rel="alternate" hreflang="x-default" href="https://licenroute.com/tools/spanish-nie-nif-iban-validator/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#f2a516">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Validar NIF, NIE, CIF e IBAN">
+<meta property="og:description" content="Comprueba si un NIF, NIE, CIF, IBAN o código postal español es correcto y por qué no lo es. Gratis, al momento y sin enviar el dato a ningún servidor.">
+<meta property="og:url" content="https://licenroute.com/es/herramientas/validar-nif-nie-cif-iban/">
+<meta property="og:image" content="https://licenroute.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/styles.css?v=202611222200">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Validar NIF, NIE, CIF e IBAN","description":"Comprueba si un NIF, NIE, CIF, IBAN o código postal español es correcto y por qué no lo es. Gratis, al momento y sin enviar el dato a ningún servidor.","url":"https://licenroute.com/es/herramientas/validar-nif-nie-cif-iban/","inLanguage":"es","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"isAccessibleForFree":true}</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/es/" aria-label="LicenRoute"><img src="/mark.svg" alt="" width="34" height="34">LicenRoute</a>
+    <nav class="top" aria-label="Principal">
+      <a href="/es/herramientas/">Herramientas</a>
+      <a href="/es/apis/">APIs</a>
+      <a class="opt" href="/es/festivos/">Festivos</a>
+      <a href="/tools/spanish-nie-nif-iban-validator/" hreflang="en" lang="en">English</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="prose tools">
+  <p class="meta"><a href="/es/herramientas/">Herramientas</a></p>
+  <h1>Validar NIF, NIE, CIF e IBAN</h1>
+  <p class="lead">Detecta el tipo de identificador, comprueba su letra o dígito de control y te dice qué falla.</p>
+  <form id="tool-ids" class="tool" novalidate>
+    <label>NIF, NIE, CIF, IBAN o código postal<input id="ids-value" autocomplete="off" spellcheck="false" placeholder="12345678Z" value="12345678Z"></label>
+    <button class="btn btn-primary" type="submit">Comprobar</button>
+  </form>
+  <div id="ids-out" class="tool-out" aria-live="polite" hidden></div>
+  <noscript><p class="err">Esta herramienta necesita JavaScript.</p></noscript>
+  <p class="meta">Se calcula en tu navegador con el mismo código que la API: lo que escribes no se envía a ningún sitio.</p>
+  <h2>Cómo funciona</h2>
+  <ul>
+    <li><strong>NIF (DNI):</strong> 8 cifras y la letra de control. <strong>NIE:</strong> X, Y o Z, 7 cifras y la letra.</li>
+    <li><strong>CIF</strong> de empresas: letra, 7 cifras y el carácter de control (cifra o letra, según el tipo de entidad).</li>
+    <li><strong>IBAN</strong> de cualquier país, con el dígito de control (módulo 97) y la longitud de los países más habituales.</li>
+    <li>Comprueba que el dato es coherente, no que exista ni a quién pertenece.</li>
+  </ul>
+  <section class="plan cta">
+    <h3>¿Validas datos en formularios?</h3>
+    <p>La API Validaciones ES comprueba NIF, NIE, CIF, IBAN y códigos postales con el motivo del error.</p>
+    <p><a class="btn btn-primary" href="/apis/validaciones-es/">Pruébala gratis: 100 peticiones</a></p>
+  </section>
+  <p class="meta">Otras herramientas: <a href="/es/herramientas/calculadora-iva-irpf/">Calculadora de IVA e IRPF para facturas</a> · <a href="/es/herramientas/importe-en-letras/">Importe en letras para cheques y facturas</a></p>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="/es/"><img src="/mark.svg" alt="" width="34" height="34">LicenRoute</a>
+      <p class="legal">El carril de pago de tu API. Piloto alojado: aún sin cobros reales.</p>
+    </div>
+    <nav aria-label="Pie">
+      <a href="/es/herramientas/">Herramientas</a>
+      <a href="/es/apis/">APIs</a>
+      <a href="/es/">Publica tu API</a>
+    </nav>
+  </div>
+</footer>
+<script type="module" src="/tools/tools.js?v=202611222200"></script>
+</body>
+</html>

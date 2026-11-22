@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spanish NIE, NIF, CIF and IBAN validator | LicenRoute</title>
+<meta name="description" content="Check whether a Spanish NIE, NIF, CIF, IBAN or postal code is valid, and why not. Free, instant, and nothing is sent to any server.">
+<link rel="canonical" href="https://licenroute.com/tools/spanish-nie-nif-iban-validator/">
+<link rel="alternate" hreflang="en" href="https://licenroute.com/tools/spanish-nie-nif-iban-validator/">
+<link rel="alternate" hreflang="es" href="https://licenroute.com/es/herramientas/validar-nif-nie-cif-iban/">
+<link rel="alternate" hreflang="x-default" href="https://licenroute.com/tools/spanish-nie-nif-iban-validator/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#f2a516">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Spanish NIE, NIF, CIF and IBAN validator">
+<meta property="og:description" content="Check whether a Spanish NIE, NIF, CIF, IBAN or postal code is valid, and why not. Free, instant, and nothing is sent to any server.">
+<meta property="og:url" content="https://licenroute.com/tools/spanish-nie-nif-iban-validator/">
+<meta property="og:image" content="https://licenroute.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/styles.css?v=202611222200">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Spanish NIE, NIF, CIF and IBAN validator","description":"Check whether a Spanish NIE, NIF, CIF, IBAN or postal code is valid, and why not. Free, instant, and nothing is sent to any server.","url":"https://licenroute.com/tools/spanish-nie-nif-iban-validator/","inLanguage":"en","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"isAccessibleForFree":true}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="LicenRoute"><img src="/mark.svg" alt="" width="34" height="34">LicenRoute</a>
+    <nav class="top" aria-label="Main">
+      <a href="/tools/">Tools</a>
+      <a href="/apis/">APIs</a>
+      <a class="opt" href="/holidays/">Public holidays</a>
+      <a href="/es/herramientas/validar-nif-nie-cif-iban/" hreflang="es" lang="es">Español</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="prose tools">
+  <p class="meta"><a href="/tools/">Tools</a></p>
+  <h1>Spanish NIE, NIF, CIF and IBAN validator</h1>
+  <p class="lead">Detects the type of identifier, checks its control letter or digit, and tells you what is wrong.</p>
+  <form id="tool-ids" class="tool" novalidate>
+    <label>NIE, NIF, CIF, IBAN or postal code<input id="ids-value" autocomplete="off" spellcheck="false" placeholder="12345678Z" value="12345678Z"></label>
+    <button class="btn btn-primary" type="submit">Check</button>
+  </form>
+  <div id="ids-out" class="tool-out" aria-live="polite" hidden></div>
+  <noscript><p class="err">This tool needs JavaScript.</p></noscript>
+  <p class="meta">Calculated in your browser with the same code as the API: nothing you type is sent anywhere.</p>
+  <h2>How it works</h2>
+  <ul>
+    <li><strong>NIE</strong> (foreigner identity number): X, Y or Z, 7 digits and a control letter. <strong>NIF (DNI):</strong> 8 digits and the letter.</li>
+    <li><strong>CIF</strong> (companies): a letter, 7 digits and a control character (digit or letter, depending on the entity).</li>
+    <li><strong>IBAN</strong> of any country, with the check digits (mod 97) and the length for the most common countries.</li>
+    <li>It checks that the value is consistent, not that it exists or who owns it.</li>
+  </ul>
+  <section class="plan cta">
+    <h3>Validating form data?</h3>
+    <p>The Validaciones ES API checks NIF, NIE, CIF, IBAN and postal codes, with the reason when one fails.</p>
+    <p><a class="btn btn-primary" href="/apis/validaciones-es/">Try it free: 100 requests</a></p>
+  </section>
+  <p class="meta">Other tools: <a href="/tools/spain-vat-irpf-calculator/">Spain VAT (IVA) and IRPF calculator for invoices</a> · <a href="/tools/spanish-amount-in-words/">Amount in Spanish words for cheques and invoices</a></p>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="/"><img src="/mark.svg" alt="" width="34" height="34">LicenRoute</a>
+      <p class="legal">The paid lane for your API. Hosted pilot: no real charges yet.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/tools/">Tools</a>
+      <a href="/apis/">APIs</a>
+      <a href="/">Publish your API</a>
+    </nav>
+  </div>
+</footer>
+<script type="module" src="/tools/tools.js?v=202611222200"></script>
+</body>
+</html>

@@ -347,3 +347,20 @@ pre.block .k.hot { background: var(--night-toll); color: var(--night); }
 .country-list li { break-inside: avoid; padding: 6px 0; border-bottom: 1px solid var(--line); display: flex; gap: 10px; align-items: baseline; }
 .country-list li span { flex: 1; }
 .prose .country-list { padding-left: 0; }
+
+/* Free tools */
+.tool { display: grid; gap: 14px; margin: 24px 0 8px; padding: 22px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }
+.tool label { display: grid; gap: 6px; font-weight: 600; font-size: 15px; }
+.tool input:not([type=checkbox]), .tool select { font: inherit; font-weight: 400; padding: 10px 12px; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); background: var(--paper); color: var(--ink); min-height: 44px; width: 100%; box-sizing: border-box; }
+.tool .grid2 { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.tool .grid2[hidden] { display: none; }
+.tool label.check { display: flex; align-items: center; gap: 10px; font-weight: 500; }
+.tool button { justify-self: start; }
+.tool-out { margin: 16px 0 8px; padding: 18px 22px; border-left: 3px solid var(--route); background: var(--surface); border-radius: var(--radius-sm); }
+.tool-out table { margin: 0; }
+.tool-out tr.sum th, .tool-out tr.sum td { font-weight: 700; border-top: 2px solid var(--ink); }
+.tool-out td { text-align: right; font-variant-numeric: tabular-nums; }
+.tool-out .result { font-size: 1.15em; font-weight: 600; margin: 0 0 8px; }
+.tool-out .ok { color: var(--route); }
+.tool-out .err, .tools .err { color: var(--deny); }
+.tool-out:has(.err) { border-left-color: var(--deny); }

@@ -11,7 +11,7 @@ import { parseArgs } from "node:util";
 
 const SITE = "https://licenroute.com";
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/;
-const CSS = "/styles.css?v=202611222000";
+const CSS = "/styles.css?v=202611222200";
 
 // Every visible word of the page chrome, per language. The listing's own texts are shown as written.
 export const STR = {

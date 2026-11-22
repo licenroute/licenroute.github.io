@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de IVA e IRPF para facturas | LicenRoute</title>
+<meta name="description" content="Calcula el IVA, el recargo de equivalencia, la retención de IRPF y el total de una factura en España, desde la base o desde el total con IVA. Gratis y al céntimo.">
+<link rel="canonical" href="https://licenroute.com/es/herramientas/calculadora-iva-irpf/">
+<link rel="alternate" hreflang="es" href="https://licenroute.com/es/herramientas/calculadora-iva-irpf/">
+<link rel="alternate" hreflang="en" href="https://licenroute.com/tools/spain-vat-irpf-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://licenroute.com/tools/spain-vat-irpf-calculator/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#f2a516">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calculadora de IVA e IRPF para facturas">
+<meta property="og:description" content="Calcula el IVA, el recargo de equivalencia, la retención de IRPF y el total de una factura en España, desde la base o desde el total con IVA. Gratis y al céntimo.">
+<meta property="og:url" content="https://licenroute.com/es/herramientas/calculadora-iva-irpf/">
+<meta property="og:image" content="https://licenroute.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/styles.css?v=202611222200">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de IVA e IRPF para facturas","description":"Calcula el IVA, el recargo de equivalencia, la retención de IRPF y el total de una factura en España, desde la base o desde el total con IVA. Gratis y al céntimo.","url":"https://licenroute.com/es/herramientas/calculadora-iva-irpf/","inLanguage":"es","applicationCategory":"FinanceApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"isAccessibleForFree":true}</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/es/" aria-label="LicenRoute"><img src="/mark.svg" alt="" width="34" height="34">LicenRoute</a>
+    <nav class="top" aria-label="Principal">
+      <a href="/es/herramientas/">Herramientas</a>
+      <a href="/es/apis/">APIs</a>
+      <a class="opt" href="/es/festivos/">Festivos</a>
+      <a href="/tools/spain-vat-irpf-calculator/" hreflang="en" lang="en">English</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="prose tools">
+  <p class="meta"><a href="/es/herramientas/">Herramientas</a></p>
+  <h1>Calculadora de IVA e IRPF para facturas</h1>
+  <p class="lead">IVA, recargo de equivalencia, retención de IRPF y total de una factura, al céntimo y con los tipos del BOE.</p>
+  <form id="tool-vat" class="tool" novalidate>
+    <div class="grid2">
+      <label>Importe<input id="vat-amount" inputmode="decimal" autocomplete="off" placeholder="1000" value="1000"></label>
+      <label>Es…<select id="vat-mode"><option value="base">la base (sin IVA)</option><option value="total">el total con IVA</option></select></label>
+      <label>IVA<select id="vat-iva"><option value="21">21 %</option><option value="10">10 %</option><option value="4">4 %</option><option value="0">0 %</option></select></label>
+    </div>
+    <div id="vat-extra" class="grid2">
+      <label>Retención de IRPF<select id="vat-irpf"><option value="0">Sin retención</option><option value="15">15 %</option><option value="7">7 %</option></select></label>
+      <label class="check"><input type="checkbox" id="vat-recargo"> Recargo de equivalencia</label>
+    </div>
+    <button class="btn btn-primary" type="submit">Calcular</button>
+  </form>
+  <div id="vat-out" class="tool-out" aria-live="polite" hidden></div>
+  <noscript><p class="err">Esta herramienta necesita JavaScript.</p></noscript>
+  <p class="meta">Se calcula en tu navegador con el mismo código que la API: lo que escribes no se envía a ningún sitio.</p>
+  <h2>Cómo funciona</h2>
+  <ul>
+    <li><strong>Tipos de IVA:</strong> 21 % general, 10 % reducido, 4 % superreducido y 0 %. Elige el que corresponde a tu producto o servicio; la herramienta no lo decide por ti.</li>
+    <li><strong>Retención de IRPF</strong> para profesionales: 15 % general y 7 % el año de inicio de actividad y los dos siguientes (Reglamento del IRPF, art. 95).</li>
+    <li><strong>Recargo de equivalencia</strong> (comercio minorista): 5,2 % con IVA del 21, 1,4 % con el 10 y 0,5 % con el 4.</li>
+    <li>Vale para la Península y Baleares. Canarias (IGIC), Ceuta y Melilla (IPSI) tienen su propio impuesto. No es asesoramiento fiscal.</li>
+  </ul>
+  <section class="plan cta">
+    <h3>¿Facturas desde tu aplicación?</h3>
+    <p>La API Impuestos ES hace este mismo cálculo en céntimos exactos.</p>
+    <p><a class="btn btn-primary" href="/apis/impuestos-es/">Pruébala gratis: 100 peticiones</a></p>
+  </section>
+  <p class="meta">Otras herramientas: <a href="/es/herramientas/importe-en-letras/">Importe en letras para cheques y facturas</a> · <a href="/es/herramientas/validar-nif-nie-cif-iban/">Validar NIF, NIE, CIF e IBAN</a></p>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="/es/"><img src="/mark.svg" alt="" width="34" height="34">LicenRoute</a>
+      <p class="legal">El carril de pago de tu API. Piloto alojado: aún sin cobros reales.</p>
+    </div>
+    <nav aria-label="Pie">
+      <a href="/es/herramientas/">Herramientas</a>
+      <a href="/es/apis/">APIs</a>
+      <a href="/es/">Publica tu API</a>
+    </nav>
+  </div>
+</footer>
+<script type="module" src="/tools/tools.js?v=202611222200"></script>
+</body>
+</html>
