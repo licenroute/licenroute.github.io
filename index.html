@@ -70,8 +70,8 @@
     <nav class="top" aria-label="Main">
       <a class="opt" href="#how">How it works</a>
       <a href="apis/">APIs</a>
-      <a class="opt" href="manual/">Manual</a>
-      <a class="opt" href="guides/">Guides</a>
+      <a href="sell/">Sell</a>
+      <a class="opt" href="docs/">Docs</a>
       <a class="opt" href="https://github.com/licenroute/licenroute">GitHub</a>
       <a href="es/" hreflang="es" lang="es">Español</a>
     </nav>
@@ -90,7 +90,7 @@
           <button class="btn btn-primary" type="button" data-copy="prompt-text">Copy the prompt</button>
           <a class="btn btn-quiet" href="#how">See it step by step</a>
         </div>
-        <p class="note">Free and open source. Express apps only. Hosted pilot online; get paid by Bizum or bank transfer today.</p>
+        <p class="note">Free and open source. Express apps only. Hosted pilot online; get paid by Bizum or bank transfer today. <a href="sell/">How selling works</a>.</p>
       </div>
     </div>
     <div class="scene" role="img" aria-label="A request without a key is stopped at the LicenRoute gate with 402. A request with a valid key passes with 200 and uses one unit of quota. A fake key gets 403. When the package is used up, the answer is 402 again.">
@@ -231,7 +231,7 @@ HTTP/1.1 <span class="pay">402</span> Payment Required
 <section class="sec g1" aria-labelledby="built-title">
   <div class="wrap">
     <h2 id="built-title" class="h-sec reveal">Built with LicenRoute</h2>
-    <p class="lede reveal">Our own APIs charge with LicenRoute today. Try them, or use the free pages and tools built on top of them.</p>
+    <p class="lede reveal">Our own APIs charge with LicenRoute today. Try them, use the free pages and tools built on top of them, connect your AI assistant, or sell your own.</p>
     <div class="built reveal">
       <a class="built-card" href="apis/">
         <strong>10 APIs with a free trial</strong>
@@ -244,6 +244,18 @@ HTTP/1.1 <span class="pay">402</span> Payment Required
       <a class="built-card" href="holidays/">
         <strong>Public holidays by country</strong>
         <span>207 countries, 2026 and 2027, with long weekends and business days per month. The Holidays API, as pages.</span>
+      </a>
+      <a class="built-card" href="https://app.licenroute.com/market">
+        <strong>The API Market</strong>
+        <span>Browse the APIs, start a free trial and request a pack. Paid by Bizum or bank transfer while card payments are reviewed.</span>
+      </a>
+      <a class="built-card" href="mcp/">
+        <strong>MCP server for your assistant</strong>
+        <span>Claude, Cursor and other assistants search the Market and hand you the link. In npm and the official MCP registry.</span>
+      </a>
+      <a class="built-card" href="sell/">
+        <strong>Sell your own API</strong>
+        <span>Charge the users you already have: keys, usage packs and a free trial on your Express API, live this week.</span>
       </a>
     </div>
   </div>
@@ -260,6 +272,9 @@ HTTP/1.1 <span class="pay">402</span> Payment Required
           <li>Setup with Claude Code or Cursor, with exact undo</li>
           <li>Hosted panel with real licences and quotas: <a href="https://app.licenroute.com/registration/new">create an account</a></li>
           <li><a href="apis/">10 APIs with a free trial</a> in the Market</li>
+          <li>Real payments by Bizum or bank transfer, coordinated by email: <a href="sell/">how selling works</a></li>
+          <li>CLI and SDK on npm: <a href="https://www.npmjs.com/package/@licenroute/cli">@licenroute/cli</a> (Node.js 22.13+) and <a href="https://www.npmjs.com/package/@licenroute/connect-express">@licenroute/connect-express</a></li>
+          <li><a href="mcp/">MCP server</a> in the official MCP registry</li>
           <li>English and Spanish</li>
         </ul>
       </div>
